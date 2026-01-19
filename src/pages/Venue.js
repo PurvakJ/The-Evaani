@@ -72,9 +72,24 @@ export default function Venue() {
   const handleVenueEnquiry = (venue) => {
     setSelectedVenue(venue);
     setShowEnquiryForm(true);
+    // Pre-fill event type if venue is selected
+    setEnquiryFormData(prev => ({
+      ...prev,
+      eventType: venue.name
+    }));
   };
 
-  const handleSubmitEnquiry = async () => {
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setEnquiryFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmitEnquiry = async (e) => {
+    if (e) e.preventDefault();
+    
     if (!enquiryFormData.name || !enquiryFormData.email || !enquiryFormData.phone || !enquiryFormData.eventDate) {
       alert("Please fill in all required fields");
       return;
@@ -183,6 +198,136 @@ export default function Venue() {
           ))}
         </div>
       </section>
+
+      {/* Enquiry Form Modal */}
+      {showEnquiryForm && (
+        <div className="modal-background-overlay" onClick={() => setShowEnquiryForm(false)}>
+          <div className="enquiry-form-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close-button"
+              onClick={() => setShowEnquiryForm(false)}
+            >
+              ✕
+            </button>
+            
+            <div className="enquiry-form-header">
+              <h2>Venue Enquiry</h2>
+              {selectedVenue && (
+                <p className="selected-venue-info">Enquiring about: <strong>{selectedVenue.name}</strong></p>
+              )}
+            </div>
+            
+            <form onSubmit={handleSubmitEnquiry} className="enquiry-form-content">
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="name">Full Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={enquiryFormData.name}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="email">Email Address *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={enquiryFormData.email}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Enter your email"
+                  />
+                </div>
+              </div>
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">Phone Number *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={enquiryFormData.phone}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="eventType">Event Type</label>
+                  <input
+                    type="text"
+                    id="eventType"
+                    name="eventType"
+                    value={enquiryFormData.eventType}
+                    onChange={handleFormChange}
+                    placeholder="e.g., Wedding, Conference"
+                  />
+                </div>
+              </div>
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="eventDate">Event Date *</label>
+                  <input
+                    type="date"
+                    id="eventDate"
+                    name="eventDate"
+                    value={enquiryFormData.eventDate}
+                    onChange={handleFormChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="guests">Number of Guests</label>
+                  <input
+                    type="number"
+                    id="guests"
+                    name="guests"
+                    value={enquiryFormData.guests}
+                    onChange={handleFormChange}
+                    placeholder="Approximate number"
+                    min="1"
+                  />
+                </div>
+              </div>
+              
+              <div className="form-group full-width">
+                <label htmlFor="message">Additional Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={enquiryFormData.message}
+                  onChange={handleFormChange}
+                  placeholder="Tell us more about your event requirements..."
+                  rows="4"
+                />
+              </div>
+              
+              <div className="form-action-buttons">
+                <button type="submit" className="submit-enquiry-button">
+                  Submit Enquiry
+                </button>
+                <button 
+                  type="button" 
+                  className="cancel-enquiry-button"
+                  onClick={() => setShowEnquiryForm(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Venue Gallery Section */}
       <section className="venue-gallery-container">

@@ -239,12 +239,11 @@ export default function OfferPopup() {
 
             {/* Offer counter badge */}
             <div style={{
-
               position: "absolute",
               top: "20px",
               left: "50%",
               transform: "translateX(-50%)",
-              background: "#6f4647",
+              backgroundColor: "#6f4647", // Fixed: Changed from 'background' to 'backgroundColor'
               color: "white",
               padding: "12px 32px",
               borderRadius: "0",
@@ -267,7 +266,7 @@ export default function OfferPopup() {
                 position: "absolute",
                 top: "25px",
                 right: "25px",
-                background: "rgba(255, 255, 255, 0.05)",
+                backgroundColor: "rgba(255, 255, 255, 0.05)", // Fixed: Changed from 'background' to 'backgroundColor'
                 color: "rgba(255, 255, 255, 0.7)",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
                 fontSize: "1.8rem",
@@ -283,13 +282,13 @@ export default function OfferPopup() {
                 backdropFilter: "blur(10px)"
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = "rgba(111, 70, 71, 0.3)";
+                e.target.style.backgroundColor = "rgba(111, 70, 71, 0.3)";
                 e.target.style.color = "white";
                 e.target.style.borderColor = "#6f4647";
                 e.target.style.transform = "rotate(90deg)";
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                e.target.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
                 e.target.style.color = "rgba(255, 255, 255, 0.7)";
                 e.target.style.borderColor = "rgba(255, 255, 255, 0.1)";
                 e.target.style.transform = "rotate(0deg)";
@@ -317,7 +316,7 @@ export default function OfferPopup() {
 
               {/* Offer type badge */}
               <div style={{
-                background: "transparent",
+                backgroundColor: "transparent", // Fixed: Changed from 'background' to 'backgroundColor'
                 color: "#6f4647",
                 padding: "10px 35px",
                 borderRadius: "0",
@@ -391,14 +390,14 @@ export default function OfferPopup() {
                 </div>
                 <div style={{
                   height: "1px",
-                  background: "rgba(255, 255, 255, 0.1)",
+                  backgroundColor: "rgba(255, 255, 255, 0.1)", // Fixed: Changed from 'background' to 'backgroundColor'
                   borderRadius: "0",
                   overflow: "hidden",
                   position: "relative"
                 }}>
                   <div style={{
                     height: "100%",
-                    background: "#6f4647",
+                    backgroundColor: "#6f4647", // Fixed: Changed from 'background' to 'backgroundColor'
                     width: `${((currentIndex + 1) / totalOffers) * 100}%`,
                     transition: "width 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
                     position: "relative",
@@ -426,7 +425,7 @@ export default function OfferPopup() {
                 {/* Claim button */}
                 <button
                   style={{
-                    background: "transparent",
+                    backgroundColor: "#6f4647", // Fixed: Removed duplicate 'background' property
                     color: "white",
                     border: "1px solid #6f4647",
                     borderRadius: "0",
@@ -440,8 +439,7 @@ export default function OfferPopup() {
                     overflow: "hidden",
                     fontFamily: "'Cormorant Garamond', serif",
                     letterSpacing: "2px",
-                    textTransform: "uppercase",
-                    background: "#6f4647"
+                    textTransform: "uppercase"
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.letterSpacing = "3px";
@@ -471,7 +469,7 @@ export default function OfferPopup() {
                 {remainingOffers > 0 && (
                   <button
                     style={{
-                      background: "transparent",
+                      backgroundColor: "transparent", // Fixed: Changed from 'background' to 'backgroundColor'
                       color: "white",
                       border: "1px solid rgba(255, 255, 255, 0.2)",
                       borderRadius: "0",
@@ -492,13 +490,13 @@ export default function OfferPopup() {
                       overflow: "hidden"
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.1)";
+                      e.target.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
                       e.target.style.borderColor = "#6f4647";
                       e.target.style.letterSpacing = "3px";
                       e.target.style.transform = "translateX(5px)";
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = "transparent";
+                      e.target.style.backgroundColor = "transparent";
                       e.target.style.borderColor = "rgba(255, 255, 255, 0.2)";
                       e.target.style.letterSpacing = "2px";
                       e.target.style.transform = "translateX(0)";
@@ -518,7 +516,7 @@ export default function OfferPopup() {
               {/* Skip all offers button */}
               <button
                 style={{
-                  background: "transparent",
+                  backgroundColor: "transparent", // Fixed: Changed from 'background' to 'backgroundColor'
                   color: "rgba(255, 255, 255, 0.5)",
                   border: "none",
                   padding: "15px 30px",
@@ -532,11 +530,11 @@ export default function OfferPopup() {
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.color = "rgba(255, 255, 255, 0.8)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.color = "rgba(255, 255, 255, 0.5)";
-                  e.target.style.background = "transparent";
+                  e.target.style.backgroundColor = "transparent";
                 }}
                 onClick={skipAllOffers}
               >
@@ -583,11 +581,11 @@ export default function OfferPopup() {
                         width: "10px",
                         height: "10px",
                         borderRadius: "0",
-                        background: index === currentIndex 
+                        backgroundColor: index === currentIndex 
                           ? "#6f4647" 
                           : seenOffers.has(index) 
                             ? "rgba(111, 70, 71, 0.5)" 
-                            : "rgba(255, 255, 255, 0.1)",
+                            : "rgba(255, 255, 255, 0.1)", // Fixed: Changed from 'background' to 'backgroundColor'
                         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                         cursor: "pointer",
                         position: "relative",

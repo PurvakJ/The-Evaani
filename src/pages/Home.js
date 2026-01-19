@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useData, useCarousel } from "../App";
 import OfferPopup from "../components/OfferPopup";
 import "../styles/Home.css";
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet"></link>
+
 
 export default function Home() {
   const navigate = useNavigate();

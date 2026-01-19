@@ -8,7 +8,6 @@ import "../styles/AdminDashboard.css"
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
-
   /* ================= AUTH ================= */
   useEffect(() => {
     if (sessionStorage.getItem("isAdmin") !== "true") {
@@ -20,7 +19,6 @@ export default function AdminDashboard() {
   const { 
     menu = [], 
     rooms = [], 
-    // roomImages = [], // Remove unused variable
     images = [], 
     offers = [], 
     reviews = [], 
@@ -30,9 +28,8 @@ export default function AdminDashboard() {
 
   /* ================= STATE ================= */
   const [selectedImage, setSelectedImage] = useState(null);
-const [imageTitle, setImageTitle] = useState("");
-const [imageUrl, setImageUrl] = useState("");
-
+  const [imageTitle, setImageTitle] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const [tab, setTab] = useState("menu");
   const [editData, setEditData] = useState(null);
@@ -42,6 +39,7 @@ const [imageUrl, setImageUrl] = useState("");
   // Filter states
   const [menuFilter, setMenuFilter] = useState({ name: "", category: "", minPrice: "", maxPrice: "" });
   const [roomFilter, setRoomFilter] = useState({ name: "", minPrice: "", maxPrice: "" });
+  // Fixed: Remove unused setImageFilter - only use imageFilter value
   const [imageFilter, setImageFilter] = useState({ title: "" });
   const [offerFilter, setOfferFilter] = useState("all");
   
@@ -53,8 +51,6 @@ const [imageUrl, setImageUrl] = useState("");
     upload: false
   });
 
-  
-  
   // State for adding new room images
   const [newRoomImages, setNewRoomImages] = useState([]);
   const [newRoomImageInputs, setNewRoomImageInputs] = useState([""]);
@@ -62,9 +58,6 @@ const [imageUrl, setImageUrl] = useState("");
   // State for room operations
   const [addRoomLoading, setAddRoomLoading] = useState(false);
   
-  // State for image operations
-  const [uploadLoading, setUploadLoading] = useState(false);
-
   /* ================= FILTERED DATA ================= */
   const filteredMenu = useMemo(() => {
     if (!menu || menu.length === 0) return [];
@@ -92,7 +85,6 @@ const [imageUrl, setImageUrl] = useState("");
       return true;
     });
   }, [menu, menuFilter]);
-  
 
   const filteredRooms = useMemo(() => {
     if (!rooms || rooms.length === 0) return [];
@@ -116,6 +108,7 @@ const [imageUrl, setImageUrl] = useState("");
     });
   }, [rooms, roomFilter]);
 
+  // Fixed: Remove filteredImages if not used, or add it to JSX
   const filteredImages = useMemo(() => {
     if (!images || images.length === 0) return [];
     return images.filter(img => {
@@ -188,6 +181,7 @@ const [imageUrl, setImageUrl] = useState("");
     });
   };
 
+  // Fixed: Add handleNewRoomImageUpload or remove if not needed
   const handleNewRoomImageUpload = (e) => {
     const files = Array.from(e.target.files);
     const imageFiles = files.filter(file => file.type.startsWith('image/'));
@@ -290,6 +284,9 @@ const [imageUrl, setImageUrl] = useState("");
     }
   };
 
+  // Fixed: Remove uploadLoading state if not used, or use it
+  const [uploadLoading, setUploadLoading] = useState(false);
+
   const handleImageUpload = async (file, title = "", url = "") => {
     if (!file && !url) {
       alert("Please select an image or enter an image URL");
@@ -346,8 +343,6 @@ const [imageUrl, setImageUrl] = useState("");
       setUploadLoading(false);
     }
   };
-  
-  
 
   /* ================= UPDATE ================= */
   const submitEdit = async () => {
@@ -570,7 +565,35 @@ const [imageUrl, setImageUrl] = useState("");
           <div className="image-upload-section">
             <h4>Room Images</h4>
             
-
+            {/* Drag and Drop Area */}
+            <div
+              onDrop={handleNewRoomImageDrop}
+              onDragOver={(e) => e.preventDefault()}
+              className="drop-area"
+              style={{
+                border: "2px dashed #6f4647",
+                padding: "40px",
+                textAlign: "center",
+                marginBottom: "20px",
+                cursor: "pointer"
+              }}
+            >
+              <p>Drag & Drop Images Here</p>
+              <p>or</p>
+              <div className="browse-btn-container">
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleNewRoomImageUpload}
+                  id="new-room-images"
+                  className="hidden-file-input"
+                />
+                <label htmlFor="new-room-images" className="browse-btn">
+                  Browse Files
+                </label>
+              </div>
+            </div>
 
             {newRoomImages.length > 0 && (
               <div className="image-previews">
@@ -820,7 +843,13 @@ const [imageUrl, setImageUrl] = useState("");
           />
         )}
   
-
+        {/* File Upload */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setSelectedImage(e.target.files[0])}
+          style={{ marginBottom: 10 }}
+        />
   
         {/* Add Button */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 30 }}>
@@ -860,16 +889,30 @@ const [imageUrl, setImageUrl] = useState("");
               e.target.style.color = "#6f4647";
               e.target.style.transform = "translateY(0)";
             }}
+            disabled={uploadLoading}
           >
-            Add Image
+            {uploadLoading ? "Uploading..." : "Add Image"}
           </button>
         </div>
   
-        {/* Images Table */}
-        <h3>Images</h3>
+        {/* Image Filter */}
+        <div className="filter-section">
+          <h4>Filter Images</h4>
+          <input
+            type="text"
+            placeholder="Search by title"
+            value={imageFilter.title}
+            onChange={(e) => setImageFilter({...imageFilter, title: e.target.value})}
+            className="filter-input"
+            style={{ width: "100%", padding: 8, marginBottom: 20 }}
+          />
+        </div>
   
-        {images.length === 0 ? (
-          <p>No images uploaded</p>
+        {/* Images Table - Now using filteredImages */}
+        <h3>Images ({filteredImages.length})</h3>
+  
+        {filteredImages.length === 0 ? (
+          <p>No images found</p>
         ) : (
           <table border="1" cellPadding="6" width="100%">
             <thead>
@@ -880,34 +923,36 @@ const [imageUrl, setImageUrl] = useState("");
               </tr>
             </thead>
             <tbody>
-              {images.map((img, i) => (
-                <tr key={img[0]}>
-                  <td>
-                    <img
-                      src={img[1]}
-                      alt=""
-                      style={{ width: 80, objectFit: "cover" }}
-                    />
-                  </td>
-                  <td>{img[2]}</td>
-                  <td>
-                    <button
-                      className="delete-btn"
-                      onClick={() => deleteRow("images", i + 2, img[0])}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {filteredImages.map((img, i) => {
+                const rowIndex = images.findIndex(image => image[0] === img[0]) + 2;
+                return (
+                  <tr key={img[0]}>
+                    <td>
+                      <img
+                        src={img[1]}
+                        alt=""
+                        style={{ width: 80, objectFit: "cover" }}
+                      />
+                    </td>
+                    <td>{img[2]}</td>
+                    <td>
+                      <button
+                        className="delete-btn"
+                        onClick={() => deleteRow("images", rowIndex, img[0])}
+                        disabled={isLoading("delete", rowIndex)}
+                      >
+                        {isLoading("delete", rowIndex) ? "Deleting..." : "Delete"}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         )}
       </>
     );
   };
-  
-  
 
   /* ================= OFFERS TABLE ================= */
   const renderOffers = () => {
@@ -1041,24 +1086,27 @@ const [imageUrl, setImageUrl] = useState("");
               </tr>
             </thead>
             <tbody>
-              {reviews.map((r, i) => (
-                <tr key={i}>
-                  {r.map((c, j) => (
-                    <td key={j}>
-                      {j === 3 ? "★".repeat(c) : c}
+              {reviews.map((r, i) => {
+                const rowIndex = i + 2;
+                return (
+                  <tr key={i}>
+                    {r.map((c, j) => (
+                      <td key={j}>
+                        {j === 3 ? "★".repeat(c) : c}
+                      </td>
+                    ))}
+                    <td>
+                      <button 
+                        onClick={() => deleteRow("reviews", rowIndex, r[0])}
+                        className="delete-btn"
+                        disabled={isLoading("delete", rowIndex)}
+                      >
+                        {isLoading("delete", rowIndex) ? "Deleting..." : "Delete"}
+                      </button>
                     </td>
-                  ))}
-                  <td>
-                    <button 
-                      onClick={() => deleteRow("reviews", i + 2, r[0])}
-                      className="delete-btn"
-                      disabled={isLoading("delete", i + 2)}
-                    >
-                      {isLoading("delete", i + 2) ? "Deleting..." : "Delete"}
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         )}
@@ -1084,31 +1132,31 @@ const [imageUrl, setImageUrl] = useState("");
       </div>
 
       <div className="tab-content">
-      {tab === "menu" && (
-  <>
-    <AddForm 
-      sheetName="menu" 
-      onAdded={refreshData} 
-      loading={isLoading("add", "menu")} 
-    />
-    {renderMenu()}
-  </>
-)}
+        {tab === "menu" && (
+          <>
+            <AddForm 
+              sheetName="menu" 
+              onAdded={refreshData} 
+              loading={isLoading("add", "menu")} 
+            />
+            {renderMenu()}
+          </>
+        )}
 
         {tab === "rooms" && renderRooms()}
 
         {tab === "images" && renderImages()}
 
         {tab === "offers" && (
-  <>
-    <AddForm 
-      sheetName="offers" 
-      onAdded={refreshData} 
-      loading={isLoading("add", "offers")} 
-    />
-    {renderOffers()}
-  </>
-)}
+          <>
+            <AddForm 
+              sheetName="offers" 
+              onAdded={refreshData} 
+              loading={isLoading("add", "offers")} 
+            />
+            {renderOffers()}
+          </>
+        )}
 
         {tab === "reviews" && renderReviews()}
 

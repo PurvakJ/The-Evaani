@@ -184,6 +184,8 @@ export default function App() {
     menuByCategory,
     activeOffers,
     refreshData: () => {
+      // This function can be implemented later if needed
+      console.log('Refresh data function called');
     }
   };
 
@@ -215,6 +217,3 @@ export default function App() {
     </DataContext.Provider>
   );
 }
-
-// https://postimages.org/
-// https://docs.google.com/spreadsheets/d/1fUnlAtkC8_F4UX3ik_DrgQSHA5Ond8ElunFiUW7Uxmw/edit?gid=383950799#gid=383950799
