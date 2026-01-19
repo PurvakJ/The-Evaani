@@ -1,0 +1,925 @@
+/* About Page Styles - Elegant Color Palette */
+.about-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fefefe;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .about-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+  
+  /* Hero Section with Carousel - FULL SCREEN with Elegant Typography */
+  .about-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  }
+  
+  .about-hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .about-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.5) contrast(1.1);
+  }
+  
+  .about-carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+  
+  .about-active-slide {
+    opacity: 1;
+  }
+  
+  .about-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    width: 100%;
+    padding: 0 40px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Elegant Caligraphy Fonts for Hero */
+  .about-hero-title {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-size: 5.5rem;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    animation: elegantEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #fff;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .about-hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  }
+  
+  .about-hero-subtitle {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    animation: subtitleEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  
+  /* Story Section - Enhanced Elegance */
+  .about-story-section {
+    padding: 140px 0;
+    background: white;
+    position: relative;
+  }
+  
+  .about-story-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.2), transparent);
+  }
+  
+  .about-story-content {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .about-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #6f4647;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  
+  .about-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0.3;
+  }
+  
+  .about-story-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 80px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  .about-story-text p {
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-story-text strong {
+    color: #6f4647;
+    font-weight: 500;
+  }
+  
+  .about-story-text em {
+    font-style: italic;
+    color: #5d3a3b;
+    font-weight: 300;
+  }
+  
+  .about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+  }
+  
+  .about-stat-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-stat-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+  }
+  
+  .about-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .about-stat-card:hover::before {
+    opacity: 1;
+  }
+  
+  .about-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #6f4647;
+    margin-bottom: 15px;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+  
+  .about-stat-label {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .about-stat-description {
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Values Section - Enhanced */
+  .about-values-section {
+    padding: 140px 0;
+    background: #fafafa;
+    position: relative;
+  }
+  
+  .about-section-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    color: #666;
+    font-size: 1.4rem;
+    margin-bottom: 80px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+  
+  .about-values-grid {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+  }
+  
+  .about-value-card {
+    background: white;
+    padding: 56px 40px;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-value-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+  }
+  
+  .about-value-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .about-value-card:hover::after {
+    opacity: 1;
+  }
+  
+  .about-value-icon {
+    font-size: 4.5rem;
+    margin-bottom: 32px;
+    display: inline-block;
+    transition: transform 0.6s ease;
+    color: #6f4647;
+    opacity: 0.9;
+  }
+  
+  .about-value-card:hover .about-value-icon {
+    transform: scale(1.1);
+  }
+  
+  .about-value-title {
+    font-family: 'Playfair Display', serif;
+    color: #6f4647;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+  
+  .about-value-description {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Team Section - Enhanced */
+  .about-team-section {
+    padding: 140px 0;
+    background: #6f4647;
+    color: white;
+    position: relative;
+  }
+  
+  .about-team-section .about-section-title {
+    color: white;
+  }
+  
+  .about-team-section .about-section-title::after {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .about-team-section .about-section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    margin-top: 80px;
+  }
+  
+  .about-team-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .about-team-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .about-team-image-container {
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  .about-team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .about-team-card:hover .about-team-image {
+    transform: scale(1.05);
+  }
+  
+  .about-team-info {
+    padding: 48px 40px;
+    text-align: center;
+  }
+  
+  .about-team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  
+  .about-team-role {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .about-team-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  .about-team-quote {
+    text-align: center;
+    max-width: 900px;
+    margin: 100px auto 0;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.6s ease;
+  }
+  
+  .about-team-quote:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .about-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: white;
+    position: relative;
+    padding-left: 40px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  .about-quote-text::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-style: normal;
+  }
+  
+  .about-quote-author {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+  
+  /* Awards Section - Enhanced */
+  .about-awards-section {
+    padding: 140px 0;
+    background: white;
+    position: relative;
+  }
+  
+  .about-awards-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.2), transparent);
+  }
+  
+  .about-awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+  }
+  
+  .about-award-card {
+    background: white;
+    padding: 56px 40px;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-award-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+  }
+  
+  .about-award-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .about-award-card:hover::before {
+    opacity: 1;
+  }
+  
+  .about-award-icon {
+    font-size: 4rem;
+    margin-bottom: 32px;
+    display: inline-block;
+    transition: transform 0.6s ease;
+    color: #6f4647;
+    opacity: 0.9;
+  }
+  
+  .about-award-card:hover .about-award-icon {
+    transform: scale(1.2);
+  }
+  
+  .about-award-title {
+    font-family: 'Playfair Display', serif;
+    color: #6f4647;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 1px;
+  }
+  
+  .about-award-description {
+    color: #777;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* CTA Section - Enhanced */
+  .about-cta-section {
+    padding: 140px 0;
+    background: linear-gradient(135deg, #6f4647 0%, #5d3a3b 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 0%, transparent 50%);
+  }
+  
+  .about-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: white;
+    position: relative;
+    line-height: 1.1;
+  }
+  
+  .about-cta-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 56px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+  
+  .about-cta-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .about-cta-primary {
+    background: white;
+    color: #6f4647;
+    border: none;
+    padding: 24px 60px;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid white;
+  }
+  
+  .about-cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.1), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .about-cta-primary:hover::before {
+    left: 100%;
+  }
+  
+  .about-cta-primary:hover {
+    background: transparent;
+    color: white;
+    letter-spacing: 3px;
+  }
+  
+  .about-cta-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 24px 60px;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .about-cta-secondary:hover {
+    background: white;
+    color: #6f4647;
+    border-color: white;
+    letter-spacing: 3px;
+  }
+  
+  /* Reuse the same animations from home page */
+  @keyframes elegantEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(-80px) scale(0.98);
+      letter-spacing: 10px;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      letter-spacing: 1px;
+    }
+  }
+  
+  @keyframes subtitleEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+      letter-spacing: 10px;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      letter-spacing: 2px;
+    }
+  }
+  
+  /* Responsive Design - Enhanced */
+  @media (max-width: 1024px) {
+    .about-content-wrapper {
+      padding: 0 40px;
+    }
+    
+    .about-hero-title {
+      font-size: 4.5rem;
+    }
+    
+    .about-hero-subtitle {
+      font-size: 1.8rem;
+    }
+    
+    .about-section-title {
+      font-size: 3rem;
+    }
+    
+    .about-values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-hero {
+      min-height: 700px;
+    }
+    
+    .about-hero-title {
+      font-size: 3.5rem;
+    }
+    
+    .about-hero-subtitle {
+      font-size: 1.8rem;
+    }
+    
+    .about-section-title {
+      font-size: 2.5rem;
+    }
+    
+    .about-section-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .about-stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-values-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-team-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-awards-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .about-cta-primary,
+    .about-cta-secondary {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .about-cta-title {
+      font-size: 3rem;
+    }
+    
+    .about-quote-text {
+      font-size: 1.6rem;
+      padding-left: 30px;
+    }
+    
+    .about-team-quote {
+      padding: 48px 32px;
+      margin-top: 80px;
+    }
+    
+    .about-quote-text::before {
+      font-size: 5rem;
+      left: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-hero {
+      min-height: 600px;
+    }
+    
+    .about-hero-title {
+      font-size: 2.8rem;
+    }
+    
+    .about-hero-subtitle {
+      font-size: 1.4rem;
+    }
+    
+    .about-section-title {
+      font-size: 2rem;
+    }
+    
+    .about-section-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .about-content-wrapper {
+      padding: 0 24px;
+    }
+    
+    .about-team-quote {
+      padding: 40px 24px;
+      margin-top: 60px;
+    }
+    
+    .about-quote-text {
+      font-size: 1.3rem;
+      padding-left: 20px;
+    }
+    
+    .about-quote-text::before {
+      font-size: 4rem;
+      top: -10px;
+      left: -5px;
+    }
+    
+    .about-cta-title {
+      font-size: 2.5rem;
+    }
+    
+    .about-cta-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .about-stat-number {
+      font-size: 3.5rem;
+    }
+    
+    .about-stat-label {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Fix for mobile viewport issues */
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 100vh;
+      min-height: -webkit-fill-available;
+      min-height: 100vh;
+    }
+  }
+  
+  /* Ensure full screen on all devices */
+  .about-hero {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  
+  /* Consistent typography across the page */
+  .about-story-text,
+  .about-stat-description,
+  .about-value-description,
+  .about-team-description,
+  .about-award-description {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300;
+  }
+  
+  /* Section dividers for visual separation */
+  .about-values-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.2), transparent);
+  }

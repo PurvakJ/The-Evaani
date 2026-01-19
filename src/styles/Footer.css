@@ -1,0 +1,510 @@
+/* Footer Styles - Elegant Design */
+.footer {
+    background: #2a2a2a;
+    color: #fff;
+    margin-top: auto;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .footer-top {
+    padding: 80px 0 60px;
+    background: #333333;
+    border-top: 1px solid rgba(111, 70, 71, 0.2);
+  }
+  
+  .footer-bottom {
+    padding: 30px 0;
+    background: #222;
+    border-top: 1px solid rgba(111, 70, 71, 0.3);
+  }
+  
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+  }
+  
+  /* Footer Columns */
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Logo Section - Enhanced */
+  .footer-logo {
+    margin-bottom: 25px;
+  }
+  
+  .logo-text {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: #6f4647;
+    opacity: 0.5;
+  }
+  
+  .logo-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Social Links - Enhanced */
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    color: #fff;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .social-icon:hover {
+    color: #6f4647;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px) scale(1.1);
+    border-color: #6f4647;
+  }
+  
+  /* Footer Headings - Enhanced */
+  .footer-heading {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: #6f4647;
+    opacity: 0.7;
+  }
+  
+  /* Quick Links - Enhanced */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 15px;
+  }
+  
+  .footer-link {
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  .footer-link::before {
+    content: '→';
+    color: #6f4647;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+  }
+  
+  .footer-link:hover {
+    color: #fff;
+    transform: translateX(8px);
+    letter-spacing: 1px;
+  }
+  
+  .footer-link:hover::before {
+    opacity: 1;
+    transform: translateX(-5px);
+  }
+  
+  /* Contact Info - Enhanced */
+  .contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    color: #fff;
+  }
+  
+  .contact-icon {
+    color: #6f4647;
+    font-size: 1.2rem;
+    min-width: 24px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-item:hover .contact-icon {
+    transform: scale(1.2);
+  }
+  
+  .contact-text {
+    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Newsletter - Enhanced */
+  .newsletter-text {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .newsletter-input {
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  .newsletter-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(111, 70, 71, 0.2);
+  }
+  
+  .newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+  }
+  
+  .newsletter-button {
+    padding: 15px 25px;
+    background: transparent;
+    color: #6f4647;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .newsletter-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.1), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .newsletter-button:hover::before {
+    left: 100%;
+  }
+  
+  .newsletter-button:hover {
+    background: #6f4647;
+    color: #fff;
+    letter-spacing: 3px;
+  }
+  
+  /* Footer Bottom - Enhanced */
+  .footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  
+  .copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  .footer-policies {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .policy-link {
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    position: relative;
+  }
+  
+  .policy-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #6f4647;
+    transition: width 0.3s ease;
+  }
+  
+  .policy-link:hover {
+    color: #fff;
+  }
+  
+  .policy-link:hover::after {
+    width: 100%;
+  }
+  
+  .payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .payment-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  
+  .payment-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .payment-icon {
+    font-size: 1.4rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+  }
+  
+  .payment-icon:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-2px);
+  }
+  
+  /* Divider between sections */
+  .footer-column:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -25px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .footer-container {
+      padding: 0 40px;
+    }
+    
+    .footer-grid {
+      gap: 40px;
+    }
+    
+    .footer-column:not(:last-child)::after {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-top {
+      padding: 60px 0 40px;
+    }
+    
+    .footer-bottom {
+      padding: 25px 0;
+    }
+    
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    
+    .footer-bottom-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+    
+    .footer-policies {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .payment-methods {
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .logo-text {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-container {
+      padding: 0 30px;
+    }
+    
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .footer-column {
+      align-items: center;
+      text-align: center;
+    }
+    
+    .footer-heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .logo-text::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .contact-item {
+      justify-content: center;
+    }
+    
+    .newsletter-form {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .footer-policies {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+    }
+    
+    .logo-subtitle {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Animation for footer appearance */
+  @keyframes footerFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .footer {
+    animation: footerFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+  }
+  
+  .footer-top {
+    animation: footerFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  }

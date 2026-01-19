@@ -1,0 +1,1071 @@
+/* Luxury Home Page Styles - Elegant Color Palette */
+.luxury-home {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fefefe;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.view-all-container {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.section-main-title {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #6f4647;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0.3;
+}
+
+.section-description {
+  text-align: center;
+  color: #666;
+  font-size: 1.25rem;
+  margin-bottom: 80px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Section - Elegant Caligraphy */
+.luxury-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.5) contrast(1.1);
+}
+
+.carousel-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.active-slide {
+  opacity: 1;
+}
+
+.hero-main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+  width: 100%;
+  padding: 0 40px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Elegant Caligraphy Fonts for Hero */
+.hero-main-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 5.5rem;
+  margin-bottom: 32px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  animation: elegantEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+}
+
+.hero-subheading {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 56px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  animation: subtitleEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.hero-primary-btn {
+  background: #6f4647;
+  color: white;
+  border: none;
+  padding: 22px 56px;
+  font-size: 1.2rem;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: buttonEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.7s ease;
+}
+
+.hero-primary-btn:hover::before {
+  left: 100%;
+}
+
+.hero-primary-btn:hover {
+  background: #5d3a3b;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(111, 70, 71, 0.4);
+  letter-spacing: 3px;
+}
+
+/* Luxury Features Section - Enhanced Elegance */
+.luxury-features {
+  padding: 140px 0;
+  background: white;
+  position: relative;
+}
+
+.luxury-features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.2), transparent);
+}
+
+.features-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  margin-top: 80px;
+}
+
+.feature-box {
+  background: white;
+  padding: 56px 40px;
+  border-radius: 0;
+  text-align: center;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.feature-box:hover::before {
+  opacity: 1;
+}
+
+.feature-box:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+}
+
+.feature-symbol {
+  font-size: 4.5rem;
+  margin-bottom: 32px;
+  display: inline-block;
+  transition: transform 0.6s ease;
+  color: #6f4647;
+  opacity: 0.9;
+}
+
+.feature-box:hover .feature-symbol {
+  transform: scale(1.1);
+}
+
+.feature-heading {
+  font-family: 'Playfair Display', serif;
+  color: #6f4647;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.feature-detail {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.feature-stat {
+  display: inline-block;
+  background: transparent;
+  color: #6f4647;
+  padding: 12px 28px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(111, 70, 71, 0.3);
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover .feature-stat {
+  background: #6f4647;
+  color: white;
+  border-color: #6f4647;
+}
+
+/* Premium Suites Section - Enhanced */
+.premium-suites {
+  padding: 50px 0;
+  background: #fafafa;
+  position: relative;
+}
+
+.suites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.suite-card {
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(111, 70, 71, 0.1);
+}
+
+.suite-card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.suite-image-frame {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.suite-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.suite-card:hover .suite-photo {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 70%, rgba(111, 70, 71, 0.1));
+}
+
+.suite-details {
+  padding: 48px;
+}
+
+.suite-name {
+  font-family: 'Playfair Display', serif;
+  color: #6f4647;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.suite-description {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.amenity-item {
+  background: transparent;
+  color: #666;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.amenity-item:hover {
+  background: #6f4647;
+  color: white;
+  border-color: #6f4647;
+}
+
+.suite-action-btn {
+  width: 100%;
+  padding: 20px;
+  background: transparent;
+  color: #6f4647;
+  border: 1px solid #6f4647;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.suite-action-btn:hover {
+  background: #6f4647;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.view-all-suites {
+  background: transparent;
+  color: #6f4647;
+  border: 1px solid #6f4647;
+  padding: 20px 56px;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.view-all-suites:hover {
+  background: #6f4647;
+  color: white;
+  letter-spacing: 3px;
+}
+
+/* Exclusive Offers Section - Enhanced */
+.exclusive-offers {
+  padding: 140px 0;
+  background: #6f4647;
+  color: white;
+  position: relative;
+}
+
+.exclusive-offers .section-main-title {
+  color: white;
+}
+
+.exclusive-offers .section-main-title::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.exclusive-offers .section-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+.offers-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.offer-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 56px 40px;
+  border-radius: 0;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  transition: all 0.6s ease;
+  backdrop-filter: blur(10px);
+}
+
+.offer-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.offer-tag {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #6f4647;
+  padding: 12px 32px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.offer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.offer-detail {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.offer-action-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 18px 48px;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.offer-action-btn:hover {
+  background: white;
+  color: #6f4647;
+  letter-spacing: 3px;
+}
+
+/* Hotel Gallery Section - Enhanced */
+.hotel-gallery {
+  padding: 50px 0;
+  background: white;
+  position: relative;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin-top: 80px;
+}
+
+.gallery-frame {
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+}
+
+.gallery-image-container {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-frame:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(111, 70, 71, 0.9) 0%, rgba(111, 70, 71, 0.4) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+}
+
+.gallery-frame:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.image-title {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  transform: translateY(30px);
+  transition: transform 0.6s ease;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.gallery-frame:hover .image-title {
+  transform: translateY(0);
+}
+
+.image-actions {
+  transform: translateY(30px);
+  transition: transform 0.6s ease 0.1s;
+}
+
+.gallery-frame:hover .image-actions {
+  transform: translateY(0);
+}
+
+.action-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.view-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.view-btn:hover {
+  background: white;
+  color: #6f4647;
+}
+
+.action-icon {
+  font-size: 1.1rem;
+}
+
+.new-label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #6f4647;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  z-index: 2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.full-gallery-btn {
+  background: transparent;
+  color: #6f4647;
+  border: 1px solid #6f4647;
+  padding: 20px 56px;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.full-gallery-btn:hover {
+  background: #6f4647;
+  color: white;
+  letter-spacing: 3px;
+}
+
+/* Guest Testimonials Section - Enhanced */
+.guest-testimonials {
+  padding: 140px 0;
+  background: #fafafa;
+  position: relative;
+}
+
+.testimonials-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.testimonial-box {
+  background: white;
+  padding: 56px 48px;
+  border-radius: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  transition: all 0.6s ease;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+}
+
+.testimonial-box:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+.rating-stars {
+  color: #6f4647;
+  font-size: 1.75rem;
+  margin-bottom: 32px;
+  letter-spacing: 4px;
+}
+
+.feedback-text {
+  font-style: italic;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-size: 1.25rem;
+  font-weight: 300;
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid rgba(111, 70, 71, 0.2);
+}
+
+.feedback-text::before {
+  content: '"';
+  font-size: 4rem;
+  color: rgba(111, 70, 71, 0.2);
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.guest-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(111, 70, 71, 0.1);
+}
+
+.guest-name {
+  font-family: 'Playfair Display', serif;
+  color: #6f4647;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.visit-date {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.testimonial-note {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  margin-top: 40px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+
+/* Reservation CTA Section - Enhanced */
+.reservation-cta {
+  padding: 50px 0;
+  background: linear-gradient(135deg, #6f4647 0%, #5d3a3b 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.reservation-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 0%, transparent 50%);
+}
+
+.cta-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  margin-bottom: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+  position: relative;
+  line-height: 1.1;
+}
+
+.cta-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 56px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.cta-buttons-group {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.primary-cta-btn {
+  background: white;
+  color: #6f4647;
+  border: none;
+  padding: 24px 60px;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid white;
+}
+
+.primary-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.1), transparent);
+  transition: left 0.7s ease;
+}
+
+.primary-cta-btn:hover::before {
+  left: 100%;
+}
+
+.primary-cta-btn:hover {
+  background: transparent;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.secondary-cta-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 24px 60px;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.secondary-cta-btn:hover {
+  background: white;
+  color: #6f4647;
+  border-color: white;
+  letter-spacing: 3px;
+}
+
+/* Enhanced Animations */
+@keyframes elegantEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.98);
+    letter-spacing: 10px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes subtitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    letter-spacing: 10px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 2px;
+  }
+}
+
+@keyframes buttonEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+    letter-spacing: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 2px;
+  }
+}
+
+/* Responsive Design - Enhanced */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    padding: 0 40px;
+  }
+  
+  .section-main-title {
+    font-size: 3rem;
+  }
+  
+  .hero-main-title {
+    font-size: 4.5rem;
+  }
+  
+  .suites-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-hero {
+    min-height: 700px;
+  }
+  
+  .hero-main-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subheading {
+    font-size: 1.8rem;
+  }
+  
+  .hero-primary-btn {
+    padding: 20px 48px;
+    font-size: 1rem;
+  }
+  
+  .section-main-title {
+    font-size: 2.5rem;
+  }
+  
+  .cta-heading {
+    font-size: 3rem;
+  }
+  
+  .features-display,
+  .offers-display,
+  .testimonials-display {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .suite-details {
+    padding: 40px 32px;
+  }
+  
+  .cta-buttons-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primary-cta-btn,
+  .secondary-cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-hero {
+    min-height: 600px;
+  }
+  
+  .hero-main-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subheading {
+    font-size: 1.4rem;
+  }
+  
+  .section-main-title {
+    font-size: 2rem;
+  }
+  
+  .section-description {
+    font-size: 1.1rem;
+  }
+  
+  .content-wrapper {
+    padding: 0 24px;
+  }
+  
+  .cta-heading {
+    font-size: 2.5rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure proper HTML includes the caligraphy fonts */
+/* Add this to your HTML head: 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+*/

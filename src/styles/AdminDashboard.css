@@ -1,0 +1,2962 @@
+/* Admin Dashboard Styles - Elegant Classy Design */
+.admin-dashboard {
+    margin-top: 50px;
+    min-height: 100vh;
+    background: #f9f9f9;
+    font-family: 'Playfair Display', serif;
+    padding: 40px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* Background Pattern */
+  .admin-dashboard::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(111, 70, 71, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(93, 58, 59, 0.03) 0%, transparent 50%);
+    z-index: 0;
+  }
+  
+  /* Header */
+  .admin-dashboard h2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-bottom: 60px;
+    color: #6f4647;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 30px;
+    z-index: 1;
+  }
+  
+  .admin-dashboard h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6f4647, transparent);
+  }
+  
+  /* Tab Navigation */
+  .tab-buttons {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .tab-btn {
+    padding: 20px 40px;
+    background: transparent;
+    border: 1px solid rgba(111, 70, 71, 0.3);
+    border-radius: 0;
+    color: #666;
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tab-btn:hover {
+    color: #6f4647;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(111, 70, 71, 0.1);
+  }
+  
+  .tab-btn.active {
+    background: #6f4647;
+    color: white;
+    border-color: #6f4647;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(111, 70, 71, 0.2);
+  }
+  
+  .tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .tab-btn.active::before {
+    opacity: 1;
+  }
+  
+  .tab-btn::after {
+    content: attr(data-tab);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Main Content Area */
+  .tab-content {
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    padding: 60px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    min-height: 600px;
+    animation: contentFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .tab-content:hover {
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.12);
+  }
+  
+  .tab-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .tab-content:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes contentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Filter Section */
+  .filter-section {
+    background: rgba(111, 70, 71, 0.05);
+    padding: 40px;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .filter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  .filter-section h4 {
+    font-size: 1.8rem;
+    color: #6f4647;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  
+  .filter-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #6f4647, transparent);
+  }
+  
+  .filter-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  
+  .filter-input {
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #333;
+    letter-spacing: 0.3px;
+  }
+  
+  .filter-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 20px rgba(111, 70, 71, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .filter-input::placeholder {
+    color: #888;
+    font-style: italic;
+    font-weight: 300;
+  }
+  
+  .clear-filter-btn {
+    padding: 16px 32px;
+    background: transparent;
+    color: #6f4647;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .clear-filter-btn:hover {
+    background: #6f4647;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(111, 70, 71, 0.2);
+  }
+  
+  .filter-results {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.3px;
+    padding: 20px;
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+  }
+  
+  /* Toggle Buttons */
+  .toggle-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .toggle-btn {
+    padding: 16px 32px;
+    background: transparent;
+    border: 1px solid rgba(111, 70, 71, 0.3);
+    border-radius: 0;
+    color: #666;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+  }
+  
+  .toggle-btn:hover {
+    color: #6f4647;
+    border-color: #6f4647;
+    transform: translateY(-3px);
+  }
+  
+  .toggle-btn.active {
+    background: #6f4647;
+    color: white;
+    border-color: #6f4647;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 70, 71, 0.2);
+  }
+  
+  /* No Data Message */
+  .no-data-message {
+    text-align: center;
+    padding: 80px 40px;
+    background: rgba(111, 70, 71, 0.05);
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .no-data-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  .no-data-message p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Category Section */
+  .category-section {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+    position: relative;
+  }
+  
+  .category-section h3 {
+    font-size: 2.2rem;
+    color: #6f4647;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  
+  .category-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, #6f4647, transparent);
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  table::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  thead {
+    background: #6f4647;
+  }
+  
+  thead th {
+    padding: 24px 20px;
+    text-align: left;
+    color: white;
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  tbody tr {
+    transition: all 0.4s ease;
+    background: white;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+  }
+  
+  tbody tr:hover {
+    background: rgba(111, 70, 71, 0.05);
+    transform: translateX(5px);
+  }
+  
+  tbody td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+    color: #333;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    vertical-align: middle;
+  }
+  
+  /* Action Buttons */
+  .edit-btn, .delete-btn, .save-btn, .cancel-btn,
+  .edit-room-btn, .delete-room-btn {
+    padding: 12px 24px;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-right: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .edit-btn, .edit-room-btn {
+    background: transparent;
+    color: #6f4647;
+    border-color: #6f4647;
+  }
+  
+  .edit-btn:hover, .edit-room-btn:hover {
+    background: #6f4647;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 70, 71, 0.2);
+  }
+  
+  .delete-btn, .delete-room-btn {
+    background: transparent;
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .delete-btn:hover, .delete-room-btn:hover {
+    background: #dc3545;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2);
+  }
+  
+  .save-btn {
+    background: #6f4647;
+    color: white;
+    border-color: #6f4647;
+    padding: 16px 40px;
+  }
+  
+  .cancel-btn {
+    background: transparent;
+    color: #666;
+    border-color: #666;
+    padding: 16px 40px;
+  }
+  
+  .save-btn:hover {
+    background: #5d3a3b;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(111, 70, 71, 0.3);
+  }
+  
+  .cancel-btn:hover {
+    background: #666;
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  /* Status Toggle */
+  .status-toggle {
+    padding: 10px 24px;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 120px;
+    letter-spacing: 1px;
+  }
+  
+  .status-toggle.active {
+    background: #6f4647;
+    color: white;
+    border-color: #6f4647;
+  }
+  
+  .status-toggle.inactive {
+    background: transparent;
+    color: #666;
+    border-color: #666;
+  }
+  
+  .status-toggle:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Room Specific Styles */
+  .room-details-card {
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .room-details-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+  }
+  
+  .room-details-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .room-details-card:hover::before {
+    opacity: 1;
+  }
+  
+  .room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+  }
+  
+  .room-header h3 {
+    font-size: 2rem;
+    color: #6f4647;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  
+  /* Room Images Section */
+  .room-images-section {
+    margin-top: 32px;
+  }
+  
+  .room-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  
+  .room-image-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    transition: all 0.4s ease;
+  }
+  
+  .room-image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-image-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .room-image-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  .remove-image-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .remove-image-btn:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+  }
+  
+  /* Drop Areas */
+  .drop-area, .image-drop-area {
+    border: 2px dashed rgba(111, 70, 71, 0.3);
+    border-radius: 0;
+    padding: 60px 40px;
+    text-align: center;
+    margin: 32px 0;
+    background: rgba(111, 70, 71, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .drop-area:hover, .image-drop-area:hover {
+    border-color: #6f4647;
+    background: rgba(111, 70, 71, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .drop-area::before, .image-drop-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .drop-area:hover::before, .image-drop-area:hover::before {
+    opacity: 1;
+  }
+  
+  .drop-area p, .image-drop-area p {
+    color: #666;
+    margin: 12px 0;
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Browse Button */
+  .browse-btn-container {
+    margin-top: 32px;
+  }
+  
+  .browse-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #6f4647;
+    color: white;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .browse-btn:hover {
+    background: #5d3a3b;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(111, 70, 71, 0.2);
+  }
+  
+  .browse-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .browse-btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .hidden-file-input {
+    display: none;
+  }
+  
+  /* Image Previews */
+  .image-previews {
+    margin-top: 40px;
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+  
+  .preview-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    transition: all 0.4s ease;
+  }
+  
+  .preview-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .preview-item img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+  .remove-preview-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  .remove-preview-btn:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+  }
+  
+  /* URL Inputs */
+  .url-inputs-section {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(111, 70, 71, 0.1);
+  }
+  
+  .url-input-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  
+  .url-input {
+    flex: 1;
+    padding: 16px;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    background: white;
+    transition: all 0.4s ease;
+    color: #333;
+  }
+  
+  .url-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 15px rgba(111, 70, 71, 0.1);
+  }
+  
+  .remove-url-btn {
+    padding: 16px 24px;
+    background: transparent;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    letter-spacing: 0.5px;
+  }
+  
+  .remove-url-btn:hover {
+    background: #dc3545;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2);
+  }
+  
+  .add-url-btn {
+    padding: 16px 32px;
+    background: transparent;
+    color: #6f4647;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    letter-spacing: 0.5px;
+  }
+  
+  .add-url-btn:hover {
+    background: #6f4647;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 70, 71, 0.2);
+  }
+  
+  /* Forms */
+  .room-form, .edit-form {
+    background: white;
+    padding: 40px;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .room-form::before, .edit-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    background: white;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #333;
+    letter-spacing: 0.3px;
+  }
+  
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 20px rgba(111, 70, 71, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .form-textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+  
+  .form-group {
+    margin-bottom: 32px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  
+  .submit-btn {
+    padding: 20px 48px;
+    background: #6f4647;
+    color: white;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .submit-btn:hover:not(:disabled) {
+    background: #5d3a3b;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(111, 70, 71, 0.3);
+  }
+  
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Password Section */
+  .password-section {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .password-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  .password-input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    background: white;
+    transition: all 0.4s ease;
+    color: #333;
+    letter-spacing: 0.3px;
+  }
+  
+  .password-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 20px rgba(111, 70, 71, 0.1);
+  }
+  
+  .update-password-btn {
+    padding: 20px 48px;
+    background: #6f4647;
+    color: white;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+  }
+  
+  .update-password-btn:hover:not(:disabled) {
+    background: #5d3a3b;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(111, 70, 71, 0.3);
+  }
+  
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal-content {
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    padding: 60px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+  }
+  
+  @keyframes modalSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-60px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .modal-content h3 {
+    font-size: 2.5rem;
+    color: #6f4647;
+    margin-bottom: 48px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+  
+  .modal-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #6f4647, transparent);
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  
+  /* Loading States */
+  .loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px;
+    color: #666;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+  
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(111, 70, 71, 0.3);
+    border-top-color: #6f4647;
+    border-radius: 0;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .admin-dashboard {
+      padding: 30px;
+    }
+    
+    .tab-content {
+      padding: 40px;
+    }
+    
+    .filter-controls {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      padding: 20px;
+    }
+    
+    .admin-dashboard h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    
+    .tab-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .tab-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .room-header {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    
+    .modal-content {
+      padding: 40px 30px;
+    }
+    
+    .modal-actions {
+      flex-direction: column;
+    }
+    
+    .save-btn, .cancel-btn {
+      width: 100%;
+    }
+    
+    .tab-content {
+      padding: 30px 20px;
+    }
+    
+    .room-details-card {
+      padding: 30px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-dashboard h2 {
+      font-size: 2rem;
+    }
+    
+    .tab-content {
+      padding: 24px 16px;
+    }
+    
+    .filter-section {
+      padding: 30px 20px;
+    }
+    
+    .toggle-buttons {
+      flex-direction: column;
+    }
+    
+    .toggle-btn {
+      width: 100%;
+    }
+    
+    .room-images-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-content {
+      padding: 30px 20px;
+    }
+    
+    .password-section {
+      padding: 40px 30px;
+    }
+  }
+  
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .admin-dashboard {
+      background: #222;
+      color: #f1f5f9;
+    }
+    
+    .admin-dashboard::before {
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(111, 70, 71, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(93, 58, 59, 0.1) 0%, transparent 50%);
+    }
+    
+    .admin-dashboard h2 {
+      color: #d4a5a5;
+    }
+    
+    .tab-content, .room-details-card, .filter-section, 
+    .no-data-message, .room-form, .edit-form, 
+    .password-section, .modal-content {
+      background: #333;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #f1f5f9;
+    }
+    
+    .filter-input, .form-input, .form-textarea, 
+    .form-select, .url-input, .password-input {
+      background: #222;
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #f1f5f9;
+    }
+    
+    .filter-input::placeholder, .url-input::placeholder {
+      color: #888;
+    }
+    
+    table {
+      background: #333;
+    }
+    
+    tbody tr {
+      background: #333;
+    }
+    
+    tbody tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+    
+    tbody td {
+      color: #ddd;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .filter-results {
+      background: #2a2a2a;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #ddd;
+    }
+    
+    .filter-section {
+      background: rgba(111, 70, 71, 0.1);
+    }
+    
+    .drop-area, .image-drop-area {
+      background: rgba(111, 70, 71, 0.05);
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .admin-dashboard,
+    .tab-content,
+    .tab-btn,
+    .edit-btn,
+    .delete-btn,
+    .save-btn,
+    .cancel-btn,
+    .room-details-card,
+    .drop-area,
+    .image-drop-area,
+    .browse-btn,
+    .filter-input,
+    .form-input,
+    .submit-btn,
+    .update-password-btn,
+    .modal-content {
+      animation: none;
+      transition: none;
+    }
+  }
+
+  /* ================== ADD FORM SECTION ================== */
+.add-form-section {
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    border-radius: 0;
+    padding: 40px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .add-form-section:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+  
+  .add-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6f4647;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .add-form-section:hover::before {
+    opacity: 1;
+  }
+  
+  .add-form-section h3 {
+    font-size: 2rem;
+    color: #6f4647;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  
+  .add-form-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, #6f4647, transparent);
+  }
+  
+  /* Form Grid Layout */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Form Inputs Specific to Add Form */
+  .add-form-input {
+    width: 100%;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #333;
+    letter-spacing: 0.3px;
+  }
+  
+  .add-form-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 20px rgba(111, 70, 71, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .add-form-input::placeholder {
+    color: #888;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Add Button Specific Styles */
+  .add-btn {
+    padding: 18px 48px;
+    background: #6f4647;
+    color: white;
+    border: 1px solid #6f4647;
+    border-radius: 0;
+    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .add-btn:hover:not(:disabled) {
+    background: #5d3a3b;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(111, 70, 71, 0.3);
+  }
+  
+  .add-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .add-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* For Menu Add Form Specific Layout */
+  .menu-add-form .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* For Offers Add Form Specific Layout */
+  .offers-add-form .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .offers-add-form .form-group:nth-child(3) {
+    grid-column: span 2;
+  }
+  
+  /* Status Select for Offers */
+  .status-select {
+    width: 100%;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f4647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+    padding-right: 50px;
+  }
+  
+  .status-select:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 5px 20px rgba(111, 70, 71, 0.1);
+  }
+  
+  /* Success Message */
+  .success-message {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    padding: 16px 24px;
+    margin-top: 24px;
+    color: #28a745;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 0.3px;
+    animation: fadeInUp 0.4s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Error Message */
+  .error-message {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    padding: 16px 24px;
+    margin-top: 24px;
+    color: #dc3545;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 0.3px;
+    animation: fadeInUp 0.4s ease;
+  }
+  
+  /* Loading Spinner for Add Button */
+  .add-btn .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 0;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Dark Mode Support for Add Form */
+  @media (prefers-color-scheme: dark) {
+    .add-form-section {
+      background: #333;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .add-form-input,
+    .status-select {
+      background: #222;
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #f1f5f9;
+    }
+    
+    .add-form-input::placeholder {
+      color: #888;
+    }
+    
+    .add-form-section h3 {
+      color: #d4a5a5;
+    }
+    
+    .add-form-section h3::after {
+      background: linear-gradient(90deg, #d4a5a5, transparent);
+    }
+    
+    .form-group label {
+      color: #ddd;
+    }
+  }
+  
+  /* Responsive Design for Add Form */
+  @media (max-width: 768px) {
+    .add-form-section {
+      padding: 30px;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .menu-add-form .form-grid,
+    .offers-add-form .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .offers-add-form .form-group:nth-child(3) {
+      grid-column: span 1;
+    }
+    
+    .add-btn {
+      width: 100%;
+      padding: 18px 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .add-form-section {
+      padding: 24px 20px;
+    }
+    
+    .add-form-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+    }
+    
+    .add-form-input,
+    .status-select {
+      padding: 14px 16px;
+      font-size: 1rem;
+    }
+  }
+
+  /* ================== RESPONSIVE TABLES ================== */
+/* This will make all tables responsive on mobile without code changes */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  
+  .table-responsive-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.3), transparent);
+  }
+  
+  /* Make all tables responsive by targeting them in mobile view */
+  @media (max-width: 768px) {
+    /* Target all tables inside tab-content */
+    .tab-content table {
+      min-width: 600px; /* Force horizontal scroll on small screens */
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+    }
+    
+    /* Style for table cells on mobile */
+    .tab-content table tbody td {
+      min-width: 120px;
+      padding: 16px 12px;
+    }
+    
+    /* Specific styling for menu tables */
+    .category-section table {
+      min-width: 500px;
+    }
+    
+    .category-section table tbody td {
+      padding: 14px 10px;
+    }
+    
+    /* Room details table */
+    .room-details-card table {
+      min-width: 500px;
+    }
+    
+    /* Images table */
+    .tab-content table tbody td img {
+      max-width: 60px;
+      height: auto;
+    }
+    
+    /* Reviews table */
+    .tab-content table tbody td:nth-child(5) { /* Message column */
+      min-width: 200px;
+      max-width: 300px;
+      word-break: break-word;
+    }
+    
+    /* Offers table status toggle */
+    .status-toggle {
+      min-width: 100px;
+      padding: 8px 16px;
+      font-size: 1rem;
+    }
+    
+    /* Action buttons in tables */
+    .tab-content table .edit-btn,
+    .tab-content table .delete-btn {
+      padding: 8px 16px;
+      font-size: 1rem;
+      margin: 4px 8px 4px 0;
+      min-width: 70px;
+    }
+    
+    /* Group action buttons */
+    .tab-content table tbody td:last-child {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+  
+  /* Extra small devices */
+  @media (max-width: 480px) {
+    /* Make tables more compact */
+    .tab-content table {
+      min-width: 500px;
+    }
+    
+    .tab-content table thead th {
+      padding: 16px 10px;
+      font-size: 1rem;
+    }
+    
+    .tab-content table tbody td {
+      padding: 12px 8px;
+      font-size: 0.95rem;
+    }
+    
+    /* Category section headings */
+    .category-section h3 {
+      font-size: 1.6rem;
+      padding-bottom: 12px;
+    }
+    
+    /* Reduce image sizes further */
+    .tab-content table tbody td img {
+      max-width: 50px;
+    }
+    
+    /* Compact room details */
+    .room-details-card {
+      padding: 20px 16px;
+    }
+    
+    .room-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .room-header h3 {
+      font-size: 1.6rem;
+    }
+    
+    /* Room action buttons */
+    .edit-room-btn,
+    .delete-room-btn {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    
+    /* Room images grid */
+    .room-images-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .room-image-item img {
+      height: 120px;
+    }
+    
+    /* Filter controls */
+    .filter-controls {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    /* Toggle buttons */
+    .toggle-buttons {
+      flex-direction: column;
+    }
+    
+    .toggle-btn {
+      width: 100%;
+    }
+    
+    /* Modal content */
+    .modal-content {
+      padding: 30px 20px;
+    }
+    
+    .modal-content h3 {
+      font-size: 2rem;
+      margin-bottom: 32px;
+    }
+    
+    /* Form inputs in mobile */
+    .form-input,
+    .form-textarea,
+    .form-select,
+    .add-form-input,
+    .status-select {
+      padding: 14px 16px;
+      font-size: 1rem;
+    }
+    
+    /* Buttons in mobile */
+    .add-btn,
+    .submit-btn,
+    .update-password-btn {
+      padding: 16px 24px;
+      font-size: 1.1rem;
+    }
+    
+    /* Password section */
+    .password-section {
+      padding: 40px 24px;
+    }
+  }
+  
+  /* Table hover effects for mobile */
+  @media (min-width: 769px) {
+    .tab-content table tbody tr:hover {
+      background: rgba(111, 70, 71, 0.05);
+      transform: translateX(5px);
+    }
+  }
+  
+  /* Dark mode adjustments for responsive tables */
+  @media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .tab-content table {
+      background: #333;
+    }
+    
+    .tab-content table tbody tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+    
+    .tab-content table tbody tr:hover {
+      background: rgba(111, 70, 71, 0.1);
+    }
+    
+    .tab-content table tbody td {
+      color: #ddd;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  /* Ensure tables don't overflow container */
+  .tab-content {
+    overflow-x: hidden;
+  }
+  
+  /* Add visual indicator for scrollable tables on mobile */
+  @media (max-width: 768px) {
+    .tab-content table {
+      position: relative;
+    }
+    
+    .tab-content table::after {
+      content: '↔';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: rgba(111, 70, 71, 0.5);
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+  
+  /* Improve readability for long text in tables */
+  .tab-content table tbody td {
+    word-break: break-word;
+    max-width: 300px;
+  }
+  
+  /* Special handling for description/textarea content */
+  .tab-content table tbody td:nth-child(3) { /* Description column */
+    max-width: 400px;
+  }
+  
+  /* Add some spacing between category sections on mobile */
+  @media (max-width: 768px) {
+    .category-section {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+    }
+    
+    .category-section:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  /* Ensure filter section is properly responsive */
+  @media (max-width: 768px) {
+    .filter-section {
+      padding: 30px 20px;
+    }
+    
+    .filter-section h4 {
+      font-size: 1.6rem;
+    }
+    
+    .filter-results {
+      padding: 16px;
+      font-size: 1rem;
+    }
+  }
+
+  /* ================== ROOM IMAGES FIX ================== */
+/* Fix for room images display */
+.room-images-section .room-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  
+  .room-image-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    background: #f9f9f9;
+    transition: all 0.4s ease;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .room-image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(111, 70, 71, 0.3);
+  }
+  
+  .room-image-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+  }
+  
+  .room-image-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .room-image-item .image-placeholder {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(111, 70, 71, 0.1), rgba(93, 58, 59, 0.05));
+    color: #6f4647;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Fix for images table */
+  .tab-content table tbody td img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Special handling for base64 images */
+  .tab-content table tbody td img[src^="data:image"] {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  
+  /* Image upload section styling */
+  .image-upload-section {
+    background: rgba(111, 70, 71, 0.03);
+    padding: 30px;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    margin-bottom: 30px;
+    border-radius: 0;
+  }
+  
+  .image-upload-section h4 {
+    color: #6f4647;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+    padding-bottom: 10px;
+  }
+  
+  .image-upload-section h5 {
+    color: #666;
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  /* Preview grid for new images */
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .preview-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid rgba(111, 70, 71, 0.1);
+    background: white;
+    transition: all 0.3s ease;
+  }
+  
+  .preview-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .preview-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Remove buttons */
+  .remove-preview-btn,
+  .remove-image-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0;
+  }
+  
+  .remove-preview-btn:hover,
+  .remove-image-btn:hover {
+    background: #dc3545;
+    transform: scale(1.1);
+  }
+  
+  /* URL inputs for images */
+  .url-inputs-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(111, 70, 71, 0.1);
+  }
+  
+  .url-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .url-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(111, 70, 71, 0.2);
+    border-radius: 0;
+    font-size: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    background: white;
+    transition: all 0.3s ease;
+    color: #333;
+  }
+  
+  .url-input:focus {
+    outline: none;
+    border-color: #6f4647;
+    box-shadow: 0 0 0 2px rgba(111, 70, 71, 0.1);
+  }
+  
+  /* Mobile responsive for room images */
+  @media (max-width: 768px) {
+    .room-images-section .room-images-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .room-image-item img,
+    .room-image-item .image-placeholder {
+      height: 140px;
+    }
+    
+    .preview-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .preview-item img {
+      height: 120px;
+    }
+    
+    .image-upload-section {
+      padding: 20px;
+    }
+    
+    .url-input-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .remove-url-btn {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .room-images-section .room-images-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .preview-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .room-image-item img,
+    .room-image-item .image-placeholder {
+      height: 160px;
+    }
+    
+    .preview-item img {
+      height: 140px;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .room-image-item {
+      background: #2a2a2a;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .room-image-item .image-placeholder {
+      background: linear-gradient(135deg, rgba(111, 70, 71, 0.2), rgba(93, 58, 59, 0.1));
+      color: #d4a5a5;
+    }
+    
+    .image-upload-section {
+      background: rgba(111, 70, 71, 0.1);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .preview-item {
+      background: #333;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .url-input {
+      background: #222;
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #f1f5f9;
+    }
+  }
+
+  /* ================== ROOM SECTION TABLE SCROLL FIX ================== */
+/* Fix for room details table scrolling on mobile */
+.room-details-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  /* Mobile responsive for room tables */
+  @media (max-width: 768px) {
+    /* Make room details table scrollable */
+    .room-details-card {
+      overflow-x: hidden;
+    }
+    
+    .room-details-card table {
+      min-width: 500px; /* Force horizontal scroll */
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+    
+    /* Add visual indicator for scrollable tables */
+    .room-details-card table::after {
+      content: '↔';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: rgba(111, 70, 71, 0.5);
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    /* Ensure table cells are properly sized */
+    .room-details-card table thead th,
+    .room-details-card table tbody td {
+      min-width: 120px;
+      padding: 14px 10px;
+    }
+    
+    /* Specific column widths */
+    .room-details-card table th:nth-child(1), /* ID */
+    .room-details-card table td:nth-child(1) {
+      min-width: 150px;
+    }
+    
+    .room-details-card table th:nth-child(2), /* Name */
+    .room-details-card table td:nth-child(2) {
+      min-width: 140px;
+    }
+    
+    .room-details-card table th:nth-child(3), /* Description */
+    .room-details-card table td:nth-child(3) {
+      min-width: 180px;
+    }
+    
+    .room-details-card table th:nth-child(4), /* Price */
+    .room-details-card table td:nth-child(4) {
+      min-width: 100px;
+    }
+  }
+  
+  /* Extra small devices */
+  @media (max-width: 480px) {
+    .room-details-card table {
+      min-width: 400px;
+    }
+    
+    .room-details-card table thead th,
+    .room-details-card table tbody td {
+      padding: 12px 8px;
+      font-size: 0.95rem;
+    }
+    
+    /* Smaller column widths for very small screens */
+    .room-details-card table th:nth-child(1), /* ID */
+    .room-details-card table td:nth-child(1) {
+      min-width: 130px;
+    }
+    
+    .room-details-card table th:nth-child(2), /* Name */
+    .room-details-card table td:nth-child(2) {
+      min-width: 120px;
+    }
+    
+    .room-details-card table th:nth-child(3), /* Description */
+    .room-details-card table td:nth-child(3) {
+      min-width: 150px;
+    }
+    
+    .room-details-card table th:nth-child(4), /* Price */
+    .room-details-card table td:nth-child(4) {
+      min-width: 90px;
+    }
+  }
+  
+  /* Also fix the main tables in other sections */
+  @media (max-width: 768px) {
+    /* Apply to all tables in tab content */
+    .tab-content > table {
+      min-width: 500px;
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Remove table border on mobile to avoid visual clutter */
+    .tab-content > table {
+      border: none;
+    }
+    
+    /* Add subtle border to table wrapper */
+    .tab-content > table::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.3), transparent);
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .room-details-card table::after {
+      color: rgba(212, 165, 165, 0.5);
+    }
+    
+    .tab-content > table::before {
+      background: linear-gradient(90deg, transparent, rgba(212, 165, 165, 0.3), transparent);
+    }
+  }
+
+  /* ================== MODAL ACTIONS FIX ================== */
+/* Fix for modal action buttons visibility */
+.modal-actions {
+    display: flex !important;
+    gap: 24px;
+    margin-top: 60px;
+    width: 100%;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Ensure buttons are visible and properly styled */
+  .modal-actions .save-btn,
+  .modal-actions .cancel-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    min-height: 50px;
+  }
+  
+  /* Make sure buttons don't disappear on hover */
+  .modal-actions .save-btn:hover,
+  .modal-actions .cancel-btn:hover {
+    opacity: 0.9 !important;
+    visibility: visible !important;
+  }
+  
+  /* Ensure modal content has enough padding for buttons */
+  .modal-content {
+    padding-bottom: 80px !important;
+    overflow: visible !important;
+  }
+  
+  /* Fix for the edit form in modal */
+  .modal-content .edit-form {
+    position: relative;
+    overflow: visible;
+  }
+  
+  /* Responsive modal actions */
+  @media (max-width: 768px) {
+    .modal-actions {
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    
+    .modal-actions .save-btn,
+    .modal-actions .cancel-btn {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 18px 24px !important;
+      font-size: 1.2rem !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-content {
+      padding: 30px 20px 70px !important;
+      margin: 10px !important;
+    }
+    
+    .modal-content h3 {
+      font-size: 2rem !important;
+      margin-bottom: 30px !important;
+    }
+    
+    .modal-actions {
+      margin-top: 30px !important;
+      gap: 12px !important;
+    }
+  }
+  
+  /* Emergency override - add this at the END of your CSS file */
+  .modal-overlay .modal-content .edit-form .modal-actions button {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: #6f4647 !important;
+    color: white !important;
+    border: 1px solid #6f4647 !important;
+    font-size: 1.1rem !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    min-width: 140px !important;
+  }
+  
+  .modal-overlay .modal-content .edit-form .modal-actions button.cancel-btn {
+    background: transparent !important;
+    color: #666 !important;
+    border-color: #666 !important;
+  }
+  
+  .modal-overlay .modal-content .edit-form .modal-actions button.cancel-btn:hover {
+    background: #666 !important;
+    color: white !important;
+  }
+  
+  /* Force the modal actions container to be visible */
+  .modal-overlay .modal-content .edit-form .modal-actions {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 60px !important;
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid rgba(111, 70, 71, 0.2) !important;
+  }
+  
+  /* Dark mode fixes */
+  @media (prefers-color-scheme: dark) {
+    .modal-overlay .modal-content .edit-form .modal-actions button {
+      background: #6f4647 !important;
+      color: white !important;
+      border-color: #6f4647 !important;
+    }
+    
+    .modal-overlay .modal-content .edit-form .modal-actions button.cancel-btn {
+      background: transparent !important;
+      color: #ddd !important;
+      border-color: #ddd !important;
+    }
+    
+    .modal-overlay .modal-content .edit-form .modal-actions button.cancel-btn:hover {
+      background: #666 !important;
+      color: white !important;
+    }
+    
+    .modal-overlay .modal-content .edit-form .modal-actions {
+      border-top-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  /* ================== FIXED STYLES ================== */
+
+/* Reduce excessive spacing throughout */
+.admin-dashboard {
+    margin-top: 130px;
+    padding: 20px;
+  }
+  
+  .admin-dashboard h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+  
+  /* Reduce tab button padding */
+  .tab-buttons {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .tab-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  /* Reduce content padding */
+  .tab-content {
+    padding: 30px;
+    min-height: 400px;
+  }
+  
+  /* Fix table cell padding - reduce significantly */
+  table {
+    margin-bottom: 20px;
+  }
+  
+  thead th {
+    padding: 12px 10px !important;
+    font-size: 1rem !important;
+  }
+  
+  tbody td {
+    padding: 12px 10px !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Ensure buttons are visible in tables */
+  tbody td:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 180px;
+  }
+  
+  .edit-btn, .delete-btn {
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+    margin: 2px !important;
+    min-width: 70px;
+  }
+  
+  /* Room details specific fixes */
+  .room-details-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .room-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  
+  /* Room action buttons */
+  .edit-room-btn, .delete-room-btn {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    margin: 5px !important;
+  }
+  
+  /* Reduce filter section padding */
+  .filter-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+  }
+  
+  .filter-controls {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .filter-input {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  
+  /* Reduce form padding */
+  .room-form, .edit-form {
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-input, .form-textarea, .form-select {
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+  
+  .form-group label {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  
+  /* Modal form fixes */
+  .modal-content {
+    padding: 30px !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 2rem !important;
+    margin-bottom: 25px !important;
+    padding-bottom: 15px !important;
+  }
+  
+  /* Ensure modal buttons are visible and compact */
+  .modal-actions {
+    margin-top: 30px !important;
+    gap: 15px;
+  }
+  
+  .save-btn, .cancel-btn {
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Category section spacing */
+  .category-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .category-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+  }
+  
+  /* Room images grid */
+  .room-images-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 15px 0;
+  }
+  
+  .room-image-item img {
+    height: 140px;
+  }
+  
+  /* Drop area */
+  .drop-area, .image-drop-area {
+    padding: 30px 20px;
+    margin: 20px 0;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+  }
+  
+  /* Password section */
+  .password-section {
+    padding: 40px 30px;
+  }
+  
+  .password-input {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .update-password-btn {
+    padding: 14px 30px;
+  }
+  
+  /* Make tables more compact */
+  tbody tr {
+    min-height: auto;
+  }
+  
+  tbody td {
+    line-height: 1.4;
+  }
+  
+  /* Specific fix for room table cells */
+  .room-details-card table tbody td {
+    padding: 10px 8px !important;
+  }
+  
+  /* Reduce text area height */
+  .form-textarea {
+    min-height: 100px;
+    max-height: 150px;
+  }
+  
+  /* Add form section */
+  .add-form-section {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .add-form-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .add-form-input {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  
+  .add-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+  
+  /* No data message */
+  .no-data-message {
+    padding: 40px 30px;
+    margin: 30px 0;
+  }
+  
+  /* Mobile responsive improvements */
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      padding: 15px;
+      margin-top: 20px;
+    }
+    
+    .admin-dashboard h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .tab-content {
+      padding: 20px 15px;
+    }
+    
+    .room-details-card {
+      padding: 15px;
+    }
+    
+    .room-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .edit-room-btn, .delete-room-btn {
+      width: 100%;
+      margin: 5px 0 !important;
+    }
+    
+    .modal-content {
+      padding: 20px 15px !important;
+      margin: 10px !important;
+    }
+    
+    .modal-actions {
+      flex-direction: column;
+    }
+    
+    .save-btn, .cancel-btn {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-dashboard {
+      padding: 10px;
+    }
+    
+    .tab-content {
+      padding: 15px 10px;
+    }
+    
+    table {
+      margin-bottom: 15px;
+    }
+    
+    thead th {
+      padding: 8px 6px !important;
+      font-size: 0.9rem !important;
+    }
+    
+    tbody td {
+      padding: 8px 6px !important;
+      font-size: 0.9rem !important;
+    }
+    
+    .edit-btn, .delete-btn {
+      padding: 6px 12px !important;
+      font-size: 0.8rem !important;
+      min-width: 60px;
+    }
+  }
+
+  /* ================== FIX FOR EDIT/DELETE BUTTONS VISIBILITY ================== */
+
+/* CRITICAL FIX: Ensure action buttons are ALWAYS visible */
+table tbody td:last-child {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  min-width: 180px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.edit-btn, .delete-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 10px 16px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  border: 2px solid !important;
+  min-width: 40px !important;
+  height: 38px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  color: white !important;
+  background: #6f4647 !important;
+  border-color: #6f4647 !important;
+}
+
+.delete-btn {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.edit-btn:active, .delete-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* MOBILE-SPECIFIC FIXES (MOST IMPORTANT) */
+@media (max-width: 768px) {
+  /* Force buttons to be more visible on mobile */
+  .edit-btn, .delete-btn {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+    min-width: 100px !important;
+    height: 44px !important;
+    background: #6f4647 !important;
+    border-color: #6f4647 !important;
+    color: white !important;
+    font-weight: 600 !important;
+    margin: 4px !important;
+    flex: 1 !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .delete-btn {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+  }
+  
+  /* Make table action cell wider on mobile */
+  table tbody td:last-child {
+    min-width: 220px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 15px 10px !important;
+    background: rgba(111, 70, 71, 0.05) !important;
+  }
+  
+  /* Special styling for room action buttons */
+  .room-details-card table tbody td:last-child {
+    background: transparent !important;
+  }
+  
+  /* Ensure buttons are visible in room tables */
+  .room-details-card .edit-room-btn,
+  .room-details-card .delete-room-btn {
+    width: 100% !important;
+    margin: 8px 0 !important;
+    padding: 14px 24px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* EXTRA MOBILE VISIBILITY ENHANCEMENT */
+@media (max-width: 480px) {
+  /* Make buttons even more prominent on small screens */
+  .edit-btn, .delete-btn {
+    font-size: .9rem !important;
+    max-width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #6f4647, #8a5a5b) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(111, 70, 71, 0.3) !important;
+  }
+  
+  .delete-btn {
+    background: linear-gradient(135deg, #dc3545, #e35d6a) !important;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3) !important;
+  }
+  
+  table tbody td:last-child {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 20px 10px !important;
+  }
+  
+  /* Add visual indicator for action buttons */
+  .edit-btn::before,
+  .delete-btn::before {
+    content: '✎ ';
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  
+  .delete-btn::before {
+    content: '🗑 ';
+  }
+}
+
+/* FORCE VISIBILITY OVERRIDE - ADD THIS AT THE END OF YOUR CSS */
+/* This ensures buttons are never hidden by any other CSS */
+.edit-btn,
+.delete-btn,
+.edit-room-btn,
+.delete-room-btn,
+.save-btn,
+.cancel-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+/* Fix for specific table issues */
+table {
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+  width: 100% !important;
+}
+
+table td,
+table th {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Ensure action column is wide enough */
+table th:last-child,
+table td:last-child {
+  width: 200px !important;
+  min-width: 200px !important;
+}
+
+@media (max-width: 768px) {
+  table th:last-child,
+  table td:last-child {
+    width: auto !important;
+    min-width: 220px !important;
+  }
+}
+
+/* Fix for room details action buttons */
+.room-header > div {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.edit-room-btn, .delete-room-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 12px 24px !important;
+  background: #6f4647 !important;
+  color: white !important;
+  border: 2px solid #6f4647 !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  margin: 5px !important;
+}
+
+.delete-room-btn {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
