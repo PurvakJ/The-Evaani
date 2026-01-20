@@ -1,6 +1,6 @@
 export const api = async (data) => {
   const res = await fetch(
-    "https://script.google.com/macros/s/AKfycbx1ZwBF1Tzr6lvWDNpGhMJESz1ZgLD2aT3nKFfXipIClr4DPSoUFktcTeesjCli_ar7AQ/exec",
+    "https://script.google.com/macros/s/AKfycbyaQdUoAFRK8yaSEp2eaqrJlsMMsu-BzWS95K7i0K8wVszhEMFzVORG3fi7UkQy6JEHGg/exec",
     {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },

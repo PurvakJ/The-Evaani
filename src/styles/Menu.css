@@ -1227,6 +1227,7 @@
   .filter-buttons-container {
     max-width: 1400px;
     margin: 0 auto;
+    margin-top: 100px;
     padding: 0 40px;
     display: flex;
     gap: 15px;
@@ -1480,6 +1481,7 @@
   .mobile-filter-wrapper {
     max-width: 1400px;
     margin: 0 auto;
+    margin-top: 60px;
     padding: 0 20px;
     display: flex;
     gap: 15px;
@@ -1797,3 +1799,894 @@
     z-index: -1;
     pointer-events: none;
   }
+
+  /* Add these styles to Menu.css */
+
+/* Food Type Filter */
+.food-type-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.food-type-button:hover {
+  border-color: #6c757d;
+  transform: translateY(-2px);
+}
+
+.food-type-button.filter-active {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.food-type-button.filter-active .filter-button-emoji {
+  filter: brightness(0) invert(1);
+}
+
+/* Item Type Badge */
+.item-name-type {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  width: fit-content;
+}
+
+.type-emoji {
+  font-size: 0.8rem;
+}
+
+.type-text {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Mobile Food Type Filter */
+.mobile-food-type-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mobile-food-type-button:hover {
+  border-color: #6c757d;
+}
+
+.mobile-food-type-button.mobile-filter-active {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.mobile-food-type-button.mobile-filter-active .mobile-filter-emoji {
+  filter: brightness(0) invert(1);
+}
+
+/* No Results Message */
+.no-results-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  margin: 30px;
+}
+
+.no-results-emoji {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.no-results-message h3 {
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.no-results-message p {
+  color: #6c757d;
+}
+
+/* Update existing styles */
+.category-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-category-filters {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .item-name-price-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .price-separator {
+    display: none;
+  }
+  
+  .dish-price {
+    align-self: flex-start;
+  }
+}
+
+/* Food Type Filter - Evaani Elegant Style */
+.food-type-filter {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-type-button:hover {
+  background: rgba(111, 70, 71, 0.05);
+  border-color: var(--evaani-primary);
+  transform: translateY(-2px);
+  color: var(--evaani-primary);
+}
+
+.food-type-button.filter-active {
+  background: var(--evaani-primary);
+  color: white;
+  border-color: transparent;
+  letter-spacing: 2px;
+}
+
+.food-type-button.filter-active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(111, 70, 71, 0.2);
+}
+
+.food-type-button.filter-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.food-type-button .filter-button-emoji {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.food-type-button:hover .filter-button-emoji {
+  transform: scale(1.2);
+}
+
+/* Veg/Non-Veg specific colors */
+.food-type-button[data-type="veg"]:hover {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.food-type-button[data-type="veg"].filter-active {
+  background: #28a745;
+  border-color: transparent;
+}
+
+.food-type-button[data-type="nonveg"]:hover {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.food-type-button[data-type="nonveg"].filter-active {
+  background: #dc3545;
+  border-color: transparent;
+}
+
+/* Mobile Food Type Filter */
+.mobile-food-type-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-food-type-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mobile-food-type-button:hover {
+  background: rgba(111, 70, 71, 0.05);
+  border-color: var(--evaani-primary);
+  color: var(--evaani-primary);
+}
+
+.mobile-food-type-button.mobile-filter-active {
+  background: var(--evaani-primary);
+  color: white;
+  border-color: transparent;
+}
+
+/* Veg/Non-Veg specific colors for mobile */
+.mobile-food-type-button[data-type="veg"]:hover {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.mobile-food-type-button[data-type="veg"].mobile-filter-active {
+  background: #28a745;
+  border-color: transparent;
+}
+
+.mobile-food-type-button[data-type="nonveg"]:hover {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.mobile-food-type-button[data-type="nonveg"].mobile-filter-active {
+  background: #dc3545;
+  border-color: transparent;
+}
+
+.mobile-food-type-button .mobile-filter-emoji {
+  font-size: 1.1rem;
+}
+
+/* Item Type Badge - Elegant Style */
+.item-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.type-emoji {
+  font-size: 0.9rem;
+}
+
+.type-text {
+  color: var(--evaani-text-light);
+}
+
+/* Veg/Non-Veg badge colors */
+.item-type-badge[data-type="veg"] {
+  border-color: rgba(40, 167, 69, 0.3);
+  color: #28a745;
+}
+
+.item-type-badge[data-type="nonveg"] {
+  border-color: rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+}
+
+/* Update existing styles */
+.category-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mobile-category-filters {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .food-type-filter {
+    display: none; /* Hide desktop filter on mobile */
+  }
+  
+  .mobile-food-type-filter {
+    display: flex; /* Show mobile filter on mobile */
+  }
+  
+  .mobile-filter-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .mobile-category-filters {
+    flex-direction: column;
+  }
+  
+  .item-name-price-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .price-separator {
+    display: none;
+  }
+  
+  .dish-price {
+    align-self: flex-start;
+  }
+  
+  .item-type-badge {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-food-type-filter {
+    display: none; /* Hide mobile filter on desktop */
+  }
+}
+
+/* Update the mobile filter section for better spacing */
+.mobile-filter-section .mobile-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Add smooth transitions */
+.food-type-button,
+.mobile-food-type-button,
+.filter-button,
+.mobile-all-button {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active state animations */
+.filter-active,
+.mobile-filter-active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(111, 70, 71, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(111, 70, 71, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(111, 70, 71, 0);
+  }
+}
+
+/* No Results Message - Elegant Style */
+.no-results-message {
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  margin: 40px 20px;
+}
+
+.no-results-emoji {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.no-results-message h3 {
+  color: var(--evaani-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.no-results-message p {
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+/* Food Type Filter - Evaani Elegant Style */
+.food-type-filter {
+  margin-top: 50px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-type-button:hover {
+  background: rgba(111, 70, 71, 0.05);
+  border-color: var(--evaani-primary);
+  transform: translateY(-2px);
+  color: var(--evaani-primary);
+}
+
+.food-type-button.filter-active {
+  background: var(--evaani-primary);
+  color: white;
+  border-color: transparent;
+  letter-spacing: 2px;
+}
+
+.food-type-button.filter-active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(111, 70, 71, 0.2);
+}
+
+.food-type-button.filter-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.food-type-button .filter-button-emoji {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.food-type-button:hover .filter-button-emoji {
+  transform: scale(1.2);
+}
+
+/* Veg/Non-Veg specific colors */
+.food-type-button[data-type="veg"]:hover {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.food-type-button[data-type="veg"].filter-active {
+  background: #28a745;
+  border-color: transparent;
+}
+
+.food-type-button[data-type="nonveg"]:hover {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.food-type-button[data-type="nonveg"].filter-active {
+  background: #dc3545;
+  border-color: transparent;
+}
+
+/* Mobile Food Type Filter */
+.mobile-food-type-filter {
+  display: none; /* Hidden by default, shown on mobile */
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-food-type-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-food-type-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mobile-food-type-button:hover {
+  background: rgba(111, 70, 71, 0.05);
+  border-color: var(--evaani-primary);
+  color: var(--evaani-primary);
+}
+
+.mobile-food-type-button.mobile-filter-active {
+  background: var(--evaani-primary);
+  color: white;
+  border-color: transparent;
+}
+
+/* Veg/Non-Veg specific colors for mobile */
+.mobile-food-type-button[data-type="veg"]:hover {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.mobile-food-type-button[data-type="veg"].mobile-filter-active {
+  background: #28a745;
+  border-color: transparent;
+}
+
+.mobile-food-type-button[data-type="nonveg"]:hover {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.mobile-food-type-button[data-type="nonveg"].mobile-filter-active {
+  background: #dc3545;
+  border-color: transparent;
+}
+
+.mobile-food-type-button .mobile-filter-emoji {
+  font-size: 1.1rem;
+}
+
+/* Item Type Badge - Elegant Style */
+.item-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.type-emoji {
+  font-size: 0.9rem;
+}
+
+.type-text {
+  color: var(--evaani-text-light);
+}
+
+/* Veg/Non-Veg badge colors */
+.item-type-badge[data-type="veg"] {
+  border-color: rgba(40, 167, 69, 0.3);
+  color: #28a745;
+}
+
+.item-type-badge[data-type="nonveg"] {
+  border-color: rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+}
+
+/* Update existing styles */
+.category-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mobile-category-filters {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .food-type-filter {
+    display: none; /* Hide desktop filter on mobile */
+  }
+  
+  .mobile-food-type-filter {
+    display: flex; /* Show mobile filter on mobile */
+  }
+  
+  .mobile-filter-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .mobile-category-filters {
+    flex-direction: column;
+  }
+  
+  .item-name-price-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .price-separator {
+    display: none;
+  }
+  
+  .dish-price {
+    align-self: flex-start;
+  }
+  
+  .item-type-badge {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-food-type-filter {
+    display: none; /* Hide mobile filter on desktop */
+  }
+}
+
+/* Update the mobile filter section for better spacing */
+.mobile-filter-section .mobile-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Add smooth transitions */
+.food-type-button,
+.mobile-food-type-button,
+.filter-button,
+.mobile-all-button {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active state animations */
+.filter-active,
+.mobile-filter-active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(111, 70, 71, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(111, 70, 71, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(111, 70, 71, 0);
+  }
+}
+
+/* No Results Message - Elegant Style */
+.no-results-message {
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(111, 70, 71, 0.03) 0%, rgba(111, 70, 71, 0.01) 100%);
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  margin: 40px 20px;
+}
+
+.no-results-emoji {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.no-results-message h3 {
+  color: var(--evaani-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.no-results-message p {
+  color: var(--evaani-text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+/* Item Name Type Container */
+.item-name-type {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .mobile-food-type-filter {
+    padding: 12px;
+  }
+  
+  .mobile-food-type-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-food-type-button .mobile-filter-emoji {
+    font-size: 1rem;
+  }
+  
+  .item-type-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  
+  .no-results-message {
+    padding: 60px 20px;
+    margin: 20px 10px;
+  }
+  
+  .no-results-emoji {
+    font-size: 3rem;
+  }
+  
+  .no-results-message h3 {
+    font-size: 1.5rem;
+  }
+  
+  .no-results-message p {
+    font-size: 1rem;
+  }
+}
+
+/* Ensure proper stacking on very small screens */
+@media (max-width: 360px) {
+  .mobile-food-type-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .mobile-food-type-button .mobile-filter-emoji {
+    font-size: 0.9rem;
+  }
+}
+
