@@ -474,6 +474,7 @@ export default function AdminDashboard() {
                       <th>Category</th>
                       <th>Name</th>
                       <th>Price</th>
+                      <th>Veg/Non-Veg</th>
                       <th>Action</th>
                     </tr>
                   </thead>

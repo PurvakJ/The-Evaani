@@ -150,27 +150,76 @@ export default function Rooms() {
                 )}
               </div>
 
-              {/* Room Info */}
+              {/* Room Info - Scrollable Content */}
               <div className="room-modal-info">
-                <h2 className="room-modal-title">{selectedRoom.name}</h2>
-                <p className="room-modal-description">{selectedRoom.description}</p>
+                <div className="room-modal-info-scroll">
+                  <h2 className="room-modal-title">{selectedRoom.name}</h2>
+                  <p className="room-modal-description">{selectedRoom.description}</p>
 
-                <div className="room-modal-features">
-                  <div className="room-modal-feature">✓ Free WiFi</div>
-                  <div className="room-modal-feature">✓ Air Conditioning</div>
-                  <div className="room-modal-feature">✓ Room Service</div>
-                  <div className="room-modal-feature">✓ Flat Screen TV</div>
-                  <div className="room-modal-feature">✓ Private Bathroom</div>
+                  <div className="room-modal-features">
+                    <div className="room-modal-feature">✓ Free WiFi</div>
+                    <div className="room-modal-feature">✓ Air Conditioning</div>
+                    <div className="room-modal-feature">✓ Room Service</div>
+                    <div className="room-modal-feature">✓ Flat Screen TV</div>
+                    <div className="room-modal-feature">✓ Private Bathroom</div>
+                    <div className="room-modal-feature">✓ Safe Deposit Box</div>
+                    <div className="room-modal-feature">✓ Coffee/Tea Maker</div>
+                  </div>
+
+                  <div className="room-modal-price">
+                    <span className="room-modal-price-label">Starting from</span>
+                    <span className="room-modal-price-value">₹{selectedRoom.price} / night</span>
+                  </div>
+
+                  <button className="room-modal-book-btn" onClick={openBooking}>
+                    Book Now
+                  </button>
+
+                  {/* Additional Room Information */}
+                  <div className="room-additional-info">
+                    <h3>Room Details</h3>
+                    <div className="room-details-grid">
+                      <div className="room-detail-item">
+                        <span className="detail-icon">🛏️</span>
+                        <span className="detail-text">King Size Bed</span>
+                      </div>
+                      <div className="room-detail-item">
+                        <span className="detail-icon">🚿</span>
+                        <span className="detail-text">Rain Shower</span>
+                      </div>
+                      <div className="room-detail-item">
+                        <span className="detail-icon">📺</span>
+                        <span className="detail-text">43" Smart TV</span>
+                      </div>
+                      <div className="room-detail-item">
+                        <span className="detail-icon">🔄</span>
+                        <span className="detail-text">Daily Housekeeping</span>
+                      </div>
+                      <div className="room-detail-item">
+                        <span className="detail-icon">🧴</span>
+                        <span className="detail-text">Premium Toiletries</span>
+                      </div>
+                      <div className="room-detail-item">
+                        <span className="detail-icon">☕</span>
+                        <span className="detail-text">Coffee Machine</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Room Policies */}
+                  <div className="room-policies">
+                    <h3>Hotel Policies</h3>
+                    <ul className="policies-list">
+                      <li>Check-in: 12:00 PM</li>
+                      <li>Check-out: 11:30 AM</li>
+                      <li>Early check-in and late check-out subject to availability</li>
+                      <li>Children under 12 stay free when using existing bedding</li>
+                      <li>Extra beds available on request</li>
+                      <li>Pets are not allowed</li>
+                      <li>Smoking is not permitted in rooms</li>
+                    </ul>
+                  </div>
                 </div>
-
-                <div className="room-modal-price">
-                  <span className="room-modal-price-label">Starting from</span>
-                  <span className="room-modal-price-value">₹{selectedRoom.price} / night</span>
-                </div>
-
-                <button className="room-modal-book-btn" onClick={openBooking}>
-                  Book Now
-                </button>
               </div>
             </div>
           </div>

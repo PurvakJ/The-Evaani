@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { api } from "../api/api";
+import "../styles/AddForm.css"
 
 export default function AddForm({ sheetName, onAdded, fields = null, loading = false }) {
   const [row, setRow] = useState(() => {
