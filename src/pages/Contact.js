@@ -100,27 +100,17 @@ export default function Contact() {
     {
       icon: "📍",
       title: "Our Location",
-      details: ["Evaani Hotel, Luxury Street", "City Center, 560001", "Bangalore, India"],
+      details: ["Evaani Hotel, Talwandi road, near golden cooler factory, Mansa, Punjab 151505"],
       type: "location"
     },
     {
       icon: "📞",
       title: "Call Us",
-      details: ["+91 62840 86213", "+91 98765 43210", "Available 24/7"],
+      details: ["+91 95307 52236", "+91 98761 25241", "Available 24/7"],
       type: "phone",
       links: [
-        { text: "+91 62840 86213", href: "tel:+916284086213" },
-        { text: "+91 98765 43210", href: "tel:+919876543210" }
-      ]
-    },
-    {
-      icon: "✉️",
-      title: "Email Us",
-      details: ["reservations@evaanihotel.com", "info@evaanihotel.com", "Response within 24 hours"],
-      type: "email",
-      links: [
-        { text: "reservations@evaanihotel.com", href: "mailto:reservations@evaanihotel.com" },
-        { text: "info@evaanihotel.com", href: "mailto:info@evaanihotel.com" }
+        { text: "+91 95307 52236", href: "tel:+919530752236" },
+        { text: "+91 98761 25241", href: "tel:+919876125241" }
       ]
     },
     {
@@ -415,7 +405,7 @@ export default function Contact() {
                       For urgent assistance during your stay, please call our 24/7 emergency line:
                     </p>
                     <a href="tel:+911234567890" className="emergency-phone">
-                      +91 12345 67890
+                      +91 95307-52236
                     </a>
                   </div>
                 </div>

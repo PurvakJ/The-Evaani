@@ -47,11 +47,15 @@ function CarouselProvider({ children }) {
   });
 
   const heroImages = [
-    'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    'https://i.postimg.cc/tCDw1btR/IMG_0737.jpg',
+    'https://i.postimg.cc/4xfGMwwv/IMG_0688.jpg',
+    'https://i.postimg.cc/D0PDPk9x/IMG_0725.jpg',
+    'https://i.postimg.cc/4yRk11nr/IMG_0704.jpg',
+    'https://i.postimg.cc/1RDZ3bj3/IMG_0707.jpg',
+    'https://i.postimg.cc/L6TKzLRq/IMG_0716.jpg',
+    'https://i.postimg.cc/hjxNh7pG/IMG_0719.jpg',
+    'https://i.postimg.cc/wMpZNTGk/IMG_0723.jpg,',
+    'https://i.postimg.cc/VLz2LvM8/IMG_0732.jpg'
   ];
 
   // Save current slide to sessionStorage

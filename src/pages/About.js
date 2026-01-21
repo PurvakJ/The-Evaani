@@ -11,7 +11,7 @@ export default function About() {
 
   const hotelStats = [
     {
-      number: "1+",
+      number: "20+",
       label: "Years of Excellence",
       description: "A decade of providing luxury hospitality"
     },
@@ -21,12 +21,12 @@ export default function About() {
       description: "Satisfied customers and counting"
     },
     {
-      number: "15",
+      number: "18",
       label: "Luxury Rooms",
       description: "Elegant accommodations"
     },
     {
-      number: "20+",
+      number: "30+",
       label: "Team Members",
       description: "Dedicated hospitality professionals"
     }
@@ -34,28 +34,16 @@ export default function About() {
 
   const teamMembers = [
     {
-      name: "Arjun Mehta",
-      role: "General Manager",
-      description: "20+ years of hospitality experience",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      name: "Sh. Sudarshan singla",
+      role: "Founder Of The Evaani",
+      description: "20+ Years Of Hospitality Experience",
+      image: "https://i.postimg.cc/gjvBsFZn/Whats_App_Image_2026_01_21_at_13_11_19.jpg"
     },
     {
-      name: "Priya Sharma",
-      role: "Head Chef",
-      description: "Michelin-star trained culinary expert",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-      name: "Raj Patel",
-      role: "Guest Relations Manager",
-      description: "Ensuring memorable experiences for every guest",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    },
-    {
-      name: "Ananya Singh",
-      role: "Spa Director",
-      description: "Wellness and relaxation specialist",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      name: "Adv. Ashu Jain",
+      role: "Founder Of The Evaani",
+      description: "Great Hospitality And Maintain The Luxury And Hospitality Of the Hotel",
+      image: "https://i.postimg.cc/KYPkm0Bf/Whats-App-Image-2026-01-21-at-13-09-17.jpg"
     }
   ];
 

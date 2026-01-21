@@ -160,7 +160,6 @@ export default function Rooms() {
                   <div className="room-modal-feature">✓ Air Conditioning</div>
                   <div className="room-modal-feature">✓ Room Service</div>
                   <div className="room-modal-feature">✓ Flat Screen TV</div>
-                  <div className="room-modal-feature">✓ Mini Bar</div>
                   <div className="room-modal-feature">✓ Private Bathroom</div>
                 </div>
 
@@ -191,7 +190,7 @@ export default function Rooms() {
 
             <div className="room-booking-options">
               <a
-                href="https://www.goibibo.com/hotels/"
+                href="https://www.goibibo.com/hotels/the-evaani-hotel-in-mansa-3920650559968152257/"
                 target="_blank"
                 rel="noreferrer"
                 className="room-booking-option"
@@ -204,7 +203,7 @@ export default function Rooms() {
               </a>
 
               <a
-                href="https://www.makemytrip.com/hotels/"
+                href="https://www.makemytrip.com/hotels/the_evaani_hotel-details-mansa_punjab.html"
                 target="_blank"
                 rel="noreferrer"
                 className="room-booking-option"
@@ -221,7 +220,7 @@ export default function Rooms() {
                 <div>
                   <div className="room-booking-option-title">Direct Booking</div>
                   <div className="room-booking-option-description">
-                    Call us at <strong className="room-booking-phone">+91 22 1234 5678</strong>
+                    Call us at <strong className="room-booking-phone">+91 95307-52236</strong>
                   </div>
                 </div>
               </div>

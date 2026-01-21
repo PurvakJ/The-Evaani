@@ -3,39 +3,83 @@ import "../styles/Amenities.css";
 export default function Amenities() {
   const amenities = [
     {
-      category: "Dining",
+      category: "Internet & Connectivity",
       items: [
-        { name: "Fine Dining Restaurant", icon: "🍽️", description: "Multi-cuisine restaurant with chef's specials" },
-        { name: "Poolside Bar", icon: "🍹", description: "Refreshments and cocktails by the pool" },
-        { name: "24/7 Room Service", icon: "🛎️", description: "Round-the-clock dining at your doorstep" },
-        { name: "Breakfast Buffet", icon: "☕", description: "Continental and local breakfast selections" }
+        { name: "Free Wi-Fi", icon: "📶", description: "High-speed internet throughout property" },
+        { name: "Wi-Fi in Public Areas", icon: "🌐", description: "Free wireless internet in all common areas" },
+        { name: "Public Internet Workstation", icon: "💻", description: "Computer with internet access for guests" }
       ]
     },
     {
-      category: "Wellness",
+      category: "Policies & Payments",
       items: [
-        { name: "Swimming Pool", icon: "🏊", description: "Temperature-controlled infinity pool" },
-        { name: "Spa & Massage", icon: "💆", description: "Therapeutic treatments and relaxation therapies" },
-        { name: "Fitness Center", icon: "💪", description: "Modern equipment with personal trainers" },
-        { name: "Yoga Studio", icon: "🧘", description: "Daily yoga and meditation sessions" }
+        { name: "Smoke-free Property", icon: "🚭", description: "Completely smoke-free environment" },
+        { name: "Credit & Debit Cards", icon: "💳", description: "Visa, MasterCard, American Express accepted" },
+        { name: "NFC Mobile Payments", icon: "📱", description: "Apple Pay, Google Pay, contactless payments" },
+        { name: "Cash Payments", icon: "💰", description: "Cash accepted at front desk" }
       ]
     },
     {
-      category: "Services",
+      category: "Pools & Recreation",
       items: [
-        { name: "Free High-Speed WiFi", icon: "📶", description: "High-speed internet throughout property" },
-        { name: "Laundry Service", icon: "👔", description: "Same-day laundry and dry cleaning" },
-        { name: "Personal Concierge", icon: "🤵", description: "24/7 assistance and local guidance" },
-        { name: "Airport Transfer", icon: "🚗", description: "Complimentary pickup and drop service" }
+        { name: "Outdoor Pool", icon: "🏊‍♂️", description: "Temperature-controlled infinity pool" },
+        { name: "Adult-only Pool", icon: "👨‍💼", description: "Exclusive pool area for adults" },
+        { name: "Accessible Pool", icon: "♿", description: "Pool accessibility features available" }
       ]
     },
     {
-      category: "Business",
+      category: "Parking & Transport",
       items: [
-        { name: "Business Center", icon: "💼", description: "Fully equipped with computers and printers" },
-        { name: "Meeting Rooms", icon: "📊", description: "Conference facilities for up to 100 guests" },
-        { name: "Printing Services", icon: "🖨️", description: "Document printing and binding services" },
-        { name: "Video Conferencing", icon: "📹", description: "HD video conferencing facilities" }
+        { name: "Free Parking", icon: "🅿️", description: "Complimentary parking for all guests" },
+        { name: "Self Parking", icon: "🚗", description: "Convenient self-parking facilities" },
+        { name: "Accessible Parking", icon: "♿", description: "Designated parking for guests with disabilities" }
+      ]
+    },
+    {
+      category: "Accessibility",
+      items: [
+        { name: "Accessible Facilities", icon: "♿", description: "Wheelchair accessible property" },
+        { name: "Accessible Lift", icon: "🛗", description: "Elevator access to all floors" },
+        { name: "Accessible Pool", icon: "🏊‍♂️♿", description: "Pool with accessibility features" }
+      ]
+    },
+    {
+      category: "Rooms & Accommodation",
+      items: [
+        { name: "Air Conditioning", icon: "❄️", description: "Individual climate control in all rooms" },
+        { name: "Private Kitchen", icon: "🍳", description: "Fully equipped kitchen in select rooms" },
+        { name: "Coffee Maker", icon: "☕", description: "In-room coffee and tea facilities" },
+        { name: "Private Bathroom", icon: "🛁", description: "En-suite bathroom with premium amenities" }
+      ]
+    },
+    {
+      category: "Food & Drink",
+      items: [
+        { name: "Restaurant", icon: "🍽️", description: "Multi-cuisine fine dining restaurant" },
+        { name: "Bar", icon: "🍹", description: "Premium bar with signature cocktails" },
+        { name: "Table Service", icon: "👨‍🍳", description: "Professional table service available" },
+        { name: "24-hour Room Service", icon: "🛎️", description: "Round-the-clock dining service" },
+      ]
+    },
+    {
+      category: "Activities",
+      items: [
+        { name: "Water Skiing", icon: "⛷️", description: "Water sports and recreational activities" }
+      ]
+    },
+    {
+      category: "Guest Services",
+      items: [
+        { name: "24-hour Front Desk", icon: "🏨", description: "Round-the-clock reception service" },
+        { name: "Full-service Laundry", icon: "👔", description: "Professional laundry and dry cleaning" },
+        { name: "Daily Housekeeping", icon: "🧹", description: "Complimentary daily room cleaning" },
+        { name: "Turndown Service", icon: "🛏️", description: "Evening bed preparation service" }
+      ]
+    },
+    {
+      category: "Business & Events",
+      items: [
+        { name: "Meeting Rooms", icon: "📊", description: "Conference facilities for events" }
       ]
     }
   ];
@@ -72,12 +116,12 @@ export default function Amenities() {
             <div key={index} className="amenities-category-block">
               <div className="amenities-category-header">
                 <h2 className="amenities-category-title">
-                  <span className="category-title-icon">{category.category.charAt(0)}</span>
+                  <span className="category-title-icon">{getCategoryIcon(category.category)}</span>
                   {category.category}
                 </h2>
                 <div className="amenities-category-line"></div>
                 <p className="amenities-category-description">
-                  Premium {category.category.toLowerCase()} facilities for your comfort
+                  Premium {category.category.toLowerCase()} for your comfort and convenience
                 </p>
               </div>
 
@@ -91,7 +135,7 @@ export default function Amenities() {
                       <h3 className="amenity-item-title">{item.name}</h3>
                       <p className="amenity-item-description">{item.description}</p>
                       <div className="amenity-item-status">
-                        <span className="status-indicator"></span>
+                        <span className="status-indicator available"></span>
                         <span className="status-text">Available to All Guests</span>
                       </div>
                     </div>
@@ -124,7 +168,7 @@ export default function Amenities() {
               </div>
 
               <div className="amenities-hour-card">
-                <div className="hour-card-icon">🏊</div>
+                <div className="hour-card-icon">🏊‍♂️</div>
                 <div className="hour-card-content">
                   <h3 className="hour-card-title">Swimming Pool</h3>
                   <p className="hour-card-time">6:00 AM - 9:00 PM</p>
@@ -133,20 +177,20 @@ export default function Amenities() {
               </div>
 
               <div className="amenities-hour-card">
-                <div className="hour-card-icon">💆</div>
+                <div className="hour-card-icon">📶</div>
                 <div className="hour-card-content">
-                  <h3 className="hour-card-title">Spa & Wellness</h3>
-                  <p className="hour-card-time">9:00 AM - 8:00 PM</p>
-                  <p className="hour-card-note">Advance booking recommended</p>
+                  <h3 className="hour-card-title">Front Desk</h3>
+                  <p className="hour-card-time">24 Hours</p>
+                  <p className="hour-card-note">Always available for assistance</p>
                 </div>
               </div>
 
               <div className="amenities-hour-card">
-                <div className="hour-card-icon">💪</div>
+                <div className="hour-card-icon">🏨</div>
                 <div className="hour-card-content">
-                  <h3 className="hour-card-title">Fitness Center</h3>
+                  <h3 className="hour-card-title">Room Service</h3>
                   <p className="hour-card-time">24 Hours</p>
-                  <p className="hour-card-note">Access with room key</p>
+                  <p className="hour-card-note">Available round the clock</p>
                 </div>
               </div>
             </div>
@@ -154,39 +198,23 @@ export default function Amenities() {
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="amenities-extra-section">
-        <div className="amenities-content-wrapper">
-          <h2 className="amenities-extra-title">Additional Services</h2>
-          <p className="amenities-extra-subtitle">Tailored experiences for every need</p>
-          
-          <div className="amenities-extra-grid">
-            <div className="amenities-extra-card">
-              <div className="extra-card-icon">👶</div>
-              <h3 className="extra-card-title">Child Care</h3>
-              <p className="extra-card-text">Professional babysitting services available upon request</p>
-            </div>
-
-            <div className="amenities-extra-card">
-              <div className="extra-card-icon">🎁</div>
-              <h3 className="extra-card-title">Gift Shop</h3>
-              <p className="extra-card-text">Luxury souvenirs, essentials, and local handicrafts</p>
-            </div>
-
-            <div className="amenities-extra-card">
-              <div className="extra-card-icon">🎉</div>
-              <h3 className="extra-card-title">Event Planning</h3>
-              <p className="extra-card-text">Professional assistance for celebrations and meetings</p>
-            </div>
-
-            <div className="amenities-extra-card">
-              <div className="extra-card-icon">🐕</div>
-              <h3 className="extra-card-title">Pet Friendly</h3>
-              <p className="extra-card-text">Special amenities for your furry companions</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
+}
+
+// Helper function for category icons
+function getCategoryIcon(category) {
+  const iconMap = {
+    "Internet & Connectivity": "📡",
+    "Policies & Payments": "📋",
+    "Pools & Recreation": "🎯",
+    "Parking & Transport": "🚘",
+    "Accessibility": "♿",
+    "Rooms & Accommodation": "🛏️",
+    "Food & Drink": "🍽️",
+    "Activities": "🎪",
+    "Guest Services": "🛎️",
+    "Business & Events": "💼"
+  };
+  return iconMap[category] || "⭐";
 }

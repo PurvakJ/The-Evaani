@@ -16,46 +16,43 @@ export default function Venue() {
     message: ""
   });
 
-  // Filter images for venue gallery
-  const venueImages = images
-    .filter(img => img.length >= 2) // Ensure at least [id, url] exists
-    .map(img => ({
-      id: img[0],
-      url: img[1],
-      title: img[2] || "Venue Image",
-      category: img[3] || "general"
-    }));
-
+  // Hardcoded venue images
   const venueSpaces = [
     {
       id: 1,
-      name: "Grand Ballroom",
+      name: "Golden Leaf",
       capacity: "500 Guests",
       description: "Perfect for weddings, corporate events, and large celebrations with elegant decor and state-of-the-art facilities",
       features: ["Stage & Podium", "Dance Floor", "AV Equipment", "Catering Kitchen", "Lighting System", "Sound System", "VIP Lounge", "Bridal Suite"],
       price: "Starting at ₹2,00,000",
       size: "5000 sq.ft",
-      images: venueImages.filter(img => img.title.toLowerCase().includes("ballroom"))
+      images: [
+        "https://r1imghtlak.mmtcdn.com/69c87b76-52ed-471a-ac71-5e7d96ce0fd7.jpg"
+      ]
     },
     {
       id: 2,
-      name: "Executive Boardroom",
+      name: "Panch Ratna",
       capacity: "40 Guests",
       description: "Ideal for business meetings, conferences, and corporate gatherings with premium amenities",
       features: ["Projector & Screen", "Whiteboard", "Video Conferencing", "WiFi", "Catering", "Presentation Tools", "Comfort Seating", "Acoustic Design"],
-      price: "Starting at ₹50,000",
+      price: "Starting at ₹1,000",
       size: "800 sq.ft",
-      images: venueImages.filter(img => img.title.toLowerCase().includes("boardroom"))
+      images: [
+        "https://i.postimg.cc/4xfGMwwv/IMG_0688.jpg"
+      ]
     },
     {
       id: 3,
-      name: "Garden Pavilion",
+      name: "SkyYard",
       capacity: "200 Guests",
       description: "Outdoor venue surrounded by beautiful landscaped gardens, perfect for weddings and celebrations",
       features: ["Open Air Setting", "Landscape Lighting", "Premium Sound System", "Bar Setup", "Garden Decor", "Weather Protection", "Dance Area", "Photo Spots"],
-      price: "Starting at ₹1,50,000",
+      price: "Starting at ₹1,000",
       size: "3000 sq.ft",
-      images: venueImages.filter(img => img.title.toLowerCase().includes("garden"))
+      images: [
+        "https://i.postimg.cc/wMpZNTGk/IMG_0723.jpg"
+      ]
     },
     {
       id: 4,
@@ -63,16 +60,66 @@ export default function Venue() {
       capacity: "150 Guests",
       description: "Elegant outdoor space by the infinity pool for sophisticated parties and events",
       features: ["Pool View", "Lounge Seating", "Premium Bar", "Ambient Lighting", "Sound System", "Catering Setup", "Fire Pit", "LED Decor"],
-      price: "Starting at ₹1,20,000",
+      price: "Starting at ₹1,000",
       size: "2500 sq.ft",
-      images: venueImages.filter(img => img.title.toLowerCase().includes("pool"))
+      images: [
+        "https://i.postimg.cc/Y9WBgP2V/IMG_0701.jpg"
+      ]
     }
   ];
+
+  // Use hardcoded hero image
+  const heroImage = "https://i.postimg.cc/1RDZ3bj3/IMG_0707.jpg";
+
+  // Filter images for general venue gallery
+  const venueImages = images
+    .filter(img => img.length >= 2)
+    .map(img => ({
+      id: img[0],
+      url: img[1],
+      title: img[2] || "Venue Image",
+      category: img[3] || "general"
+    }));
+
+  // Fallback gallery images if no images from API
+  const fallbackGalleryImages = [
+    {
+      id: 1,
+      url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Grand Ballroom"
+    },
+    {
+      id: 2,
+      url: "https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Outdoor Garden"
+    },
+    {
+      id: 3,
+      url: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Conference Room"
+    },
+    {
+      id: 4,
+      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Poolside Area"
+    },
+    {
+      id: 5,
+      url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Wedding Setup"
+    },
+    {
+      id: 6,
+      url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Corporate Event"
+    }
+  ];
+
+  const displayGalleryImages = venueImages.length > 0 ? venueImages : fallbackGalleryImages;
 
   const handleVenueEnquiry = (venue) => {
     setSelectedVenue(venue);
     setShowEnquiryForm(true);
-    // Pre-fill event type if venue is selected
     setEnquiryFormData(prev => ({
       ...prev,
       eventType: venue.name
@@ -129,9 +176,7 @@ export default function Venue() {
         </div>
         <div className="venue-hero-background">
           <div className="hero-image-overlay"></div>
-          {venueImages[0] && (
-            <img src={venueImages[0].url} alt="Venue Hero" className="hero-section-image" />
-          )}
+          <img src={heroImage} alt="Venue Hero" className="hero-section-image" />
         </div>
       </section>
 
@@ -146,13 +191,7 @@ export default function Venue() {
           {venueSpaces.map((venue) => (
             <div key={venue.id} className="venue-space-card">
               <div className="venue-card-image-container">
-                {venue.images.length > 0 ? (
-                  <img src={venue.images[0].url} alt={venue.name} />
-                ) : (
-                  <div className="venue-image-placeholder">
-                    <span className="placeholder-icon">🏨</span>
-                  </div>
-                )}
+                <img src={venue.images[0]} alt={venue.name} />
                 <div className="venue-card-overlay-section">
                   <span className="venue-space-price">{venue.price}</span>
                   <span className="venue-space-size">{venue.size}</span>
@@ -336,33 +375,25 @@ export default function Venue() {
           <p>Explore our beautiful spaces through real moments</p>
         </div>
 
-        {venueImages.length > 0 ? (
-          <div className="gallery-images-grid">
-            {venueImages.map((img, index) => (
-              <div key={img.id || index} className="gallery-image-item">
-                <div className="gallery-image-wrapper">
-                  <img
-                    src={img.url}
-                    alt={img.title}
-                    loading="lazy"
-                    className="gallery-display-image"
-                  />
-                  <div className="image-hover-overlay">
-                    <div className="overlay-content-section">
-                      <h3 className="gallery-image-title">{img.title}</h3>
-                    </div>
+        <div className="gallery-images-grid">
+          {displayGalleryImages.map((img, index) => (
+            <div key={img.id || index} className="gallery-image-item">
+              <div className="gallery-image-wrapper">
+                <img
+                  src={img.url}
+                  alt={img.title}
+                  loading="lazy"
+                  className="gallery-display-image"
+                />
+                <div className="image-hover-overlay">
+                  <div className="overlay-content-section">
+                    <h3 className="gallery-image-title">{img.title}</h3>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="empty-gallery-message">
-            <div className="empty-gallery-icon">🏨</div>
-            <p>No venue images available yet</p>
-            <p className="empty-gallery-subtitle">Check back soon for updates</p>
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Booking Process */}
@@ -429,14 +460,7 @@ export default function Venue() {
             
             <div className="venue-detail-modal-content">
               <div className="venue-detail-gallery-section">
-                {selectedVenue.images.length > 0 ? (
-                  <img src={selectedVenue.images[0].url} alt={selectedVenue.name} />
-                ) : (
-                  <div className="detail-image-placeholder">
-                    <span className="placeholder-icon">🏨</span>
-                    <p>No images available</p>
-                  </div>
-                )}
+                <img src={selectedVenue.images[0]} alt={selectedVenue.name} />
               </div>
               
               <div className="venue-detail-info-section">

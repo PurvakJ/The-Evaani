@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTripadvisor, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaGlobe } from "react-icons/fa";
 import "../styles/Footer.css";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <FaFacebook />, url: "https://facebook.com/evaanihotel" },
-    { icon: <FaInstagram />, url: "https://instagram.com/evaanihotel" },
-    { icon: <FaTwitter />, url: "https://twitter.com/evaanihotel" },
-    { icon: <FaYoutube />, url: "https://youtube.com/evaanihotel" },
-    { icon: <FaTripadvisor />, url: "https://tripadvisor.com/evaanihotel" },
+    { icon: <FaFacebook />, url: "https://www.facebook.com/p/Theevaani-61573315044361/" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/theevaani/?hl=en" },
+    { icon: <FaGlobe />, url: "https://www.makemytrip.com/hotels/the_evaani_hotel-details-mansa_punjab.html" },
+    { icon: <FaGlobe />, url: "https://www.goibibo.com/hotels/the-evaani-hotel-in-mansa-3920650559968152257/" },
   ];
 
   const quickLinks = [
@@ -25,9 +24,8 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    { icon: <FaMapMarkerAlt />, text: "123 Luxury Street, Mumbai, India 400001" },
-    { icon: <FaPhone />, text: "+91 22 1234 5678" },
-    { icon: <FaEnvelope />, text: "info@evaanihotel.com" },
+    { icon: <FaMapMarkerAlt />, text: "Talwandi road, near golden cooler factory, Mansa, Punjab 151505" },
+    { icon: <FaPhone />, text: "+91 95307-52236" },
   ];
 
   const policies = [
