@@ -9,6 +9,7 @@
   
   /* Hero Section - Elegant Design */
   .rooms-hero {
+    margin-top: 50px;
     position: relative;
     height: 40vh;
     min-height: 300px;
