@@ -148,7 +148,7 @@ export default function App() {
     fetchAllData();
 
     // Exact 3 second loader time
-    const LOADER_DURATION = 6000;
+    const LOADER_DURATION = 3000;
     
     const timer = setTimeout(() => {
       if (isMounted) {

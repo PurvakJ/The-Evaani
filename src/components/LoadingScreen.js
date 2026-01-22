@@ -14,7 +14,7 @@ export default function LoadingScreen() {
   };
 
   // ⏱ Loader duration (6 seconds)
-  const TOTAL_DURATION = 6000; // ms
+  const TOTAL_DURATION = 3000; // ms
   const INTERVAL_DURATION = 40; // ms
 
   useEffect(() => {

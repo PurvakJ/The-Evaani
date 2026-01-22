@@ -3,7 +3,6 @@ import { useData, useCarousel } from "../App";
 import OfferPopup from "../components/OfferPopup";
 import "../styles/Home.css";
 
-
 export default function Home() {
   const navigate = useNavigate();
   const { 
@@ -24,13 +23,13 @@ export default function Home() {
       title: "Premium Accommodation",
       description: "Elegant suites with panoramic city views",
       icon: "🏨",
-      stat: "50+ Rooms"
+      stat: "18+ Rooms"
     },
     {
       title: "Gourmet Dining",
       description: "Multi-cuisine restaurant & 24/7 room service",
       icon: "🍽️",
-      stat: "3 Restaurants"
+      stat: "4 Restaurants"
     },
     {
       title: "Wellness Oasis",
@@ -46,113 +45,157 @@ export default function Home() {
     }
   ];
 
-  // Get rooms from backend instead of static data
-  const getPremiumRoomsFromBackend = () => {
-    if (!rooms || rooms.length === 0) {
-      // Fallback static rooms if backend data is not available
-      return [
-        {
-          name: "Deluxe Suite",
-          description: "Spacious suite with king-size bed and private balcony overlooking the city",
-          image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-          amenities: ["Free WiFi", "Minibar", "AC", "Smart TV", "Coffee Maker"]
-        },
-        {
-          name: "Executive Room",
-          description: "Modern room with work desk and luxury amenities for business travelers",
-          image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2058&q=80",
-          amenities: ["City View", "Room Service", "Work Desk", "Safe", "Bathrobe"]
-        },
-        {
-          name: "Presidential Suite",
-          description: "Ultimate luxury suite with separate living area and private jacuzzi",
-          image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-          amenities: ["Butler Service", "Jacuzzi", "Private Terrace", "Bar", "Dining Area"]
-        }
-      ];
-    }
+  // Static room data for fallback
+  const staticRooms = [
+    {
+      id: 1,
+      name: "Super Deluxe Suite",
+      description: "Spacious suite with king-size bed and private balcony overlooking the city",
+      image: "https://i.postimg.cc/L6TKzLRq/IMG_0716.jpg",
+      price: "Starting from ₹2500",
+      amenities: ["Free WiFi", "Minibar", "AC", "Smart TV", "Coffee Maker"]
+    },
+    {
+      id: 2,
+      name: "Executive Room",
+      description: "Modern room with work desk and luxury amenities for business travelers",
+      image: "https://i.postimg.cc/J7jWzS2t/IMG_0709.jpg",
+      price: "Starting from ₹3500",
+      amenities: ["City View", "Room Service", "Work Desk", "Safe", "Bathrobe"]
+    },
+  ];
 
-    // Get first 3 rooms from backend data
-    return rooms.slice(0, 3).map(room => {
-      const roomId = room[0];
-      const images = imagesByRoomId[roomId] || [];
-      
-      return {
-        id: roomId,
-        name: room[1] || "Room",
-        description: room[2] || "Luxurious accommodation",
-        image: images[0] || "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        price: room[3] || "Starting from ₹9999",
-        amenities: ["Free WiFi", "Air Conditioning", "Room Service", "Smart TV"]
-      };
-    });
-  };
-
-  // Get rooms data
-  const premiumRooms = getPremiumRoomsFromBackend();
-
-  // Get 4 most recent gallery images from backend
-  const galleryPictures = images.length > 0 
-    ? images
-        .sort((a, b) => (b[0] || b.id) - (a[0] || a.id))
-        .slice(0, 3)
-        .map(img => ({
-          url: img[1] || img.imageurl,
-          title: img[2] || "Hotel Gallery"
-        }))
-    : [];
-
-  // Static fallback gallery images
+  // Static gallery data for fallback
   const backupGallery = [
     {
-      url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-      title: "Lobby Area"
+      url: "https://i.postimg.cc/hG3KVxL4/IMG_0672.jpg",
+      title: "Luxury Lobby"
     },
     {
-      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80",
-      title: "Infinity Pool"
+      url: "https://r1imghtlak.mmtcdn.com/4a335459-c0bc-40f1-82ea-0c03324bc145.jpg?downsize=810:*",
+      title: "Party Hall"
     },
     {
-      url: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Dining Hall"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2025&q=80",
-      title: "Spa Center"
+      url: "https://i.postimg.cc/B6DRt1MS/IMG_0720.jpg",
+      title: "Fine Dining"
     }
   ];
 
-  // Use dynamic reviews if available, otherwise static
-  const guestTestimonials = reviews.length > 0 
-    ? reviews.slice(0, 3).map(review => ({
+  // Static reviews data for fallback
+  const staticReviews = [
+    {
+      guestName: "Rajesh Kumar",
+      rating: 5,
+      feedback: "Outstanding service and luxurious accommodations. The staff exceeded our expectations.",
+      visitDate: "15 Dec 2023"
+    },
+    {
+      guestName: "Priya Sharma",
+      rating: 4,
+      feedback: "Breathtaking property with stunning views. The spa experience was truly rejuvenating.",
+      visitDate: "22 Nov 2023"
+    },
+    {
+      guestName: "Amit Patel",
+      rating: 5,
+      feedback: "Perfect for business stays. Premium amenities and exceptional location.",
+      visitDate: "10 Jan 2024"
+    }
+  ];
+
+  // Get rooms data with fallback to static data
+  const getPremiumRooms = () => {
+    // If rooms data is still loading, show static data
+    if (loading) {
+      return staticRooms;
+    }
+
+    // If rooms data is loaded but empty, show static data
+    if (!rooms || rooms.length === 0) {
+      return staticRooms;
+    }
+
+    // Use backend rooms data
+    try {
+      return rooms.slice(0, 3).map(room => {
+        const roomId = room[0];
+        const roomImages = imagesByRoomId[roomId] || [];
+        
+        return {
+          id: roomId,
+          name: room[1] || "Room",
+          description: room[2] || "Luxurious accommodation",
+          image: roomImages[0] || staticRooms[0].image, // Fallback to static image
+          price: room[3] || "Starting from ₹9999",
+          amenities: ["Free WiFi", "Air Conditioning", "Room Service", "Smart TV"]
+        };
+      });
+    } catch (error) {
+      console.error("Error processing rooms data:", error);
+      return staticRooms;
+    }
+  };
+
+  // Get gallery pictures with fallback
+  const getGalleryPictures = () => {
+    // If data is still loading, show static data
+    if (loading) {
+      return backupGallery;
+    }
+
+    // If images data is loaded but empty, show static data
+    if (!images || images.length === 0) {
+      return backupGallery;
+    }
+
+    // Use backend images data
+    try {
+      return images
+        .sort((a, b) => (b[0] || b.id) - (a[0] || a.id))
+        .slice(0, 3)
+        .map(img => ({
+          url: img[1] || img.imageurl || backupGallery[0].url,
+          title: img[2] || "Hotel Gallery"
+        }));
+    } catch (error) {
+      console.error("Error processing gallery data:", error);
+      return backupGallery;
+    }
+  };
+
+  // Get testimonials with fallback
+  const getGuestTestimonials = () => {
+    // If data is still loading, show static data
+    if (loading) {
+      return staticReviews;
+    }
+
+    // If reviews data is loaded but empty, show static data
+    if (!reviews || reviews.length === 0) {
+      return staticReviews;
+    }
+
+    // Use backend reviews data
+    try {
+      return reviews.slice(0, 3).map(review => ({
         guestName: review[1] || "Guest",
         rating: parseInt(review[3]) || 5,
         feedback: review[4] || "Exceptional experience!",
         visitDate: review[5] || "Recently"
-      }))
-    : [
-        {
-          guestName: "Rajesh Kumar",
-          rating: 5,
-          feedback: "Outstanding service and luxurious accommodations. The staff exceeded our expectations.",
-          visitDate: "15 Dec 2023"
-        },
-        {
-          guestName: "Priya Sharma",
-          rating: 4,
-          feedback: "Breathtaking property with stunning views. The spa experience was truly rejuvenating.",
-          visitDate: "22 Nov 2023"
-        },
-        {
-          guestName: "Amit Patel",
-          rating: 5,
-          feedback: "Perfect for business stays. Premium amenities and exceptional location.",
-          visitDate: "10 Jan 2024"
-        }
-      ];
+      }));
+    } catch (error) {
+      console.error("Error processing reviews data:", error);
+      return staticReviews;
+    }
+  };
 
-  // Loading state
-  if (loading) {
+  // Get data with fallback
+  const premiumRooms = getPremiumRooms();
+  const galleryPictures = getGalleryPictures();
+  const guestTestimonials = getGuestTestimonials();
+
+  // Loading state - only show if there's an actual loading state from backend
+  if (loading && rooms.length === 0 && images.length === 0) {
     return (
       <div className="luxury-home">
         <div className="loading-container">
@@ -208,24 +251,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Suites Section - Now using backend data */}
+      {/* Featured Suites Section */}
       <section className="premium-suites">
         <div className="content-wrapper">
           <h2 className="section-main-title">Signature Suites & Rooms</h2>
-          <p className="section-description">Experience luxury in every meticulously crafted detail</p>
+          <p className="section-description">
+            {rooms.length > 0 
+              ? "Experience luxury in every meticulously crafted detail" 
+              : "Explore our premium accommodations"}
+          </p>
           
           <div className="suites-grid">
             {premiumRooms.map((room, index) => (
               <div key={index} className="suite-card">
                 <div className="suite-image-frame">
-                  <img src={room.image} alt={room.name} className="suite-photo" />
+                  <img 
+                    src={room.image} 
+                    alt={room.name} 
+                    className="suite-photo"
+                    onError={(e) => {
+                      // If image fails to load, use fallback image
+                      e.target.src = staticRooms[index % staticRooms.length].image;
+                    }}
+                  />
                   <div className="image-overlay"></div>
                 </div>
                 <div className="suite-details">
                   <h3 className="suite-name">{room.name}</h3>
                   <p className="suite-description">{room.description}</p>
                   <div className="amenities-list">
-                    {room.amenities.map((amenity, idx) => (
+                    {room.amenities.slice(0, 4).map((amenity, idx) => (
                       <span key={idx} className="amenity-item">✓ {amenity}</span>
                     ))}
                   </div>
@@ -239,7 +294,7 @@ export default function Home() {
           
           <div className="view-all-container">
             <button className="view-all-suites" onClick={() => navigate('/rooms')}>
-              Explore All Accommodations
+              {rooms.length > 0 ? "Explore All Accommodations" : "View All Rooms"}
             </button>
           </div>
         </div>
@@ -273,14 +328,11 @@ export default function Home() {
         <div className="content-wrapper">
           <h2 className="section-main-title">Our Visual Journey</h2>
           <p className="section-description">
-            {galleryPictures.length > 0 
-              ? "Recently Added Visuals" 
-              : "Experience the elegance of Evaani"
-            }
+            {images.length > 0 ? "Recently Added Visuals" : "Experience the elegance of Evaani"}
           </p>
           
           <div className="gallery-grid">
-            {(galleryPictures.length > 0 ? galleryPictures : backupGallery).map((item, index) => (
+            {galleryPictures.map((item, index) => (
               <div key={index} className="gallery-frame">
                 <div className="gallery-image-container">
                   <img 
@@ -288,12 +340,16 @@ export default function Home() {
                     alt={item.title} 
                     className="gallery-img"
                     loading="lazy"
+                    onError={(e) => {
+                      // If image fails to load, use fallback image
+                      e.target.src = backupGallery[index % backupGallery.length].url;
+                    }}
                   />
                   <div className="gallery-overlay">
                     <h4 className="image-title">{item.title}</h4>
                   </div>
                 </div>
-                {galleryPictures.length > 0 && index === 0 && (
+                {images.length > 0 && index === 0 && (
                   <div className="new-label">New</div>
                 )}
               </div>
@@ -312,7 +368,9 @@ export default function Home() {
       <section className="guest-testimonials">
         <div className="content-wrapper">
           <h2 className="section-main-title">Guest Experiences</h2>
-          <p className="section-description">Stories from our valued guests</p>
+          <p className="section-description">
+            {reviews.length > 0 ? "Stories from our valued guests" : "What our guests say"}
+          </p>
           
           <div className="testimonials-display">
             {guestTestimonials.map((testimonial, index) => (

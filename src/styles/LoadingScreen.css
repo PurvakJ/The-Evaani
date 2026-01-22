@@ -542,7 +542,7 @@
 
 .loading-screen {
   animation: softFloatOut 1s ease-in-out forwards;
-  animation-delay: 5.4s;
+  animation-delay: 3s;
   will-change: transform, opacity;
 }
 
