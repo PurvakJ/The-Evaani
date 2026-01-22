@@ -165,36 +165,7 @@ export default function AdminDashboard() {
     return false;
   };
 
-  /* ================= NEW ROOM IMAGE HANDLING ================= */
-  const handleNewRoomImageDrop = (e) => {
-    e.preventDefault();
-    const files = Array.from(e.dataTransfer.files);
-    const imageFiles = files.filter(file => file.type.startsWith('image/'));
-    
-    imageFiles.forEach(file => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setNewRoomImages(prev => [...prev, reader.result]);
-        setNewRoomImageInputs(prev => [...prev, reader.result]);
-      };
-      reader.readAsDataURL(file);
-    });
-  };
 
-  // Fixed: Add handleNewRoomImageUpload or remove if not needed
-  const handleNewRoomImageUpload = (e) => {
-    const files = Array.from(e.target.files);
-    const imageFiles = files.filter(file => file.type.startsWith('image/'));
-    
-    imageFiles.forEach(file => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setNewRoomImages(prev => [...prev, reader.result]);
-        setNewRoomImageInputs(prev => [...prev, reader.result]);
-      };
-      reader.readAsDataURL(file);
-    });
-  };
 
   const addNewRoomImageInput = () => {
     setNewRoomImageInputs([...newRoomImageInputs, ""]);
@@ -211,25 +182,6 @@ export default function AdminDashboard() {
     setNewRoomImageInputs(newInputs);
   };
 
-  /* ================= ROOM MULTI-IMAGE UPLOAD ================= */
-  const handleRoomImagesUpload = async (files, roomId) => {
-    setLoading("add", `room-images-${roomId}`, true);
-    const uploads = Array.from(files).map(file => new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        await api({
-          action: "add",
-          sheet: "roomImages",
-          row: [Date.now(), roomId, reader.result],
-        });
-        resolve();
-      };
-      reader.readAsDataURL(file);
-    }));
-    await Promise.all(uploads);
-    setLoading("add", `room-images-${roomId}`, false);
-    refreshData();
-  };
 
   /* ================= ADD NEW ROOM ================= */
   const handleAddRoom = async (e) => {
@@ -516,299 +468,345 @@ export default function AdminDashboard() {
   };
 
   /* ================= ROOMS ================= */
-  const renderRooms = () => {
-    return (
-      <div>
-        <div className="filter-section">
-          <h4>Filter Rooms</h4>
-          <div className="filter-controls">
-            <input
-              type="text"
-              placeholder="Search by room name"
-              value={roomFilter.name}
-              onChange={(e) => setRoomFilter({...roomFilter, name: e.target.value})}
-              className="filter-input"
-            />
-            <input
-              type="number"
-              placeholder="Min price"
-              value={roomFilter.minPrice}
-              onChange={(e) => setRoomFilter({...roomFilter, minPrice: e.target.value})}
-              className="filter-input"
-            />
-            <input
-              type="number"
-              placeholder="Max price"
-              value={roomFilter.maxPrice}
-              onChange={(e) => setRoomFilter({...roomFilter, maxPrice: e.target.value})}
-              className="filter-input"
-            />
-            <button 
-              className="clear-filter-btn"
-              onClick={() => setRoomFilter({ name: "", minPrice: "", maxPrice: "" })}
-            >
-              Clear Filters
-            </button>
-          </div>
-          <p className="filter-results">
-            {rooms.length === 0 
-              ? "No rooms available" 
-              : filteredRooms.length === 0 
-                ? `No rooms found (${rooms.length} total rooms)` 
-                : `Showing ${filteredRooms.length} of ${rooms.length} rooms`
-            }
-          </p>
+/* ================= ROOMS ================= */
+const renderRooms = () => {
+  return (
+    <div>
+      <div className="filter-section">
+        <h4>Filter Rooms</h4>
+        <div className="filter-controls">
+          <input
+            type="text"
+            placeholder="Search by room name"
+            value={roomFilter.name}
+            onChange={(e) => setRoomFilter({...roomFilter, name: e.target.value})}
+            className="filter-input"
+          />
+          <input
+            type="number"
+            placeholder="Min price"
+            value={roomFilter.minPrice}
+            onChange={(e) => setRoomFilter({...roomFilter, minPrice: e.target.value})}
+            className="filter-input"
+          />
+          <input
+            type="number"
+            placeholder="Max price"
+            value={roomFilter.maxPrice}
+            onChange={(e) => setRoomFilter({...roomFilter, maxPrice: e.target.value})}
+            className="filter-input"
+          />
+          <button 
+            className="clear-filter-btn"
+            onClick={() => setRoomFilter({ name: "", minPrice: "", maxPrice: "" })}
+          >
+            Clear Filters
+          </button>
         </div>
+        <p className="filter-results">
+          {rooms.length === 0 
+            ? "No rooms available" 
+            : filteredRooms.length === 0 
+              ? `No rooms found (${rooms.length} total rooms)` 
+              : `Showing ${filteredRooms.length} of ${rooms.length} rooms`
+          }
+        </p>
+      </div>
 
-        <div className="add-room-section">
-          <h3>Add New Room</h3>
+      <div className="add-room-section">
+        <h3>Add New Room</h3>
+        
+        <div className="image-upload-section">
+          <h4>Add Room Images (URLs only)</h4>
           
-          <div className="image-upload-section">
-            <h4>Room Images</h4>
-            
-            {/* Drag and Drop Area */}
-            <div
-              onDrop={handleNewRoomImageDrop}
-              onDragOver={(e) => e.preventDefault()}
-              className="drop-area"
-              style={{
-                border: "2px dashed #6f4647",
-                padding: "40px",
-                textAlign: "center",
-                marginBottom: "20px",
-                cursor: "pointer"
-              }}
-            >
-              <p>Drag & Drop Images Here</p>
-              <p>or</p>
-              <div className="browse-btn-container">
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleNewRoomImageUpload}
-                  id="new-room-images"
-                  className="hidden-file-input"
-                />
-                <label htmlFor="new-room-images" className="browse-btn">
-                  Browse Files
-                </label>
-              </div>
+          {/* Removed Drag & Drop Section */}
+          
+          {/* Image URL Inputs Section */}
+          <div className="url-inputs-section">
+            <div className="url-inputs-header">
+              <h5>Enter Image URLs:</h5>
+              <p className="url-inputs-help">
+                Add one or more image URLs. Make sure the URLs are publicly accessible.
+              </p>
             </div>
-
-            {newRoomImages.length > 0 && (
-              <div className="image-previews">
-                <h5>Image Previews:</h5>
-                <div className="preview-grid">
-                  {newRoomImages.map((img, index) => (
-                    <div key={index} className="preview-item">
-                      <img src={img} alt={`Preview ${index + 1}`} />
-                      <button
-                        onClick={() => {
-                          setNewRoomImages(prev => prev.filter((_, i) => i !== index));
-                          setNewRoomImageInputs(prev => prev.filter((_, i) => i !== index));
-                        }}
-                        className="remove-preview-btn"
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="url-inputs-section">
-              <h5>Or Enter Image URLs:</h5>
-              {newRoomImageInputs.map((url, index) => (
-                <div key={index} className="url-input-row">
+            
+            {newRoomImageInputs.map((url, index) => (
+              <div key={index} className="url-input-row">
+                <div className="url-input-wrapper">
                   <input
                     type="text"
-                    placeholder="Enter image URL"
+                    placeholder="Enter image URL (e.g., https://example.com/image.jpg)"
                     value={url}
                     onChange={(e) => updateNewRoomImageInput(index, e.target.value)}
                     className="url-input"
                   />
-                  <button
-                    onClick={() => removeNewRoomImageInput(index)}
-                    className="remove-url-btn"
-                  >
-                    Remove
-                  </button>
+                  {url && (
+                    <div className="url-preview">
+                      <img
+                        src={url}
+                        alt="Preview"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'block';
+                        }}
+                      />
+                      <div className="url-preview-error" style={{display: 'none'}}>
+                        ❌ Invalid URL or image not accessible
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
+                <div className="url-input-actions">
+                  {newRoomImageInputs.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeNewRoomImageInput(index)}
+                      className="remove-url-btn"
+                      title="Remove this URL"
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+            
+            <div className="url-inputs-footer">
               <button
+                type="button"
                 onClick={addNewRoomImageInput}
                 className="add-url-btn"
               >
-                + Add Another URL
+                + Add Another Image URL
               </button>
+              
+              {newRoomImageInputs.length > 0 && (
+                <div className="image-count">
+                  {newRoomImageInputs.filter(url => url.trim() !== '').length} image URL(s) added
+                </div>
+              )}
             </div>
           </div>
+        </div>
 
-          <form
-            onSubmit={handleAddRoom}
-            className="room-form"
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Room Name"
-              required
-              className="form-input"
-            />
+        <form
+          onSubmit={handleAddRoom}
+          className="room-form"
+        >
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="room-name">Room Name *</label>
+              <input
+                type="text"
+                id="room-name"
+                name="name"
+                placeholder="Enter room name"
+                required
+                className="form-input"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="room-price">Price *</label>
+              <input
+                type="number"
+                id="room-price"
+                name="price"
+                placeholder="Enter price"
+                required
+                min="0"
+                step="0.01"
+                className="form-input"
+              />
+            </div>
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="room-description">Description *</label>
             <textarea
+              id="room-description"
               name="description"
-              placeholder="Room Description"
+              placeholder="Enter room description"
               required
+              rows="4"
               className="form-textarea"
             />
-            <input
-              type="number"
-              name="price"
-              placeholder="Price"
-              required
-              className="form-input"
-            />
+          </div>
+          
+          <div className="form-submit">
             <button
               type="submit"
               className="submit-btn"
               disabled={addRoomLoading}
             >
-              {addRoomLoading ? "Adding Room..." : "Add Room"}
+              {addRoomLoading ? (
+                <>
+                  <span className="loading-spinner"></span>
+                  Adding Room...
+                </>
+              ) : "Add Room"}
             </button>
-          </form>
-        </div>
-
-        {filteredRooms.length === 0 ? (
-          <div className="no-data-message">
-            <p>No rooms found matching your filters.</p>
-            <button 
-              className="clear-filter-btn"
-              onClick={() => setRoomFilter({ name: "", minPrice: "", maxPrice: "" })}
-            >
-              Clear All Filters
-            </button>
+            
+            {newRoomImageInputs.filter(url => url.trim() !== '').length === 0 && (
+              <p className="form-warning">
+                ⚠️ No image URLs added. Please add at least one image URL.
+              </p>
+            )}
           </div>
-        ) : (
-          <>
-            <h3>Existing Rooms</h3>
-            {filteredRooms.map((room, idx) => {
-              const roomId = room[0];
-              const roomRow = rooms.findIndex(r => r[0] === room[0]) + 2;
-              const roomImages = imagesByRoomId[roomId] || [];
+        </form>
+      </div>
 
-              return (
-                <div key={roomId} className="room-details-card">
-                  <div className="room-header">
-                    <h3 style={{ margin: 0 }}>{room[1]}</h3>
-                    <div>
-                      <button
-                        onClick={() => {
-                          setEditData({ 
-                            rowIndex: roomRow, 
-                            values: [...room] 
-                          });
-                          setEditSheet("rooms");
-                        }}
-                        className="edit-room-btn"
-                      >
-                        Edit Room Details
-                      </button>
-                      <button 
-                        onClick={() => deleteRow("rooms", roomRow, roomId)}
-                        className="delete-room-btn"
-                        disabled={isLoading("delete", roomRow)}
-                      >
-                        {isLoading("delete", roomRow) ? "Deleting..." : "Delete Room"}
-                      </button>
-                    </div>
+      {filteredRooms.length === 0 ? (
+        <div className="no-data-message">
+          <p>No rooms found matching your filters.</p>
+          <button 
+            className="clear-filter-btn"
+            onClick={() => setRoomFilter({ name: "", minPrice: "", maxPrice: "" })}
+          >
+            Clear All Filters
+          </button>
+        </div>
+      ) : (
+        <>
+          <h3>Existing Rooms ({filteredRooms.length})</h3>
+          {filteredRooms.map((room, idx) => {
+            const roomId = room[0];
+            const roomRow = rooms.findIndex(r => r[0] === room[0]) + 2;
+            const roomImages = imagesByRoomId[roomId] || [];
+
+            return (
+              <div key={roomId} className="room-details-card">
+                <div className="room-header">
+                  <h3 style={{ margin: 0 }}>{room[1]}</h3>
+                  <div className="room-header-actions">
+                    <button
+                      onClick={() => {
+                        setEditData({ 
+                          rowIndex: roomRow, 
+                          values: [...room] 
+                        });
+                        setEditSheet("rooms");
+                      }}
+                      className="edit-room-btn"
+                    >
+                      Edit Room Details
+                    </button>
+                    <button 
+                      onClick={() => deleteRow("rooms", roomRow, roomId)}
+                      className="delete-room-btn"
+                      disabled={isLoading("delete", roomRow)}
+                    >
+                      {isLoading("delete", roomRow) ? "Deleting..." : "Delete Room"}
+                    </button>
                   </div>
+                </div>
 
-                  <table border="1" cellPadding="6" width="100%" style={{ marginBottom: 20 }}>
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        {room.map((c, j) => <td key={j}>{c}</td>)}
-                      </tr>
-                    </tbody>
-                  </table>
+                <table border="1" cellPadding="6" width="100%" style={{ marginBottom: 20 }}>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      {room.map((c, j) => <td key={j}>{c}</td>)}
+                    </tr>
+                  </tbody>
+                </table>
 
-                  <div className="room-images-section">
-                    <h4>Room Images</h4>
-                    {roomImages.length === 0 ? (
-                      <p>No images uploaded yet.</p>
-                    ) : (
-                      <div className="room-images-grid">
-                        {roomImages.map((img, index) => (
-                          <div key={index} className="room-image-item">
-                            <img src={img} alt="" />
-                            <button
-                              className="remove-image-btn"
-                              onClick={async () => {
-                                if (!window.confirm("Delete this image?")) return;
-                                const allRoomImages = roomImages || [];
-                                const imgData = allRoomImages.find(r => r[2] === img);
-                                if (imgData) {
-                                  const imgIndex = allRoomImages.indexOf(imgData);
-                                  await deleteRow("roomImages", imgIndex + 2, `image-${imgIndex}`);
-                                }
-                              }}
-                              disabled={isLoading("delete", `image-${index}`)}
-                            >
-                              {isLoading("delete", `image-${index}`) ? "..." : "×"}
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="add-more-images">
-                      <h5>Add More Images:</h5>
-                      <div
-                        onDrop={(e) => {
-                          e.preventDefault();
-                          handleRoomImagesUpload(e.dataTransfer.files, roomId);
-                        }}
-                        onDragOver={(e) => e.preventDefault()}
-                        className="drop-area"
-                      >
-                        <p>Drag & Drop Images Here</p>
-                        <p>or</p>
-                        <div className="browse-btn-container">
-                          <input
-                            type="file"
-                            accept="image/*"
-                            multiple
-                            onChange={(e) => handleRoomImagesUpload(e.target.files, roomId)}
-                            id={`room-images-${roomId}`}
-                            className="hidden-file-input"
-                          />
-                          <label 
-                            htmlFor={`room-images-${roomId}`} 
-                            className={`browse-btn ${isLoading("add", `room-images-${roomId}`) ? "disabled" : ""}`}
+                <div className="room-images-section">
+                  <h4>Room Images</h4>
+                  {roomImages.length === 0 ? (
+                    <p>No images uploaded yet.</p>
+                  ) : (
+                    <div className="room-images-grid">
+                      {roomImages.map((img, index) => (
+                        <div key={index} className="room-image-item">
+                          <img src={img} alt="" />
+                          <button
+                            className="remove-image-btn"
+                            onClick={async () => {
+                              if (!window.confirm("Delete this image?")) return;
+                              const allRoomImages = images.filter(r => r[1] === roomId);
+                              if (allRoomImages[index]) {
+                                const imgId = allRoomImages[index][0];
+                                const imgIndex = images.findIndex(i => i[0] === imgId) + 2;
+                                await deleteRow("roomImages", imgIndex, `image-${imgId}`);
+                              }
+                            }}
+                            disabled={isLoading("delete", `image-${index}`)}
                           >
-                            {isLoading("add", `room-images-${roomId}`) ? "Uploading..." : "Browse Files"}
-                          </label>
+                            {isLoading("delete", `image-${index}`) ? "..." : "×"}
+                          </button>
                         </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="add-more-images">
+                    <h5>Add More Images:</h5>
+                    <div className="add-images-form">
+                      <div className="url-input-row">
+                        <input
+                          type="text"
+                          placeholder="Enter image URL"
+                          className="url-input"
+                          id={`add-image-url-${roomId}`}
+                        />
+                        <button
+                          type="button"
+                          className="add-single-image-btn"
+                          onClick={async () => {
+                            const input = document.getElementById(`add-image-url-${roomId}`);
+                            const url = input.value.trim();
+                            
+                            if (!url) {
+                              alert("Please enter an image URL");
+                              return;
+                            }
+                            
+                            try {
+                              // Validate URL
+                              new URL(url);
+                              
+                              setLoading("add", `room-image-${roomId}`, true);
+                              await api({
+                                action: "add",
+                                sheet: "roomImages",
+                                row: [Date.now(), roomId, url]
+                              });
+                              
+                              input.value = "";
+                              refreshData();
+                              alert("Image added successfully!");
+                            } catch (error) {
+                              alert("Invalid URL or error adding image: " + error.message);
+                            } finally {
+                              setLoading("add", `room-image-${roomId}`, false);
+                            }
+                          }}
+                          disabled={isLoading("add", `room-image-${roomId}`)}
+                        >
+                          {isLoading("add", `room-image-${roomId}`) ? "Adding..." : "Add Image URL"}
+                        </button>
                       </div>
+                      <p className="add-images-help">
+                        Enter a publicly accessible image URL and click "Add Image URL"
+                      </p>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </>
-        )}
-      </div>
-    );
-  };
+              </div>
+            );
+          })}
+        </>
+      )}
+    </div>
+  );
+};
 
   /* ================= IMAGES TABLE ================= */
   const renderImages = () => {
@@ -843,14 +841,6 @@ export default function AdminDashboard() {
             onError={(e) => (e.target.style.display = "none")}
           />
         )}
-  
-        {/* File Upload */}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setSelectedImage(e.target.files[0])}
-          style={{ marginBottom: 10 }}
-        />
   
         {/* Add Button */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 30 }}>

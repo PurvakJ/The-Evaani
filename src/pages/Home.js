@@ -23,13 +23,13 @@ export default function Home() {
       title: "Premium Accommodation",
       description: "Elegant suites with panoramic city views",
       icon: "🏨",
-      stat: "18+ Rooms"
+      stat: "50+ Rooms"
     },
     {
       title: "Gourmet Dining",
       description: "Multi-cuisine restaurant & 24/7 room service",
       icon: "🍽️",
-      stat: "4 Restaurants"
+      stat: "3 Restaurants"
     },
     {
       title: "Wellness Oasis",
@@ -45,43 +45,54 @@ export default function Home() {
     }
   ];
 
-  // Static room data for fallback
+  // STATIC DATA - Always available immediately
   const staticRooms = [
     {
       id: 1,
-      name: "Super Deluxe Suite",
+      name: "Deluxe Suite",
       description: "Spacious suite with king-size bed and private balcony overlooking the city",
-      image: "https://i.postimg.cc/L6TKzLRq/IMG_0716.jpg",
-      price: "Starting from ₹2500",
+      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+      price: "Starting from ₹9999",
       amenities: ["Free WiFi", "Minibar", "AC", "Smart TV", "Coffee Maker"]
     },
     {
       id: 2,
       name: "Executive Room",
       description: "Modern room with work desk and luxury amenities for business travelers",
-      image: "https://i.postimg.cc/J7jWzS2t/IMG_0709.jpg",
-      price: "Starting from ₹3500",
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2058&q=80",
+      price: "Starting from ₹8999",
       amenities: ["City View", "Room Service", "Work Desk", "Safe", "Bathrobe"]
     },
-  ];
-
-  // Static gallery data for fallback
-  const backupGallery = [
     {
-      url: "https://i.postimg.cc/hG3KVxL4/IMG_0672.jpg",
-      title: "Luxury Lobby"
-    },
-    {
-      url: "https://r1imghtlak.mmtcdn.com/4a335459-c0bc-40f1-82ea-0c03324bc145.jpg?downsize=810:*",
-      title: "Party Hall"
-    },
-    {
-      url: "https://i.postimg.cc/B6DRt1MS/IMG_0720.jpg",
-      title: "Fine Dining"
+      id: 3,
+      name: "Presidential Suite",
+      description: "Ultimate luxury suite with separate living area and private jacuzzi",
+      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      price: "Starting from ₹19999",
+      amenities: ["Butler Service", "Jacuzzi", "Private Terrace", "Bar", "Dining Area"]
     }
   ];
 
-  // Static reviews data for fallback
+  // Static gallery data
+  const staticGallery = [
+    {
+      url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+      title: "Luxury Lobby",
+      isNew: false
+    },
+    {
+      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80",
+      title: "Infinity Pool",
+      isNew: false
+    },
+    {
+      url: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Fine Dining",
+      isNew: false
+    }
+  ];
+
+  // Static reviews data
   const staticReviews = [
     {
       guestName: "Rajesh Kumar",
@@ -103,108 +114,78 @@ export default function Home() {
     }
   ];
 
-  // Get rooms data with fallback to static data
-  const getPremiumRooms = () => {
-    // If rooms data is still loading, show static data
-    if (loading) {
-      return staticRooms;
+  // Static offers data
+  const staticOffers = [
+    {
+      title: "Weekend Getaway",
+      description: "Enjoy 20% off on weekend stays with complimentary breakfast",
+      isActive: true
+    },
+    {
+      title: "Honeymoon Package",
+      description: "Romantic suite with candlelight dinner and spa couples massage",
+      isActive: true
+    },
+    {
+      title: "Advance Booking",
+      description: "Book 30 days in advance and get 15% discount on all suites",
+      isActive: true
     }
+  ];
 
-    // If rooms data is loaded but empty, show static data
-    if (!rooms || rooms.length === 0) {
-      return staticRooms;
-    }
+  // Determine which data to show (always start with static, then update with dynamic if available)
+  const premiumRooms = rooms.length > 0 ? 
+    rooms.slice(0, 3).map(room => {
+      const roomId = room[0];
+      const roomImages = imagesByRoomId[roomId] || [];
+      
+      return {
+        id: roomId,
+        name: room[1] || "Room",
+        description: room[2] || "Luxurious accommodation",
+        image: roomImages[0] || staticRooms[0].image,
+        price: room[3] || "Starting from ₹9999",
+        amenities: ["Free WiFi", "Air Conditioning", "Room Service", "Smart TV"],
+        isDynamic: true
+      };
+    }) : staticRooms.map(room => ({ ...room, isDynamic: false }));
 
-    // Use backend rooms data
-    try {
-      return rooms.slice(0, 3).map(room => {
-        const roomId = room[0];
-        const roomImages = imagesByRoomId[roomId] || [];
-        
-        return {
-          id: roomId,
-          name: room[1] || "Room",
-          description: room[2] || "Luxurious accommodation",
-          image: roomImages[0] || staticRooms[0].image, // Fallback to static image
-          price: room[3] || "Starting from ₹9999",
-          amenities: ["Free WiFi", "Air Conditioning", "Room Service", "Smart TV"]
-        };
-      });
-    } catch (error) {
-      console.error("Error processing rooms data:", error);
-      return staticRooms;
-    }
-  };
+  // Get gallery pictures
+  const galleryPictures = images.length > 0 ? 
+    images
+      .sort((a, b) => (b[0] || b.id) - (a[0] || a.id))
+      .slice(0, 3)
+      .map((img, index) => ({
+        url: img[1] || img.imageurl || staticGallery[0].url,
+        title: img[2] || "Hotel Gallery",
+        isNew: index === 0,
+        isDynamic: true
+      })) : 
+    staticGallery.map(item => ({ ...item, isDynamic: false }));
 
-  // Get gallery pictures with fallback
-  const getGalleryPictures = () => {
-    // If data is still loading, show static data
-    if (loading) {
-      return backupGallery;
-    }
+  // Get testimonials
+  const guestTestimonials = reviews.length > 0 ? 
+    reviews.slice(0, 3).map(review => ({
+      guestName: review[1] || "Guest",
+      rating: parseInt(review[3]) || 5,
+      feedback: review[4] || "Exceptional experience!",
+      visitDate: review[5] || "Recently",
+      isDynamic: true
+    })) : 
+    staticReviews.map(review => ({ ...review, isDynamic: false }));
 
-    // If images data is loaded but empty, show static data
-    if (!images || images.length === 0) {
-      return backupGallery;
-    }
+  // Get offers
+  const displayOffers = activeOffers.length > 0 ? 
+    activeOffers.slice(0, 3).map(offer => ({
+      title: offer[1],
+      description: offer[2],
+      isActive: offer[3] === "active",
+      isDynamic: true
+    })) : 
+    staticOffers.map(offer => ({ ...offer, isDynamic: false }));
 
-    // Use backend images data
-    try {
-      return images
-        .sort((a, b) => (b[0] || b.id) - (a[0] || a.id))
-        .slice(0, 3)
-        .map(img => ({
-          url: img[1] || img.imageurl || backupGallery[0].url,
-          title: img[2] || "Hotel Gallery"
-        }));
-    } catch (error) {
-      console.error("Error processing gallery data:", error);
-      return backupGallery;
-    }
-  };
-
-  // Get testimonials with fallback
-  const getGuestTestimonials = () => {
-    // If data is still loading, show static data
-    if (loading) {
-      return staticReviews;
-    }
-
-    // If reviews data is loaded but empty, show static data
-    if (!reviews || reviews.length === 0) {
-      return staticReviews;
-    }
-
-    // Use backend reviews data
-    try {
-      return reviews.slice(0, 3).map(review => ({
-        guestName: review[1] || "Guest",
-        rating: parseInt(review[3]) || 5,
-        feedback: review[4] || "Exceptional experience!",
-        visitDate: review[5] || "Recently"
-      }));
-    } catch (error) {
-      console.error("Error processing reviews data:", error);
-      return staticReviews;
-    }
-  };
-
-  // Get data with fallback
-  const premiumRooms = getPremiumRooms();
-  const galleryPictures = getGalleryPictures();
-  const guestTestimonials = getGuestTestimonials();
-
-  // Loading state - only show if there's an actual loading state from backend
-  if (loading && rooms.length === 0 && images.length === 0) {
-    return (
-      <div className="luxury-home">
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Loading luxury experience...</p>
-        </div>
-      </div>
-    );
-  }
+  // Check if we have dynamic data loaded
+  const hasDynamicData = rooms.length > 0 || images.length > 0 || reviews.length > 0 || activeOffers.length > 0;
 
   return (
     <div className="luxury-home">
@@ -256,7 +237,7 @@ export default function Home() {
         <div className="content-wrapper">
           <h2 className="section-main-title">Signature Suites & Rooms</h2>
           <p className="section-description">
-            {rooms.length > 0 
+            {hasDynamicData 
               ? "Experience luxury in every meticulously crafted detail" 
               : "Explore our premium accommodations"}
           </p>
@@ -264,13 +245,15 @@ export default function Home() {
           <div className="suites-grid">
             {premiumRooms.map((room, index) => (
               <div key={index} className="suite-card">
+                {room.isDynamic && (
+                  <div className="live-data-badge">Live Data</div>
+                )}
                 <div className="suite-image-frame">
                   <img 
                     src={room.image} 
                     alt={room.name} 
                     className="suite-photo"
                     onError={(e) => {
-                      // If image fails to load, use fallback image
                       e.target.src = staticRooms[index % staticRooms.length].image;
                     }}
                   />
@@ -294,41 +277,48 @@ export default function Home() {
           
           <div className="view-all-container">
             <button className="view-all-suites" onClick={() => navigate('/rooms')}>
-              {rooms.length > 0 ? "Explore All Accommodations" : "View All Rooms"}
+              Explore All Accommodations
             </button>
           </div>
         </div>
       </section>
 
       {/* Special Offers Section */}
-      {activeOffers.length > 0 && (
-        <section className="exclusive-offers">
-          <div className="content-wrapper">
-            <h2 className="section-main-title">Exclusive Offers</h2>
-            <p className="section-description">Special privileges for our esteemed guests</p>
-            
-            <div className="offers-display">
-              {activeOffers.slice(0, 3).map((offer, index) => (
-                <div key={index} className="offer-card">
-                  <div className="offer-tag">Limited Period</div>
-                  <h3 className="offer-title">{offer[1]}</h3>
-                  <p className="offer-detail">{offer[2]}</p>
-                  <button className="offer-action-btn" onClick={() => navigate('/contact')}>
-                    Book Offer
-                  </button>
-                </div>
-              ))}
-            </div>
+      <section className="exclusive-offers">
+        <div className="content-wrapper">
+          <h2 className="section-main-title">Exclusive Offers</h2>
+          <p className="section-description">
+            {displayOffers.some(o => o.isDynamic) 
+              ? "Special privileges for our esteemed guests" 
+              : "Current promotions available"}
+          </p>
+          
+          <div className="offers-display">
+            {displayOffers.map((offer, index) => (
+              <div key={index} className="offer-card">
+                {offer.isDynamic && (
+                  <div className="live-data-badge">Live Offer</div>
+                )}
+                <div className="offer-tag">Limited Period</div>
+                <h3 className="offer-title">{offer.title}</h3>
+                <p className="offer-detail">{offer.description}</p>
+                <button className="offer-action-btn" onClick={() => navigate('/contact')}>
+                  Book Offer
+                </button>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Gallery Section */}
       <section className="hotel-gallery">
         <div className="content-wrapper">
           <h2 className="section-main-title">Our Visual Journey</h2>
           <p className="section-description">
-            {images.length > 0 ? "Recently Added Visuals" : "Experience the elegance of Evaani"}
+            {galleryPictures.some(g => g.isDynamic) 
+              ? "Recently Added Visuals" 
+              : "Experience the elegance of Evaani"}
           </p>
           
           <div className="gallery-grid">
@@ -341,16 +331,18 @@ export default function Home() {
                     className="gallery-img"
                     loading="lazy"
                     onError={(e) => {
-                      // If image fails to load, use fallback image
-                      e.target.src = backupGallery[index % backupGallery.length].url;
+                      e.target.src = staticGallery[index % staticGallery.length].url;
                     }}
                   />
                   <div className="gallery-overlay">
                     <h4 className="image-title">{item.title}</h4>
                   </div>
                 </div>
-                {images.length > 0 && index === 0 && (
+                {item.isNew && (
                   <div className="new-label">New</div>
+                )}
+                {item.isDynamic && (
+                  <div className="live-data-badge">Live</div>
                 )}
               </div>
             ))}
@@ -369,12 +361,17 @@ export default function Home() {
         <div className="content-wrapper">
           <h2 className="section-main-title">Guest Experiences</h2>
           <p className="section-description">
-            {reviews.length > 0 ? "Stories from our valued guests" : "What our guests say"}
+            {guestTestimonials.some(t => t.isDynamic) 
+              ? "Stories from our valued guests" 
+              : "What our guests say"}
           </p>
           
           <div className="testimonials-display">
             {guestTestimonials.map((testimonial, index) => (
               <div key={index} className="testimonial-box">
+                {testimonial.isDynamic && (
+                  <div className="live-data-badge">Recent</div>
+                )}
                 <div className="rating-stars">
                   {"★".repeat(testimonial.rating)}{"☆".repeat(5 - testimonial.rating)}
                 </div>
@@ -387,11 +384,26 @@ export default function Home() {
             ))}
           </div>
           
-          {reviews.length === 0 && (
+          {!hasDynamicData && (
             <p className="testimonial-note">Based on recent guest experiences</p>
           )}
         </div>
       </section>
+
+      {/* Data Loading Status */}
+      {loading && (
+        <div className="data-loading-status">
+          <div className="loading-indicator">
+            <span className="loading-dot"></span>
+            <span className="loading-dot"></span>
+            <span className="loading-dot"></span>
+          </div>
+          <p className="loading-message">
+            Loading latest data from server...
+            {hasDynamicData && " Some content has been updated!"}
+          </p>
+        </div>
+      )}
 
       {/* Call to Action */}
       <section className="reservation-cta">

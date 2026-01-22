@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useData } from "../App";
 import { useNavigate } from "react-router-dom";
 import "../styles/Venue.css";
@@ -6,6 +6,7 @@ import "../styles/Venue.css";
 export default function Venue() {
   const { images = [] } = useData();
   const [selectedVenue, setSelectedVenue] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
 
   // Hardcoded venue images
@@ -73,54 +74,107 @@ export default function Venue() {
       category: img[3] || "general"
     }));
 
-  // Fallback gallery images if no images from API
+  // Fallback gallery images with varied aspect ratios for collage effect
   const fallbackGalleryImages = [
     {
       id: 1,
       url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Grand Ballroom"
+      title: "Grand Ballroom",
+      aspectRatio: "portrait" // Tall image
     },
     {
       id: 2,
       url: "https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Outdoor Garden"
+      title: "Outdoor Garden",
+      aspectRatio: "landscape" // Wide image
     },
     {
       id: 3,
       url: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Conference Room"
+      title: "Conference Room",
+      aspectRatio: "portrait"
     },
     {
       id: 4,
       url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Poolside Area"
+      title: "Poolside Area",
+      aspectRatio: "square" // Square image
     },
     {
       id: 5,
       url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Wedding Setup"
+      title: "Wedding Setup",
+      aspectRatio: "landscape"
     },
     {
       id: 6,
       url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Corporate Event"
+      title: "Corporate Event",
+      aspectRatio: "portrait"
+    },
+    {
+      id: 7,
+      url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Banquet Hall",
+      aspectRatio: "landscape"
+    },
+    {
+      id: 8,
+      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Pool View",
+      aspectRatio: "portrait"
     }
   ];
 
-  const displayGalleryImages = venueImages.length > 0 ? venueImages : fallbackGalleryImages;
+  // Add aspect ratios to dynamic images or use fallback
+  const displayGalleryImages = venueImages.length > 0 
+    ? venueImages.map((img, index) => ({
+        ...img,
+        aspectRatio: ["portrait", "portrait", "square", "square", "portrait", "portrait", "square", "square", "portrait", "square"][index % 8]
+      }))
+    : fallbackGalleryImages;
 
   const handleVenueEnquiry = (venue) => {
-    // Store selected venue in sessionStorage to pre-fill contact form
     if (venue) {
       sessionStorage.setItem('enquiryVenue', JSON.stringify({
         name: venue.name,
         type: 'Venue Enquiry'
       }));
     }
-    
-    // Redirect to contact page
     navigate('/contact');
   };
+
+  // Handle key press for closing modals
+  useEffect(() => {
+    const handleEscapeKey = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedVenue(null);
+        setSelectedImage(null);
+      }
+    };
+
+    const handleArrowKeys = (e) => {
+      if (!selectedImage) return;
+      
+      if (e.key === 'ArrowRight') {
+        const currentIndex = displayGalleryImages.findIndex(img => img.url === selectedImage.url);
+        const nextIndex = (currentIndex + 1) % displayGalleryImages.length;
+        setSelectedImage(displayGalleryImages[nextIndex]);
+      } else if (e.key === 'ArrowLeft') {
+        const currentIndex = displayGalleryImages.findIndex(img => img.url === selectedImage.url);
+        const prevIndex = currentIndex === 0 ? displayGalleryImages.length - 1 : currentIndex - 1;
+        setSelectedImage(displayGalleryImages[prevIndex]);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscapeKey);
+    window.addEventListener('keydown', handleArrowKeys);
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscapeKey);
+      window.removeEventListener('keydown', handleArrowKeys);
+    };
+  }, [selectedImage, displayGalleryImages]);
 
   return (
     <div className="evaani-venue-page">
@@ -201,26 +255,31 @@ export default function Venue() {
         </div>
       </section>
 
-      {/* Venue Gallery Section */}
+      {/* Venue Gallery Section - Collage Style */}
       <section className="venue-gallery-container">
         <div className="venue-section-header">
           <h2>Venue Gallery</h2>
           <p>Explore our beautiful spaces through real moments</p>
         </div>
 
-        <div className="gallery-images-grid">
+        <div className="collage-gallery-grid">
           {displayGalleryImages.map((img, index) => (
-            <div key={img.id || index} className="gallery-image-item">
-              <div className="gallery-image-wrapper">
+            <div 
+              key={img.id || index} 
+              className={`collage-item collage-${img.aspectRatio} ${index % 4 === 0 ? 'featured' : ''}`}
+              onClick={() => setSelectedImage(img)}
+            >
+              <div className="collage-image-wrapper">
                 <img
                   src={img.url}
                   alt={img.title}
                   loading="lazy"
-                  className="gallery-display-image"
+                  className="collage-image"
                 />
-                <div className="image-hover-overlay">
-                  <div className="overlay-content-section">
-                    <h3 className="gallery-image-title">{img.title}</h3>
+                <div className="collage-overlay">
+                  <div className="collage-overlay-content">
+                    <h3 className="collage-image-title">{img.title}</h3>
+                    <span className="collage-view-text">Click to view</span>
                   </div>
                 </div>
               </div>
@@ -270,6 +329,65 @@ export default function Venue() {
           </div>
         </div>
       </section>
+
+      {/* Fullscreen Image Modal */}
+      {selectedImage && (
+        <div className="fullscreen-modal-overlay" onClick={() => setSelectedImage(null)}>
+          <div className="fullscreen-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="fullscreen-close-btn"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            
+            <div className="fullscreen-image-container">
+              <img 
+                src={selectedImage.url} 
+                alt={selectedImage.title} 
+                className="fullscreen-image"
+              />
+              <div className="fullscreen-image-info">
+                <h3>{selectedImage.title}</h3>
+                <div className="image-navigation">
+                  <button 
+                    className="nav-btn prev-btn"
+                    onClick={() => {
+                      const currentIndex = displayGalleryImages.findIndex(img => img.url === selectedImage.url);
+                      const prevIndex = currentIndex === 0 ? displayGalleryImages.length - 1 : currentIndex - 1;
+                      setSelectedImage(displayGalleryImages[prevIndex]);
+                    }}
+                  >
+                    ‹
+                  </button>
+                  <span className="image-counter">
+                    {displayGalleryImages.findIndex(img => img.url === selectedImage.url) + 1} / {displayGalleryImages.length}
+                  </span>
+                  <button 
+                    className="nav-btn next-btn"
+                    onClick={() => {
+                      const currentIndex = displayGalleryImages.findIndex(img => img.url === selectedImage.url);
+                      const nextIndex = (currentIndex + 1) % displayGalleryImages.length;
+                      setSelectedImage(displayGalleryImages[nextIndex]);
+                    }}
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="thumbnail-strip">
+              {displayGalleryImages.map((img, index) => (
+                <div 
+                >
+                  <img src={img.url} alt={img.title} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Venue Detail Modal */}
       {selectedVenue && (
