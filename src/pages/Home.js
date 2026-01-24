@@ -23,7 +23,7 @@ export default function Home() {
       title: "Premium Accommodation",
       description: "Elegant suites with panoramic city views",
       icon: "🏨",
-      stat: "50+ Rooms"
+      stat: "18+ Rooms"
     },
     {
       title: "Gourmet Dining",
@@ -33,7 +33,7 @@ export default function Home() {
     },
     {
       title: "Wellness Oasis",
-      description: "Spa, fitness center & infinity pool",
+      description: "24/7 front desk, pool",
       icon: "💆",
       stat: "Full Service"
     },
@@ -62,14 +62,6 @@ export default function Home() {
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2058&q=80",
       price: "Starting from ₹8999",
       amenities: ["City View", "Room Service", "Work Desk", "Safe", "Bathrobe"]
-    },
-    {
-      id: 3,
-      name: "Presidential Suite",
-      description: "Ultimate luxury suite with separate living area and private jacuzzi",
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      price: "Starting from ₹19999",
-      amenities: ["Butler Service", "Jacuzzi", "Private Terrace", "Bar", "Dining Area"]
     }
   ];
 
@@ -245,9 +237,6 @@ export default function Home() {
           <div className="suites-grid">
             {premiumRooms.map((room, index) => (
               <div key={index} className="suite-card">
-                {room.isDynamic && (
-                  <div className="live-data-badge">Live Data</div>
-                )}
                 <div className="suite-image-frame">
                   <img 
                     src={room.image} 
@@ -340,9 +329,6 @@ export default function Home() {
                 </div>
                 {item.isNew && (
                   <div className="new-label">New</div>
-                )}
-                {item.isDynamic && (
-                  <div className="live-data-badge">Live</div>
                 )}
               </div>
             ))}

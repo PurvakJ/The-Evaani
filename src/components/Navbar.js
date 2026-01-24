@@ -38,7 +38,7 @@ export default function Navbar() {
 <div className="navbar-container" style={{marginRight:"50px"}}>
   {/* Logo Image */}
   <img 
-    src="https://i.postimg.cc/W1GJ1wq8/evaani.png" 
+    src="https://i.postimg.cc/gj3HzfCM/Screenshot-2026-01-24-at-09-04-19-removebg-preview.png" 
     alt="Evaani Hotel Logo"
     className="navbar-logo-image"
   />
