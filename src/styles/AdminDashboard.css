@@ -3457,3 +3457,911 @@ table td:last-child {
     height: 60px !important;
   }
 }
+
+/* ================== MOBILE RESPONSIVE FIXES ================== */
+
+/* Mobile-specific fixes for the entire dashboard */
+@media (max-width: 768px) {
+  /* Reduce spacing for mobile */
+  .admin-dashboard {
+    margin-top: 100px;
+    padding: 10px;
+  }
+  
+  .admin-dashboard h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  
+  /* Tab buttons - make them scrollable horizontally */
+  .tab-buttons {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .tab-buttons::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .tab-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  
+  /* Main content area */
+  .tab-content {
+    padding: 15px;
+    min-height: 400px;
+    margin: 0;
+    width: 100%;
+  }
+  
+  /* Fix for all tables */
+  .tab-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-width: 500px;
+  }
+  
+  /* Reduce table cell padding */
+  table thead th {
+    padding: 10px 8px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  table tbody td {
+    padding: 10px 8px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Action buttons in tables - make them larger and more accessible */
+  table tbody td:last-child {
+    min-width: 180px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .edit-btn, .delete-btn {
+    width: 100% !important;
+    margin: 2px 0 !important;
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+    text-align: center;
+  }
+  
+  /* Room details card */
+  .room-details-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .room-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .room-header-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .edit-room-btn, .delete-room-btn {
+    width: 100% !important;
+    margin: 5px 0 !important;
+  }
+  
+  /* Filter sections */
+  .filter-section {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .filter-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .filter-input {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+  
+  .clear-filter-btn {
+    width: 100%;
+  }
+  
+  /* Forms */
+  .room-form, .edit-form {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-input, .form-textarea, .form-select {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+  
+  /* Modal specific fixes - MOST IMPORTANT */
+  .modal-overlay {
+    padding: 10px;
+    align-items: flex-start; /* Start from top on mobile */
+    padding-top: 60px; /* Leave space for header */
+  }
+  
+  .modal-content {
+    padding: 20px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    border-radius: 8px !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.5rem !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 10px !important;
+  }
+  
+  /* Form inside modal */
+  .modal-content .edit-form {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+  
+  .modal-content .edit-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content .edit-form .form-group label {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+  
+  /* MODAL ACTIONS FIX - CRITICAL */
+  .modal-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid rgba(111, 70, 71, 0.2) !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+  }
+  
+  .modal-actions .save-btn,
+  .modal-actions .cancel-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    padding: 16px 20px !important;
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: 2px solid !important;
+    height: 50px !important;
+  }
+  
+  .save-btn {
+    background: #6f4647 !important;
+    color: white !important;
+    border-color: #6f4647 !important;
+  }
+  
+  .cancel-btn {
+    background: white !important;
+    color: #666 !important;
+    border-color: #666 !important;
+  }
+  
+  /* Room images grid */
+  .room-images-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .room-image-item img {
+    height: 120px;
+  }
+  
+  /* Add form section */
+  .add-form-section {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  /* Password section */
+  .password-section {
+    padding: 30px 20px;
+  }
+  
+  .update-password-btn {
+    width: 100%;
+  }
+  
+  /* Category sections */
+  .category-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  
+  .category-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+}
+
+/* Extra small devices (phones, less than 480px) */
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 8px;
+    margin-top: 80px;
+  }
+  
+  .admin-dashboard h2 {
+    font-size: 1.5rem;
+  }
+  
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .tab-content {
+    padding: 12px;
+  }
+  
+  /* Tables on very small screens */
+  .tab-content table {
+    min-width: 400px;
+  }
+  
+  table thead th {
+    padding: 8px 6px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  table tbody td {
+    padding: 8px 6px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  /* Modal on very small screens */
+  .modal-content {
+    padding: 15px !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  .modal-actions .save-btn,
+  .modal-actions .cancel-btn {
+    padding: 14px 16px !important;
+    font-size: 1rem !important;
+    height: 46px !important;
+  }
+  
+  /* Room images grid */
+  .room-images-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Images tab specific */
+  .tab-content > div:has(h3:first-child) {
+    padding: 15px;
+  }
+  
+  .tab-content input[type="text"] {
+    padding: 12px 15px !important;
+  }
+  
+  .tab-content div[style*="display: flex; justify-content: center"] button {
+    width: 100% !important;
+  }
+}
+
+/* ================== FIX FOR EDIT MODAL ON MOBILE ================== */
+
+/* Ensure modal is always properly positioned */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* Very high z-index */
+  padding: 20px;
+}
+
+/* Modal content should scroll independently */
+.modal-content {
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: white;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input fields in modal */
+.modal-content .form-input,
+.modal-content .form-textarea,
+.modal-content .form-select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Label styling */
+.modal-content .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Make sure the modal form is visible */
+.modal-content .edit-form {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Force modal actions to be visible */
+.modal-overlay .modal-content .edit-form .modal-actions {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+/* Ensure buttons have proper contrast on mobile */
+@media (max-width: 768px) {
+  .save-btn:active {
+    background: #5d3a3b !important;
+    transform: scale(0.98);
+  }
+  
+  .cancel-btn:active {
+    background: #f0f0f0 !important;
+    transform: scale(0.98);
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .modal-content {
+    max-height: 85vh;
+  }
+  
+  .modal-overlay {
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* ================== SPECIFIC FIX FOR MENU EDIT MODAL ================== */
+
+/* Ensure the menu edit modal fields show properly */
+.modal-content .edit-form .form-group:nth-child(5) {
+  /* This is for the 5th field (Veg/Non-Veg) */
+  margin-top: 10px;
+}
+
+/* Make textareas in modal resizable */
+.modal-content .form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+/* Fix for select dropdowns in modal */
+.modal-content .form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f4647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 45px;
+}
+
+/* ================== TOUCH-FRIENDLY BUTTONS ================== */
+
+/* Make all buttons larger and more touch-friendly on mobile */
+@media (max-width: 768px) {
+  /* Minimum touch target size for mobile */
+  button, 
+  .tab-btn,
+  .edit-btn,
+  .delete-btn,
+  .save-btn,
+  .cancel-btn,
+  .edit-room-btn,
+  .delete-room-btn,
+  .clear-filter-btn,
+  .toggle-btn,
+  .add-url-btn,
+  .remove-url-btn,
+  .submit-btn,
+  .update-password-btn,
+  .add-btn,
+  .browse-btn {
+    min-height: 44px; /* Apple's recommended minimum touch target */
+    min-width: 44px; /* Apple's recommended minimum touch target */
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Specifically for smaller buttons in tables */
+  table .edit-btn,
+  table .delete-btn {
+    min-height: 40px;
+    padding: 10px 14px !important;
+  }
+}
+
+/* ================== DARK MODE MOBILE FIXES ================== */
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .modal-content {
+    background: #333;
+    color: #fff;
+  }
+  
+  .modal-content .form-group label {
+    color: #ddd;
+  }
+  
+  .modal-content .form-input,
+  .modal-content .form-textarea,
+  .modal-content .form-select {
+    background: #222;
+    border-color: #555;
+    color: #fff;
+  }
+  
+  .cancel-btn {
+    background: #444 !important;
+    color: #ddd !important;
+    border-color: #666 !important;
+  }
+  
+  .save-btn {
+    background: #6f4647 !important;
+    color: white !important;
+  }
+  
+  /* Fix for select dropdown arrow in dark mode */
+  .modal-content .form-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4a5a5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  }
+}
+
+/* ================== EMERGENCY OVERRIDES ================== */
+
+/* These are emergency styles to ensure the edit modal works on mobile */
+
+/* Force modal to be visible */
+.modal-overlay {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force modal content to be visible */
+.modal-content {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force form to be visible */
+.modal-content .edit-form {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force action buttons to be visible */
+.modal-actions {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+/* Ensure no other styles are hiding these elements */
+.modal-overlay,
+.modal-content,
+.modal-content .edit-form,
+.modal-actions,
+.modal-actions .save-btn,
+.modal-actions .cancel-btn {
+  transform: none !important;
+  clip-path: none !important;
+  clip: auto !important;
+  overflow: visible !important;
+}
+
+/* ================== EMERGENCY FIX FOR EDIT MODAL ================== */
+/* This should override all other styles */
+
+/* Modal overlay - ensure it covers everything */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999 !important;
+  padding: 20px !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Modal content - compact and mobile-friendly */
+.modal-content {
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  width: 95% !important;
+  max-width: 500px !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+}
+
+/* Modal header */
+.modal-content h3 {
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #eee !important;
+  color: #6f4647 !important;
+  font-family: 'Playfair Display', serif !important;
+  text-align: center !important;
+}
+
+/* Edit form */
+.modal-content .edit-form {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Form groups - compact spacing */
+.modal-content .edit-form .form-group {
+  margin-bottom: 12px !important;
+}
+
+.modal-content .edit-form .form-group label {
+  display: block !important;
+  font-size: 0.9rem !important;
+  color: #555 !important;
+  margin-bottom: 5px !important;
+  font-weight: 500 !important;
+}
+
+/* Form inputs - reduced padding and smaller */
+.modal-content .edit-form .form-input,
+.modal-content .edit-form .form-select {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  font-size: 0.95rem !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  background: white !important;
+  box-sizing: border-box !important;
+  min-height: 38px !important;
+}
+
+/* TEXTAREA SPECIFIC FIX - Smaller and compact */
+.modal-content .edit-form .form-textarea {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  font-size: 0.95rem !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  background: white !important;
+  box-sizing: border-box !important;
+  resize: vertical !important;
+  min-height: 60px !important; /* Reduced from default */
+  max-height: 100px !important;
+  line-height: 1.4 !important;
+  font-family: inherit !important;
+}
+
+/* Focus states */
+.modal-content .edit-form .form-input:focus,
+.modal-content .edit-form .form-textarea:focus,
+.modal-content .edit-form .form-select:focus {
+  outline: none !important;
+  border-color: #6f4647 !important;
+  box-shadow: 0 0 0 2px rgba(111, 70, 71, 0.1) !important;
+}
+
+/* Modal actions - compact buttons */
+.modal-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+  margin-top: 25px !important;
+  padding-top: 15px !important;
+  border-top: 1px solid #eee !important;
+  width: 100% !important;
+}
+
+.modal-actions .save-btn,
+.modal-actions .cancel-btn {
+  flex: 1 !important;
+  padding: 10px 15px !important;
+  font-size: 0.95rem !important;
+  border-radius: 4px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+  min-height: 40px !important;
+}
+
+.modal-actions .save-btn {
+  background: #6f4647 !important;
+  color: white !important;
+}
+
+.modal-actions .save-btn:hover {
+  background: #5d3a3b !important;
+}
+
+.modal-actions .cancel-btn {
+  background: #f0f0f0 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}
+
+.modal-actions .cancel-btn:hover {
+  background: #e0e0e0 !important;
+}
+
+/* ================== MOBILE-SPECIFIC FIXES ================== */
+
+@media (max-width: 768px) {
+  /* Even more compact on mobile */
+  .modal-overlay {
+    padding: 10px !important;
+    align-items: flex-start !important;
+    padding-top: 60px !important;
+  }
+  
+  .modal-content {
+    padding: 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 70vh !important;
+    border-radius: 6px !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Even smaller inputs on mobile */
+  .modal-content .edit-form .form-group {
+    margin-bottom: 10px !important;
+  }
+  
+  .modal-content .edit-form .form-group label {
+    font-size: 0.85rem !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .modal-content .edit-form .form-input,
+  .modal-content .edit-form .form-select {
+    padding: 7px 10px !important;
+    font-size: 0.9rem !important;
+    min-height: 36px !important;
+  }
+  
+  /* Even smaller textarea on mobile */
+  .modal-content .edit-form .form-textarea {
+    padding: 7px 10px !important;
+    font-size: 0.9rem !important;
+    min-height: 50px !important; /* Even smaller on mobile */
+    max-height: 80px !important;
+  }
+  
+  /* Stack buttons on mobile */
+  .modal-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 20px !important;
+  }
+  
+  .modal-actions .save-btn,
+  .modal-actions .cancel-btn {
+    width: 100% !important;
+    padding: 12px 15px !important;
+    font-size: 1rem !important;
+    min-height: 44px !important; /* Touch-friendly */
+  }
+}
+
+/* ================== SPECIFIC FIX FOR MENU EDIT MODAL ================== */
+/* Targeting the menu edit modal specifically */
+
+/* The 5th field (Veg/Non-Veg) should be smaller */
+.modal-content .edit-form .form-group:nth-child(5) .form-input {
+  min-height: 36px !important;
+  padding: 6px 10px !important;
+}
+
+/* ================== DARK MODE FIX ================== */
+
+@media (prefers-color-scheme: dark) {
+  .modal-content {
+    background: #222 !important;
+    color: #fff !important;
+  }
+  
+  .modal-content h3 {
+    color: #d4a5a5 !important;
+    border-bottom-color: #444 !important;
+  }
+  
+  .modal-content .edit-form .form-group label {
+    color: #ccc !important;
+  }
+  
+  .modal-content .edit-form .form-input,
+  .modal-content .edit-form .form-textarea,
+  .modal-content .edit-form .form-select {
+    background: #333 !important;
+    border-color: #555 !important;
+    color: #fff !important;
+  }
+  
+  .modal-actions {
+    border-top-color: #444 !important;
+  }
+  
+  .modal-actions .save-btn {
+    background: #6f4647 !important;
+    color: white !important;
+  }
+  
+  .modal-actions .cancel-btn {
+    background: #444 !important;
+    color: #ddd !important;
+    border-color: #666 !important;
+  }
+  
+  .modal-actions .cancel-btn:hover {
+    background: #555 !important;
+  }
+  
+  /* Focus states in dark mode */
+  .modal-content .edit-form .form-input:focus,
+  .modal-content .edit-form .form-textarea:focus,
+  .modal-content .edit-form .form-select:focus {
+    border-color: #d4a5a5 !important;
+    box-shadow: 0 0 0 2px rgba(212, 165, 165, 0.2) !important;
+  }
+}
+
+/* ================== FORCE VISIBILITY OVERRIDE ================== */
+/* These styles will override any other conflicting styles */
+
+/* Ensure modal is visible */
+div[class*="modal-overlay"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure modal content is visible */
+div[class*="modal-content"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Ensure form is visible */
+form[class*="edit-form"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure buttons are visible */
+button[class*="save-btn"],
+button[class*="cancel-btn"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Remove any transforms or animations that might be hiding elements */
+.modal-overlay,
+.modal-content,
+.modal-content * {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* ================== IOS SAFARI FIX ================== */
+
+@supports (-webkit-touch-callout: none) {
+  .modal-overlay {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+  
+  .modal-content {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
