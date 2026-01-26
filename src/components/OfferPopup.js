@@ -368,15 +368,21 @@ export default function OfferPopup() {
                 justifyContent: "center", // Center content vertically
               }}>
                 {/* Offer icon */}
-                <div style={{
-                  fontSize: isMobile ? "4rem" : "5rem",
-                  margin: "0 0 20px 0",
-                  animation: "subtlePulse 4s ease-in-out infinite",
-                  color: "#6f4647",
-                  filter: "drop-shadow(0 4px 12px rgba(111, 70, 71, 0.4))"
-                }}>
-                  {currentIndex % 3 === 0 ? "👑" : currentIndex % 3 === 1 ? "✨" : "🌟"}
-                </div>
+{/* Offer icon */}
+{!isMobile && (
+  <div
+    style={{
+      fontSize: "5rem",
+      margin: "0 0 20px 0",
+      animation: "subtlePulse 4s ease-in-out infinite",
+      color: "#6f4647",
+      filter: "drop-shadow(0 4px 12px rgba(111, 70, 71, 0.4))"
+    }}
+  >
+    {currentIndex % 3 === 0 ? "👑" : currentIndex % 3 === 1 ? "✨" : "🌟"}
+  </div>
+)}
+
 
                 {/* Offer type badge */}
                 <div style={{
@@ -421,20 +427,25 @@ export default function OfferPopup() {
                   {currentOffer[1]}
                 </h2>
 
-                {/* Offer description */}
-                <div style={{
-                  color: "rgba(255, 255, 255, 0.8)",
-                  lineHeight: "1.8",
-                  marginBottom: isMobile ? "30px" : "40px",
-                  fontSize: isMobile ? "1.05rem" : "1.15rem",
-                  padding: isMobile ? "0 10px" : "0 15px",
-                  minHeight: isMobile ? "40px" : "60px",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  letterSpacing: "0.5px"
-                }}>
-                  {currentOffer[2]}
-                </div>
+{/* Offer description */}
+{!isMobile && (
+  <div
+    style={{
+      color: "rgba(255, 255, 255, 0.8)",
+      lineHeight: "1.8",
+      marginBottom: "40px",
+      fontSize: "1.15rem",
+      padding: "0 15px",
+      minHeight: "60px",
+      fontFamily: "'Cormorant Garamond', serif",
+      fontStyle: "italic",
+      letterSpacing: "0.5px"
+    }}
+  >
+    {currentOffer[2]}
+  </div>
+)}
+
 
                 {/* Progress indicator */}
                 <div style={{
