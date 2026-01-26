@@ -46,10 +46,10 @@ export default function Navbar() {
   {/* Logo Text */}
   <div className="navbar-logo-text">
     <span className="navbar-logo-main">
-      EVAANI HOTEL
+        THE EVAANI HOTEL
     </span>
     <span className="navbar-logo-subtitle">
-      Luxury & Comfort
+      WHERE Luxury & HOSPITALITY CONVERGES Comfort
     </span>
   </div>
 </div>

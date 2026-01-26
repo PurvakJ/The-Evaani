@@ -62,7 +62,7 @@ export default function About() {
         </div>
         
         <div className="about-hero-content">
-          <h1 className="about-hero-title">About Evaani Hotel</h1>
+          <h1 className="about-hero-title">About The Evaani Hotel</h1>
           <p className="about-hero-subtitle">Where Luxury Meets Hospitality</p>
         </div>
       </section>
@@ -74,8 +74,8 @@ export default function About() {
             <h2 className="about-section-title">Our Story</h2>
             <div className="about-story-text">
               <p>
-                Welcome to <strong>Evaani Hotel</strong>, a sanctuary of luxury and comfort 
-                nestled in the heart of the city. Since our establishment in 2024, we have 
+                Welcome to <strong>The Evaani Hotel</strong>, a sanctuary of luxury and comfort 
+                nestled in the heart of the city. Since our establishment in 2023, we have 
                 been committed to providing exceptional hospitality experiences that create 
                 lasting memories for our guests.
               </p>
@@ -86,7 +86,7 @@ export default function About() {
                 a landmark of luxury, setting new standards in hospitality.
               </p>
               <p>
-                Every corner of Evaani tells a story of craftsmanship, elegance, and 
+                Every corner of The Evaani tells a story of craftsmanship, elegance, and 
                 attention to detail. From our architecturally stunning lobby to our 
                 meticulously designed rooms, we've created spaces that inspire and delight.
               </p>
