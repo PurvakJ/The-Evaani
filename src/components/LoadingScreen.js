@@ -70,13 +70,13 @@ export default function LoadingScreen() {
               className="hotel-name"
               style={{ color: colorPalette.light }}
             >
-              Evaani Hotel
+              The Evaani Hotel
             </h1>
             <p
               className="hotel-tagline"
               style={{ color: colorPalette.accent }}
             >
-              Luxury & Comfort
+              Where Luxury & Hospitality Converges
             </p>
           </div>
         </div>
