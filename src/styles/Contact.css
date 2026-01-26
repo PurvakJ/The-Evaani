@@ -1,1175 +1,1147 @@
-/* Elegant Contact Page Styles */
+/* Contact Page Styles - Elegant Color Palette */
 .contact-container {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #fefefe;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fefefe;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero Section */
+.contact-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 600px;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  padding: 0 40px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hero-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  animation: elegantEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+  line-height: 1.1;
+  position: relative;
+}
+
+.contact-hero-line {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  margin: 0 auto 32px;
+}
+
+.contact-hero-subtitle {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  animation: subtitleEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Tab Navigation */
+.contact-tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background: white;
+  border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.contact-tab-btn {
+  background: white;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  padding: 20px 40px;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #6f4647;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-tab-btn:hover {
+  border-color: #6f4647;
+  color: #6f4647;
+  letter-spacing: 1.5px;
+}
+
+.contact-tab-btn.tab-active {
+  background: #6f4647;
+  color: white;
+  border-color: #6f4647;
+}
+
+.tab-icon {
+  font-size: 1.4rem;
+}
+
+.tab-text {
+  font-weight: 400;
+}
+
+.tab-arrow {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.contact-tab-btn:hover .tab-arrow {
+  transform: translateY(3px);
+}
+
+/* Main Content */
+.contact-main-section {
+  padding: 80px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.contact-section {
+  display: none;
+  animation: fadeIn 0.6s ease;
+}
+
+.contact-section.section-active {
+  display: block;
+}
+
+.contact-section.section-hidden {
+  display: none;
+}
+
+/* Review Section */
+.contact-review-section {
+  background: white;
+}
+
+.review-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.review-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #6f4647;
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.review-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0.3;
+}
+
+.review-section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.review-form-container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.review-form-content {
+  background: white;
+  padding: 56px;
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form-group {
+  margin-bottom: 40px;
+}
+
+.contact-form-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #6f4647;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.contact-form-label.required::after {
+  content: ' *';
+  color: #d9534f;
+}
+
+.contact-form-input,
+.contact-form-textarea {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.3s ease;
+  color: #333;
+  letter-spacing: 0.3px;
+}
+
+.contact-form-input:focus,
+.contact-form-textarea:focus {
+  outline: none;
+  border-color: #6f4647;
+  box-shadow: 0 0 0 3px rgba(111, 70, 71, 0.1);
+}
+
+.contact-form-input.contact-input-error,
+.contact-form-textarea.contact-input-error {
+  border-color: #d9534f;
+  background: rgba(217, 83, 79, 0.02);
+}
+
+.contact-form-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #777;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.hint-icon {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.contact-form-textarea {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.6;
+}
+
+/* Rating Section */
+.contact-rating-section {
+  text-align: center;
+}
+
+.contact-rating-label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.contact-rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-star-btn {
+  background: none;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ddd;
+  padding: 0;
+  line-height: 1;
+}
+
+.contact-star-btn.contact-star-active {
+  color: #ffc107;
+  text-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.contact-star-btn.contact-star-inactive {
+  color: #e0e0e0;
+}
+
+.contact-star-btn:hover {
+  transform: scale(1.1);
+}
+
+.contact-rating-scale {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin: 0 auto 20px;
+  color: #777;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.contact-rating-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #6f4647;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Character Counter */
+.contact-char-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: 300;
+}
+
+.char-count {
+  color: #6f4647;
+  font-weight: 400;
+}
+
+.char-max {
+  opacity: 0.7;
+}
+
+/* Submit Button */
+.contact-submit-btn {
+  background: #6f4647;
+  color: white;
+  border: none;
+  padding: 24px 48px;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  background: #5d3a3b;
+  letter-spacing: 1.5px;
+  transform: translateY(-2px);
+}
+
+.contact-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-submit-btn.contact-btn-loading {
+  background: #5d3a3b;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.submit-icon {
+  font-size: 1.2rem;
+}
+
+/* Success Message */
+.contact-success-message {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 0;
+  margin-top: 40px;
+  animation: slideIn 0.6s ease;
+}
+
+.success-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.success-icon {
+  font-size: 3rem;
+}
+
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.success-text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+}
+
+/* Error Message */
+.contact-error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.error-icon {
+  font-size: 0.9rem;
+}
+
+/* Review Guidelines */
+.review-guidelines {
+  background: #f8f5f2;
+  padding: 40px;
+  border-radius: 0;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  height: fit-content;
+}
+
+.guidelines-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #6f4647;
+  margin-bottom: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.guidelines-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0.3;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+}
+
+.guideline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.guideline-icon {
+  font-size: 1.2rem;
+  color: #6f4647;
+  flex-shrink: 0;
+}
+
+/* Contact Information Section */
+.contact-info-section {
+  padding: 60px 0;
+}
+
+.contact-info-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.contact-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #6f4647;
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.contact-info-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0.3;
+}
+
+.contact-info-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Contact Cards Grid */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.contact-info-card {
+  background: white;
+  padding: 56px 40px;
+  border-radius: 0;
+  text-align: center;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #6f4647;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.contact-info-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card-icon {
+  margin-bottom: 32px;
+}
+
+.icon-emoji {
+  font-size: 4rem;
+  display: block;
+  transition: transform 0.6s ease;
+  color: #6f4647;
+  opacity: 0.9;
+}
+
+.contact-info-card:hover .icon-emoji {
+  transform: scale(1.2);
+}
+
+.contact-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #6f4647;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.contact-card-details {
+  color: #666;
+}
+
+.contact-detail {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.contact-detail-link {
+  color: #6f4647;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.contact-detail-link:hover {
+  color: #5d3a3b;
+  text-decoration: none;
+}
+
+.contact-detail-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #6f4647;
+  transition: width 0.3s ease;
+}
+
+.contact-detail-link:hover::after {
+  width: 100%;
+}
+
+/* Map Section */
+.contact-map-section {
+  margin-bottom: 80px;
+}
+
+.contact-map-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-map-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #6f4647;
+  margin-bottom: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.contact-map-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #666;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.contact-map-container {
+  position: relative;
+  border: 1px solid rgba(111, 70, 71, 0.1);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.map-attribution {
+  background: rgba(111, 70, 71, 0.05);
+  padding: 12px 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Emergency Contact */
+.contact-emergency-section {
+  margin-top: 80px;
+}
+
+.emergency-card {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border: 1px solid rgba(111, 70, 71, 0.2);
+  padding: 56px 40px;
+  border-radius: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: all 0.4s ease;
+}
+
+.emergency-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(111, 70, 71, 0.3);
+}
+
+.emergency-icon {
+  font-size: 4rem;
+  color: #d9534f;
+  flex-shrink: 0;
+}
+
+.emergency-content {
+  text-align: left;
+}
+
+.emergency-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d9534f;
+  margin-bottom: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.emergency-text {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+.emergency-phone {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  color: #6f4647;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.emergency-phone:hover {
+  color: #5d3a3b;
+}
+
+.emergency-phone::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #6f4647;
+  transition: width 0.3s ease;
+}
+
+.emergency-phone:hover::after {
+  width: 100%;
+}
+
+/* CTA Section */
+.contact-cta-section {
+  padding: 120px 60px;
+  background: linear-gradient(135deg, #6f4647 0%, #5d3a3b 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 0%, transparent 50%);
+}
+
+.contact-cta-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  margin-bottom: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+  line-height: 1.1;
+}
+
+.contact-cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 56px;
+  line-height: 1.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.contact-cta-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-cta-primary,
+.contact-cta-secondary {
+  border: none;
+  padding: 24px 60px;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-cta-primary {
+  background: white;
+  color: #6f4647;
+  border: 1px solid white;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.1), transparent);
+  transition: left 0.7s ease;
+}
+
+.contact-cta-primary:hover::before {
+  left: 100%;
+}
+
+.contact-cta-primary:hover {
+  background: transparent;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.contact-cta-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-cta-secondary:hover {
+  background: white;
+  color: #6f4647;
+  border-color: white;
+  letter-spacing: 3px;
+}
+
+.cta-icon {
+  font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .contact-content-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 60px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Hero Section - Elegant Design */
-  .contact-hero {
-    margin-top: 100px;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    padding: 140px 0;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
   }
-  
-  .contact-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 30%, rgba(111, 70, 71, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(93, 58, 59, 0.1) 0%, transparent 50%);
-    animation: heroBackground 10s ease-in-out infinite alternate;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  @keyframes heroBackground {
-    0% {
-      opacity: 0.3;
-      transform: scale(1) rotate(0deg);
-    }
-    100% {
-      opacity: 0.7;
-      transform: scale(1.05) rotate(2deg);
-    }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .contact-hero-content {
+}
+
+@keyframes elegantEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.98);
+    letter-spacing: 10px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes subtitleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    letter-spacing: 10px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 1px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .review-form-container {
+    grid-template-columns: 1fr;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
   }
   
+  .review-guidelines {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
   .contact-hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
-    font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: 2px;
-    color: white;
-    line-height: 1.1;
-    position: relative;
-    padding-bottom: 20px;
-  }
-  
-  .contact-hero-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #6f4647, transparent);
-  }
-  
-  .contact-hero-line {
-    width: 120px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #6f4647, transparent);
-    margin: 0 auto 32px;
+    font-size: 4rem;
   }
   
   .contact-hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 600px;
-    margin: 0 auto;
-    letter-spacing: 0.5px;
-    font-style: italic;
   }
   
-  /* Tab Navigation - Elegant Design */
-  .contact-tab-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 0;
-    background: white;
-    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  .contact-tab-btn {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 40px;
-    background: transparent;
-    border: 1px solid rgba(111, 70, 71, 0.2);
-    border-radius: 0;
-    color: #666;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-tab-btn:hover {
-    background: rgba(111, 70, 71, 0.05);
-    border-color: #6f4647;
-    color: #6f4647;
-  }
-  
-  .tab-active {
-    background: #6f4647;
-    color: white;
-    border-color: transparent;
-    letter-spacing: 3px;
-  }
-  
-  .tab-active:hover {
-    background: #5d3a3b;
-  }
-  
-  .tab-icon {
-    font-size: 1.2rem;
-  }
-  
-  /* Main Section */
-  .contact-main-section {
-    padding: 100px 0;
-    background: #fefefe;
-  }
-  
-  /* Review Section - Elegant Design */
-  .contact-review-section {
-    background: white;
-    border-radius: 0;
-    overflow: hidden;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  .review-section-header {
-    padding: 60px 60px 40px;
-    background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
-    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
+  .contact-info-title,
   .review-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: #6f4647;
-    margin-bottom: 20px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 1px;
-  }
-  
-  .review-section-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 600px;
-    letter-spacing: 0.5px;
-    font-style: italic;
-  }
-  
-  .review-form-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
-    padding: 60px;
-  }
-  
-  .review-form-content {
-    padding-right: 40px;
-    border-right: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  /* Form Styles - Elegant Design */
-  .contact-form-group {
-    margin-bottom: 40px;
-  }
-  
-  .contact-form-label {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 12px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-  
-  .contact-form-label.required::after {
-    content: ' *';
-    color: #dc3545;
-  }
-  
-  .contact-form-input,
-  .contact-form-textarea {
-    width: 100%;
-    padding: 18px;
-    background: transparent;
-    border: 1px solid rgba(111, 70, 71, 0.2);
-    border-radius: 0;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 0.3px;
-  }
-  
-  .contact-form-input:focus,
-  .contact-form-textarea:focus {
-    outline: none;
-    border-color: #6f4647;
-    box-shadow: 0 0 0 2px rgba(111, 70, 71, 0.1);
-  }
-  
-  .contact-input-error {
-    border-color: #dc3545;
-    background: rgba(220, 53, 69, 0.05);
-  }
-  
-  .contact-form-hint {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 10px;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-    font-style: italic;
-  }
-  
-  .hint-icon {
-    font-size: 0.9rem;
-  }
-  
-  .contact-error-message {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #dc3545;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    margin-top: 10px;
-    font-weight: 400;
-    letter-spacing: 0.3px;
-  }
-  
-  .error-icon {
-    font-size: 1rem;
-  }
-  
-  /* Rating Styles - Elegant Design */
-  .contact-rating-section {
-    padding: 32px;
-    background: transparent;
-    border-radius: 0;
-    border: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  .contact-rating-label {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 20px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-  
-  .contact-rating-stars {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .contact-star-btn {
-    font-size: 2.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 4px;
-    line-height: 1;
-    color: rgba(111, 70, 71, 0.2);
-  }
-  
-  .contact-star-btn:hover {
-    transform: scale(1.2);
-  }
-  
-  .contact-star-active {
-    color: #6f4647;
-  }
-  
-  .contact-star-inactive {
-    color: rgba(111, 70, 71, 0.2);
-  }
-  
-  .contact-rating-scale {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 12px;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  .contact-rating-description {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 400;
-    padding-top: 16px;
-    border-top: 1px solid rgba(111, 70, 71, 0.1);
-    letter-spacing: 0.5px;
-    font-style: italic;
-  }
-  
-  /* Character Counter */
-  .contact-char-counter {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    margin-top: 12px;
-  }
-  
-  .char-count {
-    color: #666;
-    font-weight: 400;
-  }
-  
-  .char-max {
-    color: #888;
-    font-weight: 300;
-  }
-  
-  /* Submit Button - Elegant Design */
-  .contact-submit-btn {
-    width: 100%;
-    padding: 22px;
-    background: transparent;
-    color: #6f4647;
-    border: 1px solid #6f4647;
-    border-radius: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 32px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-submit-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(111, 70, 71, 0.1), transparent);
-    transition: left 0.7s ease;
-  }
-  
-  .contact-submit-btn:hover::before {
-    left: 100%;
-  }
-  
-  .contact-submit-btn:hover:not(:disabled) {
-    background: #6f4647;
-    color: white;
-    letter-spacing: 3px;
-  }
-  
-  .contact-submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-color: #ccc;
-    color: #ccc;
-  }
-  
-  .contact-btn-loading {
-    position: relative;
-    color: transparent;
-  }
-  
-  .loading-spinner {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #6f4647;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: contact-spin 0.8s linear infinite;
-  }
-  
-  @keyframes contact-spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  .submit-icon {
-    font-size: 1.2rem;
-  }
-  
-  /* Success Message - Elegant Design */
-  .contact-success-message {
-    margin-top: 32px;
-    padding: 32px;
-    background: rgba(111, 70, 71, 0.1);
-    border-radius: 0;
-    border: 1px solid rgba(111, 70, 71, 0.2);
-    animation: contact-slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .success-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .success-icon {
-    font-size: 2.2rem;
-    color: #6f4647;
-  }
-  
-  .success-title {
-    margin: 0 0 8px 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: #6f4647;
-    letter-spacing: 1px;
-  }
-  
-  .success-text {
-    margin: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  /* Review Guidelines - Elegant Design */
-  .review-guidelines {
-    background: transparent;
-    padding: 40px;
-    border-radius: 0;
-    border: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  .guidelines-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #6f4647;
-    margin-bottom: 32px;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-  
-  .guidelines-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .guideline-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  .guideline-icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    margin-top: 4px;
-    color: #6f4647;
-  }
-  
-  /* Contact Info Section - Elegant Design */
-  .contact-info-section {
-    background: white;
-    border-radius: 0;
-    padding: 60px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(111, 70, 71, 0.1);
-  }
-  
-  .contact-info-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .contact-info-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: #6f4647;
-    margin-bottom: 20px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 1px;
-  }
-  
-  .contact-info-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 600px;
-    margin: 0 auto;
-    letter-spacing: 0.5px;
-    font-style: italic;
-  }
-  
-  .contact-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 32px;
-    margin-bottom: 60px;
-  }
-  
-  .contact-info-card {
-    background: transparent;
-    border: 1px solid rgba(111, 70, 71, 0.1);
-    border-radius: 0;
-    padding: 40px;
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-    border-color: #6f4647;
-  }
-  
-  .contact-info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #6f4647;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-  
-  .contact-info-card:hover::before {
-    opacity: 1;
-  }
-  
-  .contact-card-icon {
-    width: 60px;
-    height: 60px;
-    background: transparent;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6f4647;
-    font-size: 2rem;
-    flex-shrink: 0;
-    border: 1px solid rgba(111, 70, 71, 0.3);
-    transition: all 0.4s ease;
-  }
-  
-  .contact-info-card:hover .contact-card-icon {
-    background: #6f4647;
-    color: white;
-    border-color: #6f4647;
-  }
-  
-  .contact-card-content {
-    flex: 1;
-  }
-  
-  .contact-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #6f4647;
-    margin-bottom: 20px;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-  
-  .contact-card-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .contact-detail {
-    margin: 0;
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  .contact-detail-link {
-    color: #6f4647;
-    text-decoration: none;
-    font-weight: 400;
-    transition: all 0.4s ease;
-    position: relative;
-  }
-  
-  .contact-detail-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #6f4647;
-    transition: width 0.4s ease;
-  }
-  
-  .contact-detail-link:hover {
-    letter-spacing: 0.5px;
-  }
-  
-  .contact-detail-link:hover::after {
-    width: 100%;
-  }
-  
-  /* Map Section - Elegant Design */
-  .contact-map-section {
-    margin-bottom: 60px;
-  }
-  
-  .contact-map-header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .contact-map-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: #6f4647;
-    margin-bottom: 12px;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-  
-  .contact-map-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    font-size: 1.1rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    font-style: italic;
-  }
-  
-  /* Emergency Section - Elegant Design */
-  .contact-emergency-section {
-    margin-top: 60px;
-  }
-  
-  .emergency-card {
-    background: rgba(111, 70, 71, 0.1);
-    border: 1px solid rgba(111, 70, 71, 0.3);
-    border-radius: 0;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  
-  .emergency-icon {
     font-size: 3rem;
-    flex-shrink: 0;
-    color: #6f4647;
-  }
-  
-  .emergency-content {
-    flex: 1;
-  }
-  
-  .emergency-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #6f4647;
-    margin-bottom: 16px;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-  
-  .emergency-text {
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    margin-bottom: 24px;
-    line-height: 1.6;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  .emergency-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: transparent;
-    color: #6f4647;
-    padding: 16px 32px;
-    border-radius: 0;
-    text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #6f4647;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  
-  .emergency-phone:hover {
-    background: #6f4647;
-    color: white;
-    letter-spacing: 3px;
-  }
-  
-  /* CTA Section - Elegant Design */
-  .contact-cta-section {
-    padding: 120px 0;
-    background: linear-gradient(135deg, #6f4647 0%, #5d3a3b 100%);
-    color: white;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 0%, transparent 50%);
-  }
-  
-  .contact-cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
   }
   
   .contact-cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    margin-bottom: 24px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: white;
+    font-size: 3.5rem;
+  }
+  
+  .contact-main-section {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 60vh;
+    min-height: 500px;
+  }
+  
+  .contact-hero-title {
+    font-size: 3rem;
+  }
+  
+  .contact-hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .contact-tab-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .contact-tab-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .contact-info-title,
+  .review-section-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-main-section {
+    padding: 40px 24px;
+  }
+  
+  .review-form-content {
+    padding: 40px 24px;
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .emergency-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  
+  .emergency-content {
+    text-align: center;
+  }
+  
+  .contact-cta-section {
+    padding: 80px 24px;
+  }
+  
+  .contact-cta-title {
+    font-size: 2.8rem;
   }
   
   .contact-cta-text {
-    font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 60px;
-    line-height: 1.6;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    font-style: italic;
   }
   
   .contact-cta-buttons {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-cta-primary,
   .contact-cta-secondary {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 22px 48px;
-    border-radius: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-cta-primary {
-    background: transparent;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-  
-  .contact-cta-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.7s ease;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero-title {
+    font-size: 2.5rem;
   }
   
-  .contact-cta-primary:hover::before {
-    left: 100%;
-  }
-  
-  .contact-cta-primary:hover {
-    background: white;
-    color: #6f4647;
-    letter-spacing: 3px;
-  }
-  
-  .contact-cta-secondary {
-    background: transparent;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-  
-  .contact-cta-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    letter-spacing: 3px;
-  }
-  
-  .cta-icon {
-    font-size: 1.2rem;
-  }
-  
-  /* Map Container - Elegant Design */
-  .contact-map-container {
-    position: relative;
-    width: 100%;
-    border-radius: 0;
-    overflow: hidden;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(111, 70, 71, 0.1);
-    background: #f9f9f9;
-    min-height: 400px;
-    margin: 0 auto;
-  }
-  
-  .contact-map-container iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    display: block;
-    border: none;
-    filter: grayscale(20%) contrast(1.1);
-    transition: filter 0.3s ease;
-  }
-  
-  .contact-map-container:hover iframe {
-    filter: grayscale(0%) contrast(1);
-  }
-  
-  .map-overlay {
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 0;
-    padding: 32px;
-    max-width: 350px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(111, 70, 71, 0.1);
-    z-index: 10;
-    animation: mapOverlayFade 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  @keyframes mapOverlayFade {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  .map-overlay-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: #6f4647;
-    margin-bottom: 16px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .map-overlay-title::before {
-    content: '📍';
-    font-size: 1.2rem;
-  }
-  
-  .map-overlay-address {
-    font-family: 'Cormorant Garamond', serif;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 0.3px;
-  }
-  
-  .map-overlay-address p {
-    margin: 4px 0;
-  }
-  
-  .map-overlay-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .map-action-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background: transparent;
-    color: #6f4647;
-    border: 1px solid #6f4647;
-    border-radius: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  
-  .map-action-btn:hover {
-    background: #6f4647;
-    color: white;
-    letter-spacing: 3px;
-  }
-  
-  .map-action-icon {
+  .contact-hero-subtitle {
     font-size: 1.1rem;
   }
   
-  /* Animations */
-  @keyframes contact-slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .contact-info-title,
+  .review-section-title {
+    font-size: 2rem;
   }
   
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .contact-content-wrapper {
-      padding: 0 40px;
-    }
-    
-    .contact-hero-title {
-      font-size: 3.5rem;
-    }
-    
-    .review-form-container {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 40px;
-    }
-    
-    .review-form-content {
-      padding-right: 0;
-      border-right: none;
-      border-bottom: 1px solid rgba(111, 70, 71, 0.1);
-      padding-bottom: 40px;
-    }
-    
-    .contact-info-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .map-overlay {
-      max-width: 300px;
-      padding: 24px;
-    }
+  .contact-info-subtitle,
+  .review-section-subtitle {
+    font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
-    .contact-hero {
-      padding: 100px 0;
-    }
-    
-    .contact-hero-title {
-      font-size: 2.8rem;
-    }
-    
-    .contact-hero-subtitle {
-      font-size: 1.4rem;
-    }
-    
-    .contact-tab-navigation {
-      flex-direction: column;
-      align-items: center;
-      padding: 32px 24px;
-      gap: 16px;
-    }
-    
-    .contact-tab-btn {
-      width: 100%;
-      max-width: 300px;
-      justify-content: center;
-    }
-    
-    .contact-main-section {
-      padding: 60px 0;
-    }
-    
-    .review-section-header,
-    .contact-info-header {
-      padding: 40px 32px;
-    }
-    
-    .review-form-container,
-    .contact-info-section {
-      padding: 32px 24px;
-    }
-    
-    .contact-info-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .emergency-card {
-      flex-direction: column;
-      text-align: center;
-      gap: 24px;
-    }
-    
-    .contact-cta-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .contact-cta-primary,
-    .contact-cta-secondary {
-      width: 100%;
-      max-width: 300px;
-    }
-    
-    .contact-map-container {
-      min-height: 300px;
-    }
-    
-    .contact-map-container iframe {
-      min-height: 300px;
-    }
-    
-    .map-overlay {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-      max-width: 100%;
-      margin: 0;
-      padding: 24px;
-    }
+  .contact-cta-title {
+    font-size: 2.2rem;
   }
   
-  @media (max-width: 480px) {
-    .contact-hero {
-        margin-top: 50px;
-    }
-    .contact-content-wrapper {
-      padding: 0 24px;
-    }
-    
-    .contact-hero-title {
-      font-size: 2.2rem;
-    }
-    
-    .contact-star-btn {
-      font-size: 2rem;
-    }
-    
-    .contact-card-icon {
-      width: 48px;
-      height: 48px;
-      font-size: 1.5rem;
-    }
-    
-    .contact-cta-title {
-      font-size: 2.2rem;
-    }
-    
-    .contact-cta-text {
-      font-size: 1.1rem;
-    }
-    
-    .contact-info-title,
-    .review-section-title {
-      font-size: 2.2rem;
-    }
+  .contact-cta-text {
+    font-size: 1.1rem;
   }
+  
+  .contact-star-btn {
+    font-size: 2.5rem;
+  }
+  
+  .contact-rating-scale {
+    width: 250px;
+  }
+  
+  .emergency-phone {
+    font-size: 1.5rem;
+  }
+}
+
+/* Fix for mobile viewport */
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 60vh;
+    min-height: -webkit-fill-available;
+    min-height: 60vh;
+  }
+}
+
+/* Consistent typography */
+.contact-form-input,
+.contact-form-textarea,
+.contact-detail,
+.emergency-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 300;
+}
+

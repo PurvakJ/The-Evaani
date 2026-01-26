@@ -24,7 +24,7 @@ export default function Navbar() {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
-    { path: "/rooms", label: "Rooms & Suites" },
+    { path: "/rooms", label: "Rooms" },
     { path: "/menu", label: "Dining" },
     { path: "/venue", label: "Venue" },
     { path: "/amenities", label: "Amenities" },

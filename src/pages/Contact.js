@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../api/api";
 import "../styles/Contact.css";
 
@@ -13,7 +13,24 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [activeTab, setActiveTab] = useState("review"); // "review" or "contact"
+  const [activeTab, setActiveTab] = useState("review");
+
+  // Handle initial scroll to section based on URL hash
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash === "review-section" || hash === "contact-section") {
+      setActiveTab(hash === "review-section" ? "review" : "contact");
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, []);
 
   const validateForm = () => {
     const newErrors = {};
@@ -37,6 +54,26 @@ export default function Contact() {
     }
     
     return newErrors;
+  };
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    
+    // Update URL hash without reloading
+    const sectionId = tab === "review" ? "review-section" : "contact-section";
+    window.history.pushState(null, "", `#${sectionId}`);
+    
+    // Scroll to the section
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const topPosition = element.offsetTop - 100;
+        window.scrollTo({
+          top: topPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   };
 
   const submitReview = async () => {
@@ -138,26 +175,31 @@ export default function Contact() {
       <div className="contact-tab-navigation">
         <button
           className={`contact-tab-btn ${activeTab === "review" ? "tab-active" : ""}`}
-          onClick={() => setActiveTab("review")}
+          onClick={() => handleTabClick("review")}
         >
           <span className="tab-icon">✍️</span>
           <span className="tab-text">Write a Review</span>
+          <span className="tab-arrow">↓</span>
         </button>
         <button
           className={`contact-tab-btn ${activeTab === "contact" ? "tab-active" : ""}`}
-          onClick={() => setActiveTab("contact")}
+          onClick={() => handleTabClick("contact")}
         >
           <span className="tab-icon">📞</span>
           <span className="tab-text">Contact Info</span>
+          <span className="tab-arrow">↓</span>
         </button>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content with all sections visible */}
       <section className="contact-main-section">
         <div className="contact-content-wrapper">
           
           {/* Review Form Section */}
-          {activeTab === "review" && (
+          <div 
+            className={`contact-section ${activeTab === "review" ? "section-active" : "section-inactive"}`}
+            id="review-section"
+          >
             <div className="contact-review-section">
               <div className="review-section-header">
                 <h2 className="review-section-title">Share Your Experience</h2>
@@ -315,10 +357,13 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Contact Information Section */}
-          {activeTab === "contact" && (
+          <div 
+            className={`contact-section ${activeTab === "contact" ? "section-active" : "section-inactive"}`}
+            id="contact-section"
+          >
             <div className="contact-info-section">
               <div className="contact-info-header">
                 <h2 className="contact-info-title">Get In Touch</h2>
@@ -364,36 +409,30 @@ export default function Contact() {
               </div>
 
               {/* Map Section */}
-              {/* Map Section */}
-<div className="contact-map-section">
-  <div className="contact-map-header">
-    <h3 className="contact-map-title">Visit Our Hotel</h3>
-    <p className="contact-map-subtitle">Find us in the heart of the city</p>
-  </div>
+              <div className="contact-map-section">
+                <div className="contact-map-header">
+                  <h3 className="contact-map-title">Visit Our Hotel</h3>
+                  <p className="contact-map-subtitle">Find us in the heart of the city</p>
+                </div>
 
-  <div className="contact-map-container">
-    {/* Map Overlay */}
-    
+                <div className="contact-map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.211495460735!2d75.3495628!3d29.9733513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391119002125cec5%3A0x1d47754e3fe839d6!2sThe%20Evaani%20Hotel!5e0!3m2!1sen!2sin!4v1768730422341!5m2!1sen!2sin"
+                    width="100%"
+                    height="500"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Evaani Hotel Location on Google Maps"
+                    aria-label="Interactive map showing Evaani Hotel location"
+                  />
 
-    {/* Google Maps Embed */}
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.211495460735!2d75.3495628!3d29.9733513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391119002125cec5%3A0x1d47754e3fe839d6!2sThe%20Evaani%20Hotel!5e0!3m2!1sen!2sin!4v1768730422341!5m2!1sen!2sin"
-      width="100%"
-      height="500"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="Evaani Hotel Location on Google Maps"
-      aria-label="Interactive map showing Evaani Hotel location"
-    />
-
-    {/* Map Attribution */}
-    <div className="map-attribution">
-      Powered by Google Maps
-    </div>
-  </div>
-</div>
+                  <div className="map-attribution">
+                    Powered by Google Maps
+                  </div>
+                </div>
+              </div>
 
               {/* Emergency Contact */}
               <div className="contact-emergency-section">
@@ -411,7 +450,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 

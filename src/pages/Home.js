@@ -17,33 +17,42 @@ export default function Home() {
   // Use shared carousel state
   const { currentSlide, heroImages } = useCarousel();
 
-  // Luxury Hotel Features
+  // Luxury Hotel Features with navigation
   const luxuryFeatures = [
     {
       title: "Premium Accommodation",
       description: "Elegant suites with panoramic city views",
       icon: "🏨",
-      stat: "18+ Rooms"
+      stat: "18+ Rooms",
+      navigateTo: "/rooms"
     },
     {
       title: "Gourmet Dining",
       description: "Multi-cuisine restaurant & 24/7 room service",
       icon: "🍽️",
-      stat: "3 Restaurants"
+      stat: "3 Restaurants",
+      navigateTo: "/menu"
     },
     {
       title: "Wellness Oasis",
       description: "24/7 front desk, pool",
       icon: "💆",
-      stat: "Full Service"
+      stat: "Full Service",
+      navigateTo: "/amenities"
     },
     {
       title: "Event Excellence",
       description: "Perfect venues for weddings & corporate events",
       icon: "🎉",
-      stat: "5 Venues"
+      stat: "5 Venues",
+      navigateTo: "/venue"
     }
   ];
+
+  // Handler function for feature navigation
+  const handleFeatureClick = (path) => {
+    navigate(path);
+  };
 
   // STATIC DATA - Always available immediately
   const staticRooms = [
@@ -213,7 +222,12 @@ export default function Home() {
           
           <div className="features-display">
             {luxuryFeatures.map((feature, index) => (
-              <div key={index} className="feature-box">
+              <div 
+                key={index} 
+                className="feature-box"
+                onClick={() => handleFeatureClick(feature.navigateTo)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="feature-symbol">{feature.icon}</div>
                 <h3 className="feature-heading">{feature.title}</h3>
                 <p className="feature-detail">{feature.description}</p>

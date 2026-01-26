@@ -20,7 +20,6 @@ export default function Footer() {
     { path: "/amenities", label: "Amenities" },
     { path: "/venue", label: "Venue" },
     { path: "/contact", label: "Contact" },
-    { path: "/admin-login", label: "Admin Login" },
   ];
 
   const contactInfo = [
@@ -33,6 +32,7 @@ export default function Footer() {
     { path: "/", label: "Terms & Conditions" },
     { path: "/", label: "Cancellation Policy" },
     { path: "/", label: "Sitemap" },
+    { path: "/admin-login", label: "Admin Login" },
   ];
 
   return (

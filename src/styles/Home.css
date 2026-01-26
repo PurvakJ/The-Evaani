@@ -1161,3 +1161,26 @@
 .loading-container {
   display: none;
 }
+
+/* Add to Home.css */
+.feature-box {
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #d4af37;
+}
+
+.feature-stat {
+  display: inline-block;
+  transition: color 0.3s ease;
+  margin-top: 8px;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.feature-box:hover .feature-stat {
+  color: #b89427;
+}
