@@ -106,6 +106,39 @@ export default function About() {
       </section>
 
       {/* Values Section */}
+
+      {/* Team Section */}
+      <section className="about-team-section">
+        <div className="about-content-wrapper">
+          <h2 className="about-section-title">Meet Our Leadership Team</h2>
+          <p className="about-section-subtitle">The dedicated professionals behind Evaani's success</p>
+          
+          <div className="about-team-grid">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="about-team-card">
+                <div className="about-team-image-container">
+                  <img src={member.image} alt={member.name} className="about-team-image" />
+                </div>
+                <div className="about-team-info">
+                  <h3 className="about-team-name">{member.name}</h3>
+                  <p className="about-team-role">{member.role}</p>
+                  <p className="about-team-description">{member.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="about-team-quote">
+            <p className="about-quote-text">
+              "At Evaani, we believe that true luxury lies in the details. 
+              Every smile, every thoughtful gesture, and every perfect moment 
+              is crafted with care for our guests."
+            </p>
+            <p className="about-quote-author">— The Evaani Team</p>
+          </div>
+        </div>
+      </section>
+
       <section className="about-values-section">
         <div className="about-content-wrapper">
           <h2 className="about-section-title">Our Core Values</h2>
@@ -142,38 +175,6 @@ export default function About() {
               <h3 className="about-value-title">Innovation</h3>
               <p className="about-value-description">Constantly evolving to bring you the latest in luxury hospitality while preserving timeless traditions.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="about-team-section">
-        <div className="about-content-wrapper">
-          <h2 className="about-section-title">Meet Our Leadership Team</h2>
-          <p className="about-section-subtitle">The dedicated professionals behind Evaani's success</p>
-          
-          <div className="about-team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="about-team-card">
-                <div className="about-team-image-container">
-                  <img src={member.image} alt={member.name} className="about-team-image" />
-                </div>
-                <div className="about-team-info">
-                  <h3 className="about-team-name">{member.name}</h3>
-                  <p className="about-team-role">{member.role}</p>
-                  <p className="about-team-description">{member.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="about-team-quote">
-            <p className="about-quote-text">
-              "At Evaani, we believe that true luxury lies in the details. 
-              Every smile, every thoughtful gesture, and every perfect moment 
-              is crafted with care for our guests."
-            </p>
-            <p className="about-quote-author">— The Evaani Team</p>
           </div>
         </div>
       </section>
