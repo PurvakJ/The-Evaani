@@ -1,0 +1,204 @@
+/* Policy Popup Styles - Separate from Footer */
+.policy-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: popupFadeIn 0.3s ease;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .policy-popup-content {
+    background: #fff;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: popupSlideIn 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  .policy-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #6f4647;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+    padding: 0;
+  }
+  
+  .policy-popup-close:hover {
+    color: #fff;
+    background: #6f4647;
+    transform: rotate(90deg);
+  }
+  
+  .policy-popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2a2a2a;
+    padding: 30px 30px 15px;
+    margin: 0;
+    position: relative;
+    border-bottom: 1px solid rgba(111, 70, 71, 0.1);
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  
+  .policy-popup-body {
+    padding: 25px 30px;
+  }
+  
+  .policy-popup-text {
+    color: #4a4a4a;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  
+  .policy-popup-footer {
+    padding: 15px 30px 30px;
+    border-top: 1px solid rgba(111, 70, 71, 0.1);
+    text-align: right;
+  }
+  
+  .policy-popup-button {
+    padding: 10px 25px;
+    background: #6f4647;
+    color: #fff;
+    border: 1px solid #6f4647;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .policy-popup-button:hover {
+    background: transparent;
+    color: #6f4647;
+    letter-spacing: 3px;
+  }
+  
+  /* Popup Animations */
+  @keyframes popupFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes popupSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Scrollbar styling for popup */
+  .policy-popup-content::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .policy-popup-content::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+  
+  .policy-popup-content::-webkit-scrollbar-thumb {
+    background: #6f4647;
+    border-radius: 0;
+  }
+  
+  .policy-popup-content::-webkit-scrollbar-thumb:hover {
+    background: #8b5a5b;
+  }
+  
+  /* Responsive Popup Styles */
+  @media (max-width: 768px) {
+    .policy-popup-content {
+      width: 95%;
+      max-height: 85vh;
+    }
+    
+    .policy-popup-title {
+      font-size: 1.5rem;
+      padding: 25px 25px 12px;
+    }
+    
+    .policy-popup-body {
+      padding: 20px 25px;
+    }
+    
+    .policy-popup-footer {
+      padding: 12px 25px 25px;
+    }
+    
+    .policy-popup-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .policy-popup-content {
+      width: 100%;
+    }
+    
+    .policy-popup-title {
+      font-size: 1.3rem;
+      padding: 20px 20px 10px;
+    }
+    
+    .policy-popup-body {
+      padding: 15px 20px;
+    }
+    
+    .policy-popup-footer {
+      padding: 10px 20px 20px;
+    }
+    
+    .policy-popup-close {
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      font-size: 1.1rem;
+    }
+    
+    .policy-popup-button {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+  }

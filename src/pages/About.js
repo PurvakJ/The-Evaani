@@ -178,37 +178,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section className="about-awards-section">
-        <div className="about-content-wrapper">
-          <h2 className="about-section-title">Recognition & Awards</h2>
-          <p className="about-section-subtitle">Our commitment to excellence has been recognized globally</p>
-          
-          <div className="about-awards-grid">
-            <div className="about-award-card">
-              <div className="about-award-icon">🏆</div>
-              <h3 className="about-award-title">Best Luxury Hotel 2025</h3>
-              <p className="about-award-description">International Hotel Awards</p>
-            </div>
-            <div className="about-award-card">
-              <div className="about-award-icon">⭐</div>
-              <h3 className="about-award-title">5-Star Excellence</h3>
-              <p className="about-award-description">Hospitality Star Ratings</p>
-            </div>
-            <div className="about-award-card">
-              <div className="about-award-icon">🌿</div>
-              <h3 className="about-award-title">Green Hotel Award</h3>
-              <p className="about-award-description">Sustainable Tourism Council</p>
-            </div>
-            <div className="about-award-card">
-              <div className="about-award-icon">👨‍🍳</div>
-              <h3 className="about-award-title">Culinary Excellence</h3>
-              <p className="about-award-description">Fine Dining Association</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action */}
       <section className="about-cta-section">
         <div className="about-content-wrapper">

@@ -14,9 +14,9 @@ export default function Venue() {
     {
       id: 1,
       name: "Golden Leaf",
-      capacity: "500 Guests",
+      capacity: "300 Guests",
       description: "Perfect for weddings, corporate events, and large celebrations with elegant decor and state-of-the-art facilities",
-      features: ["Stage & Podium", "Dance Floor", "AV Equipment", "Catering Kitchen", "Lighting System", "Sound System", "VIP Lounge", "Bridal Suite"],
+      features: ["Stage & Podium", "Dance Floor", "AV Equipment", "Catering Kitchen", "Lighting System", "Sound System", "Bridal Suite"],
       price: "Starting at ₹2,00,000",
       size: "5000 sq.ft",
       images: [

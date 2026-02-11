@@ -6,8 +6,7 @@ export default function Amenities() {
       category: "Internet & Connectivity",
       items: [
         { name: "Free Wi-Fi", icon: "📶", description: "High-speed internet throughout property" },
-        { name: "Wi-Fi in Public Areas", icon: "🌐", description: "Free wireless internet in all common areas" },
-        { name: "Public Internet Workstation", icon: "💻", description: "Computer with internet access for guests" }
+        { name: "Wi-Fi in Public Areas", icon: "🌐", description: "Free wireless internet in all common areas" }
       ]
     },
     {
@@ -22,9 +21,7 @@ export default function Amenities() {
     {
       category: "Pools & Recreation",
       items: [
-        { name: "Outdoor Pool", icon: "🏊‍♂️", description: "Temperature-controlled infinity pool" },
-        { name: "Adult-only Pool", icon: "👨‍💼", description: "Exclusive pool area for adults" },
-        { name: "Accessible Pool", icon: "♿", description: "Pool accessibility features available" }
+        { name: "Outdoor Pool", icon: "🏊‍♂️", description: "Outdoor infinity pool Accessible to the all guests" }
       ]
     },
     {
@@ -39,17 +36,14 @@ export default function Amenities() {
       category: "Accessibility",
       items: [
         { name: "Accessible Facilities", icon: "♿", description: "Wheelchair accessible property" },
-        { name: "Accessible Lift", icon: "🛗", description: "Elevator access to all floors" },
-        { name: "Accessible Pool", icon: "🏊‍♂️♿", description: "Pool with accessibility features" }
+        { name: "Accessible Lift", icon: "🛗", description: "Elevator access to all floors" }
       ]
     },
     {
       category: "Rooms & Accommodation",
       items: [
         { name: "Air Conditioning", icon: "❄️", description: "Individual climate control in all rooms" },
-        { name: "Private Kitchen", icon: "🍳", description: "Fully equipped kitchen in select rooms" },
-        { name: "Coffee Maker", icon: "☕", description: "In-room coffee and tea facilities" },
-        { name: "Private Bathroom", icon: "🛁", description: "En-suite bathroom with premium amenities" }
+        { name: "Coffee Maker", icon: "☕", description: "In-room coffee and tea facilities" }
       ]
     },
     {
@@ -58,19 +52,11 @@ export default function Amenities() {
         { name: "Restaurant", icon: "🍽️", description: "Multi-cuisine fine dining restaurant" },
         { name: "Bar", icon: "🍹", description: "Premium bar with signature cocktails" },
         { name: "Table Service", icon: "👨‍🍳", description: "Professional table service available" },
-        { name: "24-hour Room Service", icon: "🛎️", description: "Round-the-clock dining service" },
-      ]
-    },
-    {
-      category: "Activities",
-      items: [
-        { name: "Water Skiing", icon: "⛷️", description: "Water sports and recreational activities" }
       ]
     },
     {
       category: "Guest Services",
       items: [
-        { name: "24-hour Front Desk", icon: "🏨", description: "Round-the-clock reception service" },
         { name: "Full-service Laundry", icon: "👔", description: "Professional laundry and dry cleaning" },
         { name: "Daily Housekeeping", icon: "🧹", description: "Complimentary daily room cleaning" },
         { name: "Turndown Service", icon: "🛏️", description: "Evening bed preparation service" }
