@@ -48,9 +48,6 @@ export default function Navbar() {
     <span className="navbar-logo-main">
         THE EVAANI HOTEL
     </span>
-    <span className="navbar-logo-subtitle">
-      WHERE Luxury & HOSPITALITY CONVERGES Comfort
-    </span>
   </div>
 </div>
 
